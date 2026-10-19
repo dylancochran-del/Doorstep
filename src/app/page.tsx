@@ -20,6 +20,10 @@ export default function Routes() {
   const [here, setHere] = useState<{ lat: number; lon: number } | null>(null);
   const [active, setActive] = useState(false);
   useEffect(() => {
+    // Warm the map code while he browses routes, so opening one doesn't wait on a download.
+    const warm = () => import("./GameMap").catch(() => {});
+    const w = window as unknown as { requestIdleCallback?: (f: () => void) => void };
+    if (w.requestIdleCallback) w.requestIdleCallback(warm); else setTimeout(warm, 1500);
     api<{ session: unknown }>("/api/session/active").then((d) => setActive(!!d.session)).catch(() => {});
     navigator.geolocation?.getCurrentPosition((p) => setHere({ lat: p.coords.latitude, lon: p.coords.longitude }), () => {}, { maximumAge: 300000, timeout: 8000 });
   }, []);

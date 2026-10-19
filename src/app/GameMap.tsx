@@ -137,20 +137,38 @@ export default function GameMap(props: {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // What the map last drew, so a GPS tick (about once a second) only moves the
+  // avatar instead of rebuilding every house pin and the whole trail.
+  const drawn = useRef<{ houses?: unknown; status?: unknown; picked?: unknown; trackLen?: number; sat?: boolean; avatar?: string | null }>({});
+
   function sync(first = false) {
     const m = map.current;
     if (!m || !ready.current) return;
     const p = latest.current;
-    (m.getSource("houses") as GeoJSONSource | undefined)?.setData(toGeoJSON(p.houses, p.status ?? {}, p.picked));
-    (m.getSource("track") as GeoJSONSource | undefined)?.setData({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: p.track ?? [] } });
-    m.setLayoutProperty("sat", "visibility", p.satellite ? "visible" : "none");
+    const w = drawn.current;
+    if (first || w.houses !== p.houses || w.status !== p.status || w.picked !== p.picked) {
+      (m.getSource("houses") as GeoJSONSource | undefined)?.setData(toGeoJSON(p.houses, p.status ?? {}, p.picked));
+      w.houses = p.houses; w.status = p.status; w.picked = p.picked;
+    }
+    const tl = p.track?.length ?? 0;
+    if (first || w.trackLen !== tl) {
+      (m.getSource("track") as GeoJSONSource | undefined)?.setData({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: p.track ?? [] } });
+      w.trackLen = tl;
+    }
+    if (first || w.sat !== !!p.satellite) {
+      m.setLayoutProperty("sat", "visibility", p.satellite ? "visible" : "none");
+      w.sat = !!p.satellite;
+    }
     if (p.me) {
       if (!meMarker.current) {
         const d = document.createElement("div");
         d.className = "me";
-        if (p.avatar) d.style.backgroundImage = `url("${p.avatar}")`;
         meMarker.current = new maplibregl.Marker({ element: d }).setLngLat([p.me.lon, p.me.lat]).addTo(m);
       } else meMarker.current.setLngLat([p.me.lon, p.me.lat]);
+      if (p.avatar && w.avatar !== p.avatar) {
+        meMarker.current.getElement().style.backgroundImage = `url("${p.avatar}")`;
+        w.avatar = p.avatar;
+      }
     }
     if (first && p.fit && p.fit.length) {
       const b = new maplibregl.LngLatBounds();

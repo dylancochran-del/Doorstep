@@ -75,7 +75,12 @@ export default function Run() {
   useEffect(load, [load]);
 
   // Outbox: queue first, send second.
+  const draining = useRef(false);
   const drain = useCallback(async () => {
+    // One upload at a time, so two overlapping sends can never save the same taps twice.
+    if (draining.current) return;
+    draining.current = true;
+    try {
     // Taps go up in one batch; everything else one by one.
     const taps = readTaps();
     if (taps.length) {
@@ -90,13 +95,16 @@ export default function Run() {
       catch { break; }
     }
     setPending(readBox().length + readTaps().length);
+    } finally { draining.current = false; }
+    // Anything queued while we were uploading goes on the next pass.
+    if (readTaps().length && navigator.onLine && !flushTimer.current) flushTimer.current = setTimeout(() => { flushTimer.current = undefined; drain(); }, 1500);
   }, []);
   const queueTaps = useCallback((t: Tap[]) => {
     writeTaps([...readTaps(), ...t]);
     setPending(readBox().length + readTaps().length);
-    clearTimeout(flushTimer.current);
-    // A short pause lets a burst of taps (a whole street) go up as one request.
-    flushTimer.current = setTimeout(drain, 600);
+    // Batch taps for up to a second, but never keep postponing: while he walks with
+    // auto-mark on, taps arrive every second and must still upload steadily.
+    if (!flushTimer.current) flushTimer.current = setTimeout(() => { flushTimer.current = undefined; drain(); }, 1000);
   }, [drain]);
   const send = useCallback((url: string, body: Record<string, unknown>) => {
     writeBox([...readBox(), { url, body: { ...body, at: new Date().toISOString() } }]);
@@ -178,10 +186,15 @@ export default function Run() {
     const ids = housesRef.current.filter((h) => !st[h.id] && meters(q, h) <= AUTO_M).map((h) => h.id);
     if (ids.length) { markMany(ids, "hung", undefined, true); flash(ids.length > 1 ? `Auto +${ids.length} ✓` : "Auto +1 ✓"); }
   }
+  // Street index built once per route, not on every GPS tick.
+  const byStreet = useMemo(() => {
+    const m = new Map<string, number[]>();
+    for (const h of houses) { const st = streetOf(h.address); if (st) m.set(st, [...(m.get(st) ?? []), h.id]); }
+    return m;
+  }, [houses]);
   function streetLeft(h: House | null) {
-    const st = streetOf(h?.address);
-    if (!st) return [];
-    return houses.filter((x) => !status[x.id] && streetOf(x.address) === st).map((x) => x.id);
+    const ids = byStreet.get(streetOf(h?.address)) ?? [];
+    return ids.filter((id) => !status[id]);
   }
   function undo() {
     const ids = history.current.pop();
@@ -196,6 +209,9 @@ export default function Run() {
     try { localStorage.setItem("doorstep-auto", v ? "on" : "off"); } catch { /* ignore */ }
     flash(v ? "Auto-mark on: houses you pass turn green" : "Auto-mark off");
   }
+
+  const nearLeft = nearest ? streetLeft(nearest.h) : [];
+  const selLeft = selHouse ? streetLeft(selHouse) : [];
 
   if (err) return <main className="page"><div className="error">{err}</div><Link className="btn gray" href="/">Back</Link></main>;
   if (!d?.route) return <main className="page"><p className="muted">Loading your route…</p></main>;
@@ -260,8 +276,8 @@ export default function Run() {
                 <button className="btn gray" onClick={() => { setSel(nearest.h.id); setMode("skip"); }}>Skip</button>
                 <button className="btn" onClick={() => { setSel(nearest.h.id); setMode("talk"); }}>Talked</button>
               </div>
-              {streetLeft(nearest.h).length > 1 && (
-                <button className="btn navy block" onClick={() => markMany(streetLeft(nearest.h), "hung")}>Hung the whole street ({streetLeft(nearest.h).length} on {streetOf(nearest.h.address).toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())})</button>
+              {nearLeft.length > 1 && (
+                <button className="btn navy block" onClick={() => markMany(nearLeft, "hung")}>Hung the whole street ({nearLeft.length} on {streetOf(nearest.h.address).toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())})</button>
               )}
             </>
           ) : (
@@ -286,8 +302,8 @@ export default function Run() {
             <button className="btn gray" onClick={() => setMode("skip")}>Skip</button>
             <button className="btn" onClick={() => setMode("talk")}>Talked</button>
           </div>
-          {streetLeft(selHouse).length > 1 && (
-            <button className="btn navy block" onClick={() => markMany(streetLeft(selHouse), "hung")}>Hung the whole street ({streetLeft(selHouse).length} left)</button>
+          {selLeft.length > 1 && (
+            <button className="btn navy block" onClick={() => markMany(selLeft, "hung")}>Hung the whole street ({selLeft.length} left)</button>
           )}
           <button className="btn gray block" onClick={() => { setMode(null); setSel(null); }}>Close</button>
         </div>
