@@ -21,6 +21,7 @@
 "id": "CHF-01",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 0
 },
 {
@@ -45,6 +46,7 @@
 "id": "CHF-02",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 1
 },
 {
@@ -69,6 +71,7 @@
 "id": "CHF-03",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 2
 },
 {
@@ -93,6 +96,7 @@
 "id": "CHF-04",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 3
 },
 {
@@ -117,6 +121,7 @@
 "id": "CHF-05",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 4
 },
 {
@@ -141,6 +146,7 @@
 "id": "CHF-06",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 5
 },
 {
@@ -165,6 +171,7 @@
 "id": "CHF-07",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 6
 },
 {
@@ -189,6 +196,7 @@
 "id": "CHF-08",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 7
 },
 {
@@ -213,6 +221,7 @@
 "id": "CHF-09",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 8
 },
 {
@@ -237,6 +246,7 @@
 "id": "CHF-10",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 9
 },
 {
@@ -261,6 +271,7 @@
 "id": "FAN-01",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 10
 },
 {
@@ -285,6 +296,7 @@
 "id": "FAN-02",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 11
 },
 {
@@ -309,6 +321,7 @@
 "id": "FAN-03",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 12
 },
 {
@@ -333,6 +346,7 @@
 "id": "FAN-04",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 13
 },
 {
@@ -357,6 +371,7 @@
 "id": "FAN-05",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 14
 },
 {
@@ -381,6 +396,7 @@
 "id": "FAN-06",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 15
 },
 {
@@ -405,6 +421,7 @@
 "id": "FAN-07",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 16
 },
 {
@@ -429,6 +446,7 @@
 "id": "FAN-08",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 17
 },
 {
@@ -453,6 +471,7 @@
 "id": "OLD-01",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 18
 },
 {
@@ -477,6 +496,7 @@
 "id": "OLD-02",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 19
 },
 {
@@ -501,6 +521,7 @@
 "id": "OLD-03",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 20
 },
 {
@@ -525,6 +546,7 @@
 "id": "OLD-04",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 21
 },
 {
@@ -549,6 +571,7 @@
 "id": "OLD-05",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 22
 },
 {
@@ -573,6 +596,7 @@
 "id": "OLD-06",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 23
 },
 {
@@ -597,6 +621,7 @@
 "id": "OLD-07",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 24
 },
 {
@@ -621,6 +646,7 @@
 "id": "OLD-08",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 25
 },
 {
@@ -645,6 +671,7 @@
 "id": "OLD-09",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 26
 },
 {
@@ -669,6 +696,7 @@
 "id": "OLD-10",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 27
 },
 {
@@ -693,6 +721,7 @@
 "id": "OLD-11",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 28
 },
 {
@@ -717,6 +746,7 @@
 "id": "OLD-12",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 29
 },
 {
@@ -741,6 +771,7 @@
 "id": "OLD-13",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 30
 },
 {
@@ -765,6 +796,7 @@
 "id": "OLD-14",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 31
 },
 {
@@ -789,6 +821,7 @@
 "id": "OLD-15",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 32
 },
 {
@@ -813,6 +846,7 @@
 "id": "TRN-01",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 33
 },
 {
@@ -837,6 +871,7 @@
 "id": "TRN-02",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 34
 },
 {
@@ -861,6 +896,7 @@
 "id": "TRN-03",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 35
 },
 {
@@ -885,6 +921,7 @@
 "id": "TRN-04",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 36
 },
 {
@@ -909,6 +946,7 @@
 "id": "TRN-05",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 37
 },
 {
@@ -933,6 +971,7 @@
 "id": "TRN-06",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 38
 },
 {
@@ -957,6 +996,7 @@
 "id": "TRN-07",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 39
 },
 {
@@ -981,6 +1021,7 @@
 "id": "TRN-08",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 40
 },
 {
@@ -1005,6 +1046,7 @@
 "id": "TRN-09",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 41
 },
 {
@@ -1029,6 +1071,7 @@
 "id": "BEL-01",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 42
 },
 {
@@ -1053,6 +1096,7 @@
 "id": "BEL-02",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 43
 },
 {
@@ -1077,6 +1121,7 @@
 "id": "BEL-03",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 44
 },
 {
@@ -1101,6 +1146,7 @@
 "id": "BEL-04",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 45
 },
 {
@@ -1125,6 +1171,7 @@
 "id": "BEL-05",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 46
 },
 {
@@ -1149,6 +1196,7 @@
 "id": "BEL-06",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 47
 },
 {
@@ -1173,6 +1221,7 @@
 "id": "BEL-07",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 48
 },
 {
@@ -1197,6 +1246,7 @@
 "id": "BEL-08",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 49
 },
 {
@@ -1221,6 +1271,7 @@
 "id": "BEL-09",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 50
 },
 {
@@ -1245,6 +1296,7 @@
 "id": "BEL-10",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 51
 },
 {
@@ -1269,6 +1321,7 @@
 "id": "BEL-11",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 52
 },
 {
@@ -1293,6 +1346,7 @@
 "id": "BEL-12",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 53
 },
 {
@@ -1317,6 +1371,7 @@
 "id": "BEL-13",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 54
 },
 {
@@ -1341,6 +1396,7 @@
 "id": "BEL-14",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 55
 },
 {
@@ -1365,6 +1421,7 @@
 "id": "BRN-01",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 56
 },
 {
@@ -1389,6 +1446,7 @@
 "id": "BRN-02",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 57
 },
 {
@@ -1413,6 +1471,7 @@
 "id": "BRN-03",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 58
 },
 {
@@ -1437,6 +1496,7 @@
 "id": "BRN-04",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 59
 },
 {
@@ -1461,6 +1521,7 @@
 "id": "BRN-05",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 60
 },
 {
@@ -1485,6 +1546,7 @@
 "id": "BRN-06",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 61
 },
 {
@@ -1509,6 +1571,7 @@
 "id": "BRN-07",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 62
 },
 {
@@ -1533,6 +1596,7 @@
 "id": "BRN-08",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 63
 },
 {
@@ -1557,6 +1621,7 @@
 "id": "BRN-09",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 64
 },
 {
@@ -1581,6 +1646,7 @@
 "id": "BRN-10",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 65
 },
 {
@@ -1605,6 +1671,7 @@
 "id": "BRN-11",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 66
 },
 {
@@ -1629,6 +1696,7 @@
 "id": "BRN-12",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 67
 },
 {
@@ -1653,6 +1721,7 @@
 "id": "BRN-13",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 68
 },
 {
@@ -1677,6 +1746,7 @@
 "id": "BRN-14",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 69
 },
 {
@@ -1701,6 +1771,7 @@
 "id": "BRN-15",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 70
 },
 {
@@ -1725,6 +1796,7 @@
 "id": "BRN-16",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 71
 },
 {
@@ -1749,6 +1821,7 @@
 "id": "BRN-17",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 72
 },
 {
@@ -1773,6 +1846,7 @@
 "id": "WIL-01",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 73
 },
 {
@@ -1797,6 +1871,7 @@
 "id": "WIL-02",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 74
 },
 {
@@ -1821,6 +1896,7 @@
 "id": "WIL-03",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 75
 },
 {
@@ -1845,6 +1921,7 @@
 "id": "WIL-04",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 76
 },
 {
@@ -1869,6 +1946,7 @@
 "id": "WIL-05",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 77
 },
 {
@@ -1893,6 +1971,7 @@
 "id": "WIL-06",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 78
 },
 {
@@ -1917,6 +1996,7 @@
 "id": "WIL-07",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 79
 },
 {
@@ -1941,6 +2021,7 @@
 "id": "WIL-08",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 80
 },
 {
@@ -1965,6 +2046,7 @@
 "id": "WIL-09",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 81
 },
 {
@@ -1989,6 +2071,7 @@
 "id": "WIL-10",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 82
 },
 {
@@ -2013,6 +2096,7 @@
 "id": "WIL-11",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 83
 },
 {
@@ -2037,6 +2121,7 @@
 "id": "WIL-12",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 84
 },
 {
@@ -2061,6 +2146,7 @@
 "id": "WIL-13",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 85
 },
 {
@@ -2085,6 +2171,7 @@
 "id": "WIL-14",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 86
 },
 {
@@ -2109,6 +2196,7 @@
 "id": "WIL-15",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 87
 },
 {
@@ -2133,6 +2221,7 @@
 "id": "WIL-16",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 88
 },
 {
@@ -2157,6 +2246,7 @@
 "id": "WIL-17",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 89
 },
 {
@@ -2181,6 +2271,7 @@
 "id": "WIL-18",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 90
 },
 {
@@ -2205,6 +2296,7 @@
 "id": "WIL-19",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 91
 },
 {
@@ -2229,6 +2321,7 @@
 "id": "WIL-20",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 92
 },
 {
@@ -2253,6 +2346,7 @@
 "id": "WIL-21",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 93
 },
 {
@@ -2277,6 +2371,7 @@
 "id": "WIL-22",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 94
 },
 {
@@ -2301,6 +2396,7 @@
 "id": "WIL-23",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 95
 },
 {
@@ -2325,6 +2421,7 @@
 "id": "WIL-24",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 96
 },
 {
@@ -2349,6 +2446,7 @@
 "id": "WIL-25",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 97
 },
 {
@@ -2373,6 +2471,7 @@
 "id": "WIL-26",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 98
 },
 {
@@ -2397,6 +2496,7 @@
 "id": "ARC-01",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 99
 },
 {
@@ -2421,6 +2521,7 @@
 "id": "ARC-02",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 100
 },
 {
@@ -2445,6 +2546,7 @@
 "id": "ARC-03",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 101
 },
 {
@@ -2469,6 +2571,7 @@
 "id": "ARC-04",
 "status": "draft",
 "hold": null,
+"maybe_gated": false,
 "sort": 102
 },
 {
@@ -2493,6 +2596,7 @@
 "id": "ARC-05",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 103
 },
 {
@@ -2517,6 +2621,7 @@
 "id": "ARC-06",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 104
 },
 {
@@ -2541,6 +2646,7 @@
 "id": "NBY-01",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 105
 },
 {
@@ -2565,6 +2671,7 @@
 "id": "NBY-02",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 106
 },
 {
@@ -2589,6 +2696,7 @@
 "id": "NBY-03",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 107
 },
 {
@@ -2613,6 +2721,7 @@
 "id": "NBY-04",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 108
 },
 {
@@ -2637,6 +2746,7 @@
 "id": "NBY-05",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 109
 },
 {
@@ -2661,6 +2771,7 @@
 "id": "NBY-06",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 110
 },
 {
@@ -2685,6 +2796,7 @@
 "id": "NBY-07",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 111
 },
 {
@@ -2709,6 +2821,7 @@
 "id": "NBY-08",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 112
 },
 {
@@ -2733,6 +2846,7 @@
 "id": "NBY-09",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 113
 },
 {
@@ -2757,6 +2871,7 @@
 "id": "NBY-10",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": false,
 "sort": 114
 },
 {
@@ -2781,6 +2896,7 @@
 "id": "NBY-11",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 115
 },
 {
@@ -2805,6 +2921,7 @@
 "id": "NBY-12",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 116
 },
 {
@@ -2829,6 +2946,7 @@
 "id": "NBY-13",
 "status": "held",
 "hold": "Waiting on City of Newberry permit",
+"maybe_gated": true,
 "sort": 117
 },
 {
@@ -2853,6 +2971,7 @@
 "id": "NBY-14",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 118
 },
 {
@@ -2877,6 +2996,7 @@
 "id": "NBY-15",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 119
 },
 {
@@ -2884,23 +3004,24 @@
 "city": null,
 "co": 11,
 "name": "NW 75th St / NW 35th Pl area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.687732736677123,
-"lon": -82.42261590909094,
-"hm": 0.884,
+"lat": 29.687615,
+"lon": -82.42265952848105,
+"hm": 0.883,
 "bbox": [
 -82.427331,
 29.666308,
--82.418006,
+-82.418082,
 29.710255
 ],
 "id": "JON-01",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 120
 },
 {
@@ -2908,768 +3029,775 @@
 "city": null,
 "co": 11,
 "name": "NW 68th Ter / NW 69th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.688894730407515,
-"lon": -82.41591270532913,
-"hm": 0.853,
+"lat": 29.68959286075951,
+"lon": -82.41567412025319,
+"hm": 0.87,
 "bbox": [
--82.417987,
+-82.418029,
 29.665716,
--82.413835,
+-82.413587,
 29.71739
 ],
 "id": "JON-02",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 121
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 66th Ter / NW 65th Ter area",
-"doors": 319,
+"name": "NW 37th Ln / NW 65th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68559442319748,
-"lon": -82.41189230407525,
-"hm": 0.708,
+"lat": 29.686147715189865,
+"lon": -82.41162037341776,
+"hm": 0.68,
 "bbox": [
--82.413834,
+-82.413586,
 29.665604,
--82.410271,
+-82.410061,
 29.710091
 ],
 "id": "JON-03",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 122
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 61st Ter / NW 63rd St area",
-"doors": 319,
+"name": "NW 61st Ter / NW 60th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68779458307208,
-"lon": -82.40875405642639,
-"hm": 0.796,
+"lat": 29.687993810126567,
+"lon": -82.4085577088608,
+"hm": 0.823,
 "bbox": [
--82.410265,
+-82.41006,
 29.660781,
--82.40737,
+-82.407151,
 29.710245
 ],
 "id": "JON-04",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 123
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 58th St / NW 59th Ter area",
-"doors": 319,
+"name": "NW 59th Ter / NW 58th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.685920981191213,
-"lon": -82.40577943887146,
-"hm": 0.853,
+"lat": 29.688577813291097,
+"lon": -82.40550736075976,
+"hm": 0.835,
 "bbox": [
--82.407361,
+-82.407126,
 29.655597,
--82.404271,
+-82.404181,
 29.728086
 ],
 "id": "JON-05",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 124
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 57th Ter / NW 57th Way area",
-"doors": 319,
+"name": "Oakmont \u00b7 Part 1",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.695634291536077,
-"lon": -82.40363922257049,
-"hm": 0.875,
+"lat": 29.62364054113927,
+"lon": -82.45430634810127,
+"hm": 0.82,
 "bbox": [
--82.404268,
-29.65626,
--82.402582,
-29.728942
+-82.472078,
+29.622665,
+-82.418175,
+29.6248
 ],
 "id": "JON-06",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 125
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "Oakmont",
-"doors": 315,
+"name": "Oakmont \u00b7 Part 2",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.623538120634944,
-"lon": -82.45434582539683,
-"hm": 0.819,
+"mins": 270,
+"lat": 29.625762427215196,
+"lon": -82.45406411075952,
+"hm": 0.823,
 "bbox": [
--82.472078,
-29.622624,
--82.418175,
-29.624678
+-82.471536,
+29.62481,
+-82.424312,
+29.626709
 ],
 "id": "JON-07",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 126
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "Haile Plantation \u00b7 Part 1",
-"doors": 315,
+"name": "Haile Plantation",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.62565906031747,
-"lon": -82.4528678507937,
-"hm": 0.835,
+"mins": 270,
+"lat": 29.627718085443057,
+"lon": -82.45202309493673,
+"hm": 0.848,
 "bbox": [
--82.471536,
-29.624683,
--82.424312,
-29.626649
+-82.472053,
+29.626711,
+-82.423051,
+29.628865
 ],
 "id": "JON-08",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 127
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "Haile Plantation \u00b7 Part 2",
-"doors": 315,
+"name": "SW 25th Rd / SW 24th Ave area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.627606631746048,
-"lon": -82.45311229841272,
-"hm": 0.835,
+"mins": 270,
+"lat": 29.629979091772153,
+"lon": -82.44441365822782,
+"hm": 0.756,
 "bbox": [
--82.472053,
-29.626665,
--82.423051,
-29.628557
+-82.472239,
+29.628869,
+-82.417598,
+29.631428
 ],
 "id": "JON-09",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 128
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "SW 25th Rd / SW 24th Ave area",
-"doors": 315,
+"name": "SW 17th Pl / SW 66th Dr area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.62982502539684,
-"lon": -82.44488071428569,
-"hm": 0.768,
+"mins": 270,
+"lat": 29.638166585443038,
+"lon": -82.4383514651899,
+"hm": 0.826,
 "bbox": [
--82.472034,
-29.628558,
--82.41817,
-29.631219
+-82.498854,
+29.636492,
+-82.410102,
+29.640051
 ],
 "id": "JON-10",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 129
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "SW 12th Ln / SW 71st Cir area",
-"doors": 315,
+"name": "SW 13th Rd / SW 75th Dr area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.639530752380924,
-"lon": -82.4331544285714,
-"hm": 0.771,
+"mins": 270,
+"lat": 29.64110076898732,
+"lon": -82.43952505696198,
+"hm": 0.797,
 "bbox": [
--82.498854,
-29.638438,
--82.410325,
-29.640577
+-82.498046,
+29.640074,
+-82.422821,
+29.642136
 ],
 "id": "JON-11",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 130
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "SW 13th Rd / SW 11th Ln area",
-"doors": 315,
+"name": "SW 11th Ave / SW 11th Rd area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.641445866666654,
-"lon": -82.43856773968258,
-"hm": 0.797,
+"mins": 270,
+"lat": 29.642868683544283,
+"lon": -82.44946921518995,
+"hm": 0.832,
 "bbox": [
--82.498046,
-29.640578,
--82.412171,
-29.642291
+-82.495306,
+29.64214,
+-82.422847,
+29.643615
 ],
 "id": "JON-12",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 131
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "SW 11th Ave / SW 11th Rd area",
-"doors": 315,
+"name": "SW 137th Ct / SW 8th Pl area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.642974336507912,
-"lon": -82.447629088889,
-"hm": 0.81,
+"mins": 270,
+"lat": 29.64441207911395,
+"lon": -82.45657297151897,
+"hm": 0.804,
 "bbox": [
--82.492623,
-29.642293,
--82.412052,
-29.643682
+-82.495058,
+29.643617,
+-82.422846,
+29.645488
 ],
 "id": "JON-13",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 132
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "SW 137th Ct / SW 8th Ave area",
-"doors": 315,
+"name": "Town of Tioga",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.64451105079365,
-"lon": -82.45471764761908,
-"hm": 0.819,
+"mins": 270,
+"lat": 29.646754354430367,
+"lon": -82.4609109367088,
+"hm": 0.861,
 "bbox": [
--82.495058,
-29.643684,
--82.422846,
-29.645631
+-82.494004,
+29.645488,
+-82.422836,
+29.647731
 ],
 "id": "JON-14",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 133
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "Town of Tioga",
-"doors": 315,
+"name": "SW 4th Pl / SW 5th Ave area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.646866590476172,
-"lon": -82.46297141587297,
-"hm": 0.854,
+"mins": 270,
+"lat": 29.64884711708859,
+"lon": -82.46161703797466,
+"hm": 0.839,
 "bbox": [
--82.494004,
-29.645634,
--82.422836,
-29.64792
+-82.495058,
+29.647751,
+-82.42279,
+29.649991
 ],
 "id": "JON-15",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 134
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "SW 4th Pl / SW 3rd Pl area",
-"doors": 315,
+"name": "SW 1st Pl / SW 2nd Pl area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.64894992063491,
-"lon": -82.46134466666666,
-"hm": 0.844,
+"mins": 270,
+"lat": 29.6511808607595,
+"lon": -82.46069014240508,
+"hm": 0.889,
 "bbox": [
--82.495058,
-29.647922,
--82.42279,
-29.650155
+-82.489706,
+29.649992,
+-82.422847,
+29.652371
 ],
 "id": "JON-16",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 135
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "SW 1st Pl / SW 2nd Pl area",
-"doors": 315,
+"name": "SW 1st Pl / SW 2nd Ave area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.651282434920635,
-"lon": -82.46076769523808,
-"hm": 0.886,
+"mins": 270,
+"lat": 29.65389320569621,
+"lon": -82.46039054113918,
+"hm": 0.842,
 "bbox": [
--82.489706,
-29.65016,
--82.422851,
-29.652496
+-82.489692,
+29.652396,
+-82.42574,
+29.6563
 ],
 "id": "JON-17",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 136
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 4th Pl / SW 1st Pl area",
-"doors": 315,
+"name": "Hamilton Heights",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.654047631746046,
-"lon": -82.45942622222216,
-"hm": 0.844,
+"mins": 270,
+"lat": 29.6576410221519,
+"lon": -82.45313326582277,
+"hm": 0.816,
 "bbox": [
--82.489676,
-29.652498,
--82.42574,
-29.656394
+-82.488952,
+29.656326,
+-82.426126,
+29.658988
 ],
 "id": "JON-18",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 137
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "Hamilton Heights",
-"doors": 315,
+"name": "NW 9th Rd / NW 7th Pl area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.657737450793647,
-"lon": -82.45362673968252,
-"hm": 0.8,
+"mins": 270,
+"lat": 29.660064015822773,
+"lon": -82.47214316455698,
+"hm": 0.639,
 "bbox": [
--82.488948,
-29.656394,
--82.426126,
-29.659071
+-82.493527,
+29.658991,
+-82.426305,
+29.660858
 ],
 "id": "JON-19",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 138
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 9th Rd / NW 7th Pl area",
-"doors": 315,
+"name": "NW 9th Ln / NW 9th Rd area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.6601260031746,
-"lon": -82.47262325396828,
-"hm": 0.657,
+"mins": 270,
+"lat": 29.661330990506357,
+"lon": -82.47270325632911,
+"hm": 0.608,
 "bbox": [
--82.493527,
-29.659079,
--82.426305,
-29.660894
+-82.495674,
+29.660858,
+-82.434681,
+29.661763
 ],
 "id": "JON-20",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 139
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 9th Ln / NW 9th Rd area",
-"doors": 315,
+"name": "NW 10th Pl / NW 10th Rd area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.661358558730168,
-"lon": -82.47247318095236,
-"hm": 0.59,
+"mins": 270,
+"lat": 29.66232036392403,
+"lon": -82.46809281645568,
+"hm": 0.766,
 "bbox": [
--82.495674,
-29.660895,
--82.434681,
-29.661804
+-82.498337,
+29.661772,
+-82.433862,
+29.662892
 ],
 "id": "JON-21",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 140
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 10th Pl / NW 10th Rd area",
-"doors": 315,
+"name": "NW 11th Pl / NW 136th St area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.662350219047596,
-"lon": -82.46831166349206,
-"hm": 0.778,
+"mins": 270,
+"lat": 29.66335687658228,
+"lon": -82.46827875949373,
+"hm": 0.737,
 "bbox": [
--82.498337,
-29.661807,
--82.433862,
-29.662904
+-82.499688,
+29.662893,
+-82.43386,
+29.66378
 ],
 "id": "JON-22",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 141
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 11th Pl / NW 136th St area",
-"doors": 315,
+"name": "NW 13th Ave / NW 12th Pl area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.663378355555555,
-"lon": -82.46834247619054,
-"hm": 0.74,
+"mins": 270,
+"lat": 29.6642560886076,
+"lon": -82.46762097151897,
+"hm": 0.766,
 "bbox": [
--82.499688,
-29.662909,
--82.43386,
-29.663819
+-82.499694,
+29.66378,
+-82.43703,
+29.664873
 ],
 "id": "JON-23",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 142
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 13th Ave / NW 12th Pl area",
-"doors": 315,
+"name": "NW 132nd Cir / NW 13th Ln area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.664278101587293,
-"lon": -82.46735570158727,
-"hm": 0.765,
+"mins": 270,
+"lat": 29.665454493670893,
+"lon": -82.46562391772154,
+"hm": 0.797,
 "bbox": [
--82.499694,
-29.663821,
--82.43703,
-29.664883
+-82.493417,
+29.664877,
+-82.437052,
+29.666029
 ],
 "id": "JON-24",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 143
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 132nd Cir / NW 13th Ln area",
-"doors": 315,
+"name": "NW 136th Blvd / NW 14th Pl area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.665474736507935,
-"lon": -82.46554170476192,
-"hm": 0.794,
+"mins": 270,
+"lat": 29.666531835443045,
+"lon": -82.4661164462025,
+"hm": 0.775,
 "bbox": [
--82.493417,
-29.664887,
--82.437052,
-29.666044
+-82.495232,
+29.666035,
+-82.43705,
+29.667202
 ],
 "id": "JON-25",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 144
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 136th Blvd / NW 14th Pl area",
-"doors": 315,
+"name": "NW 15th Ln / NW 16th Pl area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.666548352380957,
-"lon": -82.4660516444444,
-"hm": 0.778,
+"mins": 270,
+"lat": 29.668232227848122,
+"lon": -82.46034771518987,
+"hm": 0.816,
 "bbox": [
--82.495232,
-29.666048,
--82.43705,
-29.66723
+-82.495595,
+29.667202,
+-82.437086,
+29.669533
 ],
 "id": "JON-26",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 145
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 15th Ln / NW 17th Pl area",
-"doors": 315,
+"name": "NW 19th Pl / NW 18th Rd area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.668257533333367,
-"lon": -82.4604183809524,
-"hm": 0.813,
+"mins": 270,
+"lat": 29.670826689873408,
+"lon": -82.45612137341776,
+"hm": 0.794,
 "bbox": [
--82.495595,
-29.667232,
--82.437086,
-29.669535
+-82.498949,
+29.669534,
+-82.432992,
+29.672429
 ],
 "id": "JON-27",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 146
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 19th Pl / NW 18th Rd area",
-"doors": 315,
+"name": "NW 23rd Pl / NW 25th Pl area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.67084918095238,
-"lon": -82.45636094603178,
-"hm": 0.794,
+"mins": 270,
+"lat": 29.674003455696216,
+"lon": -82.45882402215186,
+"hm": 0.772,
 "bbox": [
--82.498949,
-29.669536,
--82.432992,
-29.672431
+-82.50112,
+29.672431,
+-82.432928,
+29.675597
 ],
 "id": "JON-28",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 147
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 23rd Pl / NW 25th Pl area",
-"doors": 315,
+"name": "Brookfield Cluster Development",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.67401854285716,
-"lon": -82.45854447936506,
-"hm": 0.775,
+"mins": 270,
+"lat": 29.6769502183544,
+"lon": -82.46539762658227,
+"hm": 0.892,
 "bbox": [
--82.50112,
-29.672431,
--82.432928,
-29.675611
+-82.501177,
+29.675611,
+-82.437734,
+29.67831
 ],
 "id": "JON-29",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 148
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "Brookfield Cluster Development",
-"doors": 315,
+"name": "Turnberry Lake",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.67695446984124,
-"lon": -82.46545473333333,
-"hm": 0.892,
+"mins": 270,
+"lat": 29.67983199050634,
+"lon": -82.47544514556967,
+"hm": 0.832,
 "bbox": [
--82.501177,
-29.675623,
--82.437734,
-29.67831
+-82.50001,
+29.678311,
+-82.437892,
+29.681825
 ],
 "id": "JON-30",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 149
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "Turnberry Lake",
-"doors": 315,
+"name": "NW 32nd Pl / NW 32nd Ave area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.679825663492075,
-"lon": -82.4755174539683,
-"hm": 0.832,
+"mins": 270,
+"lat": 29.68314075949367,
+"lon": -82.45996223101263,
+"hm": 0.842,
 "bbox": [
--82.50001,
-29.678311,
--82.437892,
-29.68182
+-82.497901,
+29.68183,
+-82.45074,
+29.684688
 ],
 "id": "JON-31",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 150
 },
 {
 "area": "Jonesville",
 "city": null,
 "co": 11,
-"name": "NW 32nd Pl / NW 32nd Ave area",
-"doors": 315,
+"name": "Countryside",
+"doors": 296,
 "stops": 1,
 "lot": "tight",
-"pay": 55,
-"mins": 255,
-"lat": 29.683126809523813,
-"lon": -82.45995864444444,
-"hm": 0.841,
+"pay": 50,
+"mins": 240,
+"lat": 29.686434195945946,
+"lon": -82.45756769932434,
+"hm": 0.77,
 "bbox": [
--82.497901,
-29.681825,
--82.45074,
-29.68467
+-82.463719,
+29.684694,
+-82.451645,
+29.688805
 ],
 "id": "JON-32",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 151
-},
-{
-"area": "Jonesville",
-"city": null,
-"co": 11,
-"name": "Countryside",
-"doors": 298,
-"stops": 1,
-"lot": "tight",
-"pay": 50,
-"mins": 255,
-"lat": 29.68642242281878,
-"lon": -82.45756308389264,
-"hm": 0.772,
-"bbox": [
--82.463719,
-29.684672,
--82.451645,
-29.688805
-],
-"id": "JON-33",
-"status": "held",
-"hold": "Waiting on Alachua County canvassing rules",
-"sort": 152
 },
 {
 "area": "Jonesville",
@@ -3690,10 +3818,11 @@
 -82.436582,
 29.717502
 ],
-"id": "JON-34",
+"id": "JON-33",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 153
+"maybe_gated": false,
+"sort": 152
 },
 {
 "area": "Jonesville",
@@ -3714,10 +3843,11 @@
 -82.430899,
 29.687533
 ],
-"id": "JON-35",
+"id": "JON-34",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 154
+"maybe_gated": false,
+"sort": 153
 },
 {
 "area": "Jonesville",
@@ -3738,10 +3868,11 @@
 -82.473866,
 29.629295
 ],
-"id": "JON-36",
+"id": "JON-35",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 155
+"maybe_gated": false,
+"sort": 154
 },
 {
 "area": "Jonesville",
@@ -3762,10 +3893,11 @@
 -82.427771,
 29.717704
 ],
-"id": "JON-37",
+"id": "JON-36",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 156
+"maybe_gated": true,
+"sort": 155
 },
 {
 "area": "Jonesville",
@@ -3786,10 +3918,11 @@
 -82.476494,
 29.692024
 ],
-"id": "JON-38",
+"id": "JON-37",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 157
+"maybe_gated": true,
+"sort": 156
 },
 {
 "area": "Jonesville",
@@ -3810,10 +3943,11 @@
 -82.421297,
 29.682475
 ],
-"id": "JON-39",
+"id": "JON-38",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 158
+"maybe_gated": false,
+"sort": 157
 },
 {
 "area": "Jonesville",
@@ -3834,10 +3968,11 @@
 -82.503457,
 29.658407
 ],
-"id": "JON-40",
+"id": "JON-39",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 159
+"maybe_gated": false,
+"sort": 158
 },
 {
 "area": "Jonesville",
@@ -3858,10 +3993,11 @@
 -82.496847,
 29.649766
 ],
-"id": "JON-41",
+"id": "JON-40",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 160
+"maybe_gated": false,
+"sort": 159
 },
 {
 "area": "Jonesville",
@@ -3882,10 +4018,11 @@
 -82.539689,
 29.64564
 ],
-"id": "JON-42",
+"id": "JON-41",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 161
+"maybe_gated": false,
+"sort": 160
 },
 {
 "area": "Jonesville",
@@ -3906,10 +4043,11 @@
 -82.518068,
 29.625601
 ],
-"id": "JON-43",
+"id": "JON-42",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 162
+"maybe_gated": false,
+"sort": 161
 },
 {
 "area": "Jonesville",
@@ -3930,10 +4068,11 @@
 -82.523882,
 29.700663
 ],
-"id": "JON-44",
+"id": "JON-43",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 163
+"maybe_gated": false,
+"sort": 162
 },
 {
 "area": "Jonesville",
@@ -3954,10 +4093,11 @@
 -82.497308,
 29.710419
 ],
-"id": "JON-45",
+"id": "JON-44",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 164
+"maybe_gated": false,
+"sort": 163
 },
 {
 "area": "Jonesville",
@@ -3978,10 +4118,11 @@
 -82.47416,
 29.604384
 ],
-"id": "JON-46",
+"id": "JON-45",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 165
+"maybe_gated": false,
+"sort": 164
 },
 {
 "area": "High Springs",
@@ -4005,7 +4146,8 @@
 "id": "HSP-01",
 "status": "offered",
 "hold": null,
-"sort": 166
+"maybe_gated": false,
+"sort": 165
 },
 {
 "area": "High Springs",
@@ -4029,7 +4171,8 @@
 "id": "HSP-02",
 "status": "offered",
 "hold": null,
-"sort": 167
+"maybe_gated": false,
+"sort": 166
 },
 {
 "area": "High Springs",
@@ -4053,7 +4196,8 @@
 "id": "HSP-03",
 "status": "offered",
 "hold": null,
-"sort": 168
+"maybe_gated": false,
+"sort": 167
 },
 {
 "area": "High Springs",
@@ -4077,7 +4221,8 @@
 "id": "HSP-04",
 "status": "offered",
 "hold": null,
-"sort": 169
+"maybe_gated": false,
+"sort": 168
 },
 {
 "area": "High Springs",
@@ -4101,7 +4246,8 @@
 "id": "HSP-05",
 "status": "offered",
 "hold": null,
-"sort": 170
+"maybe_gated": false,
+"sort": 169
 },
 {
 "area": "High Springs",
@@ -4125,7 +4271,8 @@
 "id": "HSP-06",
 "status": "offered",
 "hold": null,
-"sort": 171
+"maybe_gated": false,
+"sort": 170
 },
 {
 "area": "High Springs",
@@ -4149,7 +4296,8 @@
 "id": "HSP-07",
 "status": "offered",
 "hold": null,
-"sort": 172
+"maybe_gated": false,
+"sort": 171
 },
 {
 "area": "High Springs",
@@ -4173,7 +4321,8 @@
 "id": "HSP-08",
 "status": "offered",
 "hold": null,
-"sort": 173
+"maybe_gated": false,
+"sort": 172
 },
 {
 "area": "High Springs",
@@ -4197,7 +4346,8 @@
 "id": "HSP-09",
 "status": "offered",
 "hold": null,
-"sort": 174
+"maybe_gated": false,
+"sort": 173
 },
 {
 "area": "High Springs",
@@ -4221,7 +4371,8 @@
 "id": "HSP-10",
 "status": "offered",
 "hold": null,
-"sort": 175
+"maybe_gated": false,
+"sort": 174
 },
 {
 "area": "High Springs",
@@ -4245,7 +4396,8 @@
 "id": "HSP-11",
 "status": "offered",
 "hold": null,
-"sort": 176
+"maybe_gated": false,
+"sort": 175
 },
 {
 "area": "High Springs",
@@ -4269,7 +4421,8 @@
 "id": "HSP-12",
 "status": "offered",
 "hold": null,
-"sort": 177
+"maybe_gated": false,
+"sort": 176
 },
 {
 "area": "High Springs",
@@ -4293,7 +4446,8 @@
 "id": "HSP-13",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 178
+"maybe_gated": false,
+"sort": 177
 },
 {
 "area": "High Springs",
@@ -4317,7 +4471,8 @@
 "id": "HSP-14",
 "status": "draft",
 "hold": null,
-"sort": 179
+"maybe_gated": false,
+"sort": 178
 },
 {
 "area": "High Springs",
@@ -4341,7 +4496,8 @@
 "id": "HSP-15",
 "status": "draft",
 "hold": null,
-"sort": 180
+"maybe_gated": false,
+"sort": 179
 },
 {
 "area": "High Springs",
@@ -4365,7 +4521,8 @@
 "id": "HSP-16",
 "status": "offered",
 "hold": null,
-"sort": 181
+"maybe_gated": false,
+"sort": 180
 },
 {
 "area": "High Springs",
@@ -4389,7 +4546,8 @@
 "id": "HSP-17",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 182
+"maybe_gated": false,
+"sort": 181
 },
 {
 "area": "High Springs",
@@ -4413,7 +4571,8 @@
 "id": "HSP-18",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 183
+"maybe_gated": false,
+"sort": 182
 },
 {
 "area": "High Springs",
@@ -4437,7 +4596,8 @@
 "id": "HSP-19",
 "status": "draft",
 "hold": null,
-"sort": 184
+"maybe_gated": false,
+"sort": 183
 },
 {
 "area": "High Springs",
@@ -4461,7 +4621,8 @@
 "id": "HSP-20",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 185
+"maybe_gated": false,
+"sort": 184
 },
 {
 "area": "High Springs",
@@ -4485,7 +4646,8 @@
 "id": "HSP-21",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 186
+"maybe_gated": false,
+"sort": 185
 },
 {
 "area": "High Springs",
@@ -4509,7 +4671,8 @@
 "id": "HSP-22",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 187
+"maybe_gated": false,
+"sort": 186
 },
 {
 "area": "High Springs",
@@ -4533,7 +4696,8 @@
 "id": "HSP-23",
 "status": "draft",
 "hold": null,
-"sort": 188
+"maybe_gated": false,
+"sort": 187
 },
 {
 "area": "Alachua",
@@ -4557,7 +4721,8 @@
 "id": "ALA-01",
 "status": "offered",
 "hold": null,
-"sort": 189
+"maybe_gated": false,
+"sort": 188
 },
 {
 "area": "Alachua",
@@ -4581,7 +4746,8 @@
 "id": "ALA-02",
 "status": "offered",
 "hold": null,
-"sort": 190
+"maybe_gated": false,
+"sort": 189
 },
 {
 "area": "Alachua",
@@ -4605,7 +4771,8 @@
 "id": "ALA-03",
 "status": "offered",
 "hold": null,
-"sort": 191
+"maybe_gated": false,
+"sort": 190
 },
 {
 "area": "Alachua",
@@ -4629,7 +4796,8 @@
 "id": "ALA-04",
 "status": "offered",
 "hold": null,
-"sort": 192
+"maybe_gated": false,
+"sort": 191
 },
 {
 "area": "Alachua",
@@ -4653,7 +4821,8 @@
 "id": "ALA-05",
 "status": "offered",
 "hold": null,
-"sort": 193
+"maybe_gated": false,
+"sort": 192
 },
 {
 "area": "Alachua",
@@ -4677,7 +4846,8 @@
 "id": "ALA-06",
 "status": "offered",
 "hold": null,
-"sort": 194
+"maybe_gated": false,
+"sort": 193
 },
 {
 "area": "Alachua",
@@ -4701,7 +4871,8 @@
 "id": "ALA-07",
 "status": "offered",
 "hold": null,
-"sort": 195
+"maybe_gated": false,
+"sort": 194
 },
 {
 "area": "Alachua",
@@ -4725,7 +4896,8 @@
 "id": "ALA-08",
 "status": "offered",
 "hold": null,
-"sort": 196
+"maybe_gated": false,
+"sort": 195
 },
 {
 "area": "Alachua",
@@ -4749,7 +4921,8 @@
 "id": "ALA-09",
 "status": "offered",
 "hold": null,
-"sort": 197
+"maybe_gated": false,
+"sort": 196
 },
 {
 "area": "Alachua",
@@ -4773,7 +4946,8 @@
 "id": "ALA-10",
 "status": "offered",
 "hold": null,
-"sort": 198
+"maybe_gated": false,
+"sort": 197
 },
 {
 "area": "Alachua",
@@ -4797,7 +4971,8 @@
 "id": "ALA-11",
 "status": "offered",
 "hold": null,
-"sort": 199
+"maybe_gated": false,
+"sort": 198
 },
 {
 "area": "Alachua",
@@ -4821,7 +4996,8 @@
 "id": "ALA-12",
 "status": "offered",
 "hold": null,
-"sort": 200
+"maybe_gated": false,
+"sort": 199
 },
 {
 "area": "Alachua",
@@ -4845,7 +5021,8 @@
 "id": "ALA-13",
 "status": "draft",
 "hold": null,
-"sort": 201
+"maybe_gated": false,
+"sort": 200
 },
 {
 "area": "Alachua",
@@ -4869,7 +5046,8 @@
 "id": "ALA-14",
 "status": "offered",
 "hold": null,
-"sort": 202
+"maybe_gated": false,
+"sort": 201
 },
 {
 "area": "Alachua",
@@ -4893,7 +5071,8 @@
 "id": "ALA-15",
 "status": "offered",
 "hold": null,
-"sort": 203
+"maybe_gated": false,
+"sort": 202
 },
 {
 "area": "Alachua",
@@ -4917,7 +5096,8 @@
 "id": "ALA-16",
 "status": "offered",
 "hold": null,
-"sort": 204
+"maybe_gated": false,
+"sort": 203
 },
 {
 "area": "Alachua",
@@ -4941,7 +5121,8 @@
 "id": "ALA-17",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 205
+"maybe_gated": false,
+"sort": 204
 },
 {
 "area": "Alachua",
@@ -4965,7 +5146,8 @@
 "id": "ALA-18",
 "status": "offered",
 "hold": null,
-"sort": 206
+"maybe_gated": false,
+"sort": 205
 },
 {
 "area": "Alachua",
@@ -4989,7 +5171,8 @@
 "id": "ALA-19",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 207
+"maybe_gated": false,
+"sort": 206
 },
 {
 "area": "Alachua",
@@ -5013,7 +5196,8 @@
 "id": "ALA-20",
 "status": "draft",
 "hold": null,
-"sort": 208
+"maybe_gated": false,
+"sort": 207
 },
 {
 "area": "Alachua",
@@ -5037,7 +5221,8 @@
 "id": "ALA-21",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 209
+"maybe_gated": false,
+"sort": 208
 },
 {
 "area": "Alachua",
@@ -5061,7 +5246,8 @@
 "id": "ALA-22",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 210
+"maybe_gated": false,
+"sort": 209
 },
 {
 "area": "Alachua",
@@ -5085,7 +5271,8 @@
 "id": "ALA-23",
 "status": "draft",
 "hold": null,
-"sort": 211
+"maybe_gated": false,
+"sort": 210
 },
 {
 "area": "Alachua",
@@ -5109,7 +5296,8 @@
 "id": "ALA-24",
 "status": "draft",
 "hold": null,
-"sort": 212
+"maybe_gated": false,
+"sort": 211
 },
 {
 "area": "Alachua",
@@ -5133,7 +5321,8 @@
 "id": "ALA-25",
 "status": "draft",
 "hold": null,
-"sort": 213
+"maybe_gated": false,
+"sort": 212
 },
 {
 "area": "Alachua",
@@ -5157,7 +5346,8 @@
 "id": "ALA-26",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 214
+"maybe_gated": false,
+"sort": 213
 },
 {
 "area": "Alachua",
@@ -5181,7 +5371,8 @@
 "id": "ALA-27",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 215
+"maybe_gated": false,
+"sort": 214
 },
 {
 "area": "Alachua",
@@ -5205,7 +5396,8 @@
 "id": "ALA-28",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 216
+"maybe_gated": false,
+"sort": 215
 },
 {
 "area": "Alachua",
@@ -5229,7 +5421,8 @@
 "id": "ALA-29",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 217
+"maybe_gated": false,
+"sort": 216
 },
 {
 "area": "Alachua",
@@ -5253,7 +5446,8 @@
 "id": "ALA-30",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 218
+"maybe_gated": false,
+"sort": 217
 },
 {
 "area": "Alachua",
@@ -5277,7 +5471,8 @@
 "id": "ALA-31",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 219
+"maybe_gated": false,
+"sort": 218
 },
 {
 "area": "Gainesville",
@@ -5301,7 +5496,8 @@
 "id": "GNV-01",
 "status": "offered",
 "hold": null,
-"sort": 220
+"maybe_gated": false,
+"sort": 219
 },
 {
 "area": "Gainesville",
@@ -5325,7 +5521,8 @@
 "id": "GNV-02",
 "status": "offered",
 "hold": null,
-"sort": 221
+"maybe_gated": false,
+"sort": 220
 },
 {
 "area": "Gainesville",
@@ -5349,7 +5546,8 @@
 "id": "GNV-03",
 "status": "offered",
 "hold": null,
-"sort": 222
+"maybe_gated": false,
+"sort": 221
 },
 {
 "area": "Gainesville",
@@ -5373,7 +5571,8 @@
 "id": "GNV-04",
 "status": "offered",
 "hold": null,
-"sort": 223
+"maybe_gated": false,
+"sort": 222
 },
 {
 "area": "Gainesville",
@@ -5397,7 +5596,8 @@
 "id": "GNV-05",
 "status": "offered",
 "hold": null,
-"sort": 224
+"maybe_gated": false,
+"sort": 223
 },
 {
 "area": "Gainesville",
@@ -5421,7 +5621,8 @@
 "id": "GNV-06",
 "status": "offered",
 "hold": null,
-"sort": 225
+"maybe_gated": false,
+"sort": 224
 },
 {
 "area": "Gainesville",
@@ -5445,7 +5646,8 @@
 "id": "GNV-07",
 "status": "offered",
 "hold": null,
-"sort": 226
+"maybe_gated": false,
+"sort": 225
 },
 {
 "area": "Gainesville",
@@ -5469,7 +5671,8 @@
 "id": "GNV-08",
 "status": "offered",
 "hold": null,
-"sort": 227
+"maybe_gated": false,
+"sort": 226
 },
 {
 "area": "Gainesville",
@@ -5493,7 +5696,8 @@
 "id": "GNV-09",
 "status": "offered",
 "hold": null,
-"sort": 228
+"maybe_gated": false,
+"sort": 227
 },
 {
 "area": "Gainesville",
@@ -5517,7 +5721,8 @@
 "id": "GNV-10",
 "status": "offered",
 "hold": null,
-"sort": 229
+"maybe_gated": false,
+"sort": 228
 },
 {
 "area": "Gainesville",
@@ -5541,7 +5746,8 @@
 "id": "GNV-11",
 "status": "offered",
 "hold": null,
-"sort": 230
+"maybe_gated": false,
+"sort": 229
 },
 {
 "area": "Gainesville",
@@ -5565,7 +5771,8 @@
 "id": "GNV-12",
 "status": "offered",
 "hold": null,
-"sort": 231
+"maybe_gated": false,
+"sort": 230
 },
 {
 "area": "Gainesville",
@@ -5589,7 +5796,8 @@
 "id": "GNV-13",
 "status": "offered",
 "hold": null,
-"sort": 232
+"maybe_gated": false,
+"sort": 231
 },
 {
 "area": "Gainesville",
@@ -5613,7 +5821,8 @@
 "id": "GNV-14",
 "status": "offered",
 "hold": null,
-"sort": 233
+"maybe_gated": false,
+"sort": 232
 },
 {
 "area": "Gainesville",
@@ -5637,30 +5846,57 @@
 "id": "GNV-15",
 "status": "offered",
 "hold": null,
-"sort": 234
+"maybe_gated": false,
+"sort": 233
 },
 {
 "area": "Gainesville",
 "city": null,
 "co": 11,
-"name": "NW 55th Ter / NW 55th St area",
-"doors": 319,
+"name": "NW 55th Ter / NW 57th St area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.687018799373043,
-"lon": -82.40188183699053,
-"hm": 0.658,
+"lat": 29.687690155063276,
+"lon": -82.40320101582275,
+"hm": 0.823,
 "bbox": [
--82.402581,
+-82.404181,
 29.652047,
--82.401224,
-29.732315
+-82.402077,
+29.732287
 ],
 "id": "GNV-16",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
+"sort": 234
+},
+{
+"area": "Gainesville",
+"city": "Gainesville",
+"co": 11,
+"name": "NW 55th St / NW 54th Ter area",
+"doors": 316,
+"stops": 1,
+"lot": "tight",
+"pay": 55,
+"mins": 270,
+"lat": 29.692392196202544,
+"lon": -82.40149897151895,
+"hm": 0.687,
+"bbox": [
+-82.402076,
+29.652671,
+-82.400817,
+29.732315
+],
+"id": "GNV-17",
+"status": "offered",
+"hold": null,
+"maybe_gated": false,
 "sort": 235
 },
 {
@@ -5668,287 +5904,299 @@
 "city": null,
 "co": 11,
 "name": "NW 53rd Ter / NW 54th Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.69428039184953,
-"lon": -82.40061994984322,
-"hm": 0.787,
+"lat": 29.69137448417722,
+"lon": -82.40029361708861,
+"hm": 0.753,
 "bbox": [
--82.401224,
+-82.400817,
 29.65329,
--82.400164,
-29.732184
+-82.399863,
+29.731161
 ],
-"id": "GNV-17",
+"id": "GNV-18",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 236
 },
 {
 "area": "Gainesville",
 "city": null,
 "co": 11,
-"name": "NW 53rd Ter / NW 53rd St area",
-"doors": 319,
+"name": "NW 52nd Ter / NW 53rd Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.694108796238254,
-"lon": -82.39968830094053,
-"hm": 0.705,
+"lat": 29.69611956329115,
+"lon": -82.39939936708855,
+"hm": 0.722,
 "bbox": [
--82.400158,
+-82.399858,
 29.653617,
--82.399221,
-29.731104
+-82.399014,
+29.732122
 ],
-"id": "GNV-18",
+"id": "GNV-19",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 237
 },
 {
 "area": "Gainesville",
 "city": null,
 "co": 11,
-"name": "NW 52nd Ter / NW 52nd St area",
-"doors": 319,
+"name": "NW 52nd Ter / NW 51st Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.695032868338554,
-"lon": -82.39883416614428,
-"hm": 0.755,
+"lat": 29.696161424050636,
+"lon": -82.39855575,
+"hm": 0.763,
 "bbox": [
--82.399221,
-29.653757,
--82.398402,
+-82.399009,
+29.655791,
+-82.398196,
 29.732296
 ],
-"id": "GNV-19",
+"id": "GNV-20",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 238
 },
 {
 "area": "Gainesville",
 "city": null,
 "co": 11,
-"name": "NW 51st Ter / NW 51st St area",
-"doors": 319,
+"name": "NW 51st Ter / NW 51st Dr area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.697218407523465,
-"lon": -82.3979876551724,
-"hm": 0.727,
+"lat": 29.69722773417719,
+"lon": -82.39774229430387,
+"hm": 0.778,
 "bbox": [
--82.3984,
+-82.398185,
 29.656237,
--82.397583,
-29.732293
+-82.397282,
+29.732292
 ],
-"id": "GNV-20",
+"id": "GNV-21",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 239
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 51st Dr / NW 50th Ter area",
-"doors": 319,
+"name": "NW 50th Ter / NW 50th Blvd area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.69427761128531,
-"lon": -82.39705468652032,
-"hm": 0.84,
+"lat": 29.68970477848103,
+"lon": -82.39671202531649,
+"hm": 0.801,
 "bbox": [
--82.397583,
+-82.397278,
 29.655988,
--82.396513,
-29.732288
+-82.396222,
+29.732079
 ],
-"id": "GNV-21",
+"id": "GNV-22",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 240
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 50th Ter / NW 49th Ter area",
-"doors": 319,
+"name": "NW 49th Ter / NW 48th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.695037122257023,
-"lon": -82.39592215360506,
-"hm": 0.759,
+"lat": 29.69863431962025,
+"lon": -82.39553822151893,
+"hm": 0.741,
 "bbox": [
--82.396513,
+-82.396222,
 29.657047,
--82.395249,
-29.728853
+-82.394871,
+29.728852
 ],
-"id": "GNV-22",
+"id": "GNV-23",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 241
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 48th Ter / NW 49th St area",
-"doors": 319,
+"name": "NW 47th Ter / NW 48th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.700025667711586,
-"lon": -82.39462763322881,
-"hm": 0.771,
+"lat": 29.69890057594935,
+"lon": -82.39432137025315,
+"hm": 0.766,
 "bbox": [
--82.395247,
+-82.394871,
 29.66417,
--82.39405,
+-82.393801,
 29.729734
 ],
-"id": "GNV-23",
+"id": "GNV-24",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 242
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 47th Ter / NW 47th Way area",
-"doors": 319,
+"name": "NW 47th Way / NW 47th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.69557291536054,
-"lon": -82.39350804388708,
-"hm": 0.737,
+"lat": 29.691966990506334,
+"lon": -82.39311489240508,
+"hm": 0.782,
 "bbox": [
--82.394048,
+-82.393801,
 29.661902,
--82.392843,
-29.729528
+-82.392282,
+29.729468
 ],
-"id": "GNV-24",
+"id": "GNV-25",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 243
 },
 {
 "area": "Gainesville",
-"city": null,
+"city": "Gainesville",
 "co": 11,
-"name": "NW 46th St / NW 43rd Pl area",
-"doors": 319,
+"name": "NW 43rd Pl / NW 44th Pl area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68343971786835,
-"lon": -82.3917267931034,
-"hm": 0.831,
+"lat": 29.682567496835407,
+"lon": -82.391130471519,
+"hm": 0.807,
 "bbox": [
--82.392826,
+-82.392264,
 29.660206,
--82.390554,
-29.729295
+-82.389885,
+29.729213
 ],
-"id": "GNV-25",
-"status": "held",
-"hold": "Waiting on Alachua County canvassing rules",
+"id": "GNV-26",
+"status": "offered",
+"hold": null,
+"maybe_gated": false,
 "sort": 244
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 42nd Ter / NW 43rd St area",
-"doors": 319,
+"name": "NW 42nd Ter / NW 41st Dr area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.6751497429467,
-"lon": -82.38894601253917,
-"hm": 0.737,
+"lat": 29.675594325949373,
+"lon": -82.38821714873416,
+"hm": 0.741,
 "bbox": [
--82.390552,
-29.658916,
--82.38759,
-29.728231
+-82.389879,
+29.658145,
+-82.387124,
+29.71108
 ],
-"id": "GNV-26",
+"id": "GNV-27",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 245
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 40th Ter / NW 41st Dr area",
-"doors": 319,
+"name": "NW 40th Ter / NW 40th Dr area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.681694153605026,
-"lon": -82.38668731034495,
-"hm": 0.79,
+"lat": 29.682140123417717,
+"lon": -82.38626882278486,
+"hm": 0.797,
 "bbox": [
--82.387588,
+-82.387122,
 29.656347,
--82.385839,
-29.713297
+-82.385482,
+29.714171
 ],
-"id": "GNV-27",
+"id": "GNV-28",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 246
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 40th Ter / NW 39th Dr area",
-"doors": 319,
+"name": "NW 39th Dr / NW 40th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.680423764890264,
-"lon": -82.38517838871465,
-"hm": 0.777,
+"lat": 29.68076187974683,
+"lon": -82.38491815506336,
+"hm": 0.772,
 "bbox": [
--82.385838,
+-82.385472,
 29.655982,
--82.384629,
+-82.384412,
 29.71772
 ],
-"id": "GNV-28",
+"id": "GNV-29",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 247
 },
 {
@@ -5956,71 +6204,74 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 39th Dr / NW 39th Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.683408570532926,
-"lon": -82.38413283699053,
-"hm": 0.799,
+"lat": 29.683732898734192,
+"lon": -82.38390288924047,
+"hm": 0.807,
 "bbox": [
--82.384627,
-29.656434,
--82.383648,
+-82.384402,
+29.657313,
+-82.383411,
 29.717737
 ],
-"id": "GNV-29",
+"id": "GNV-30",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 248
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 23rd Cir / NW 39th Ter area",
-"doors": 319,
+"name": "NW 23rd Cir / NW 39th St area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.681810789968655,
-"lon": -82.38306238871468,
-"hm": 0.774,
+"lat": 29.680750183544287,
+"lon": -82.38280196518997,
+"hm": 0.763,
 "bbox": [
--82.383643,
+-82.383407,
 29.658719,
--82.382433,
-29.716777
+-82.382201,
+29.714403
 ],
-"id": "GNV-30",
+"id": "GNV-31",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 249
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 38th Dr / NW 38th Ter area",
-"doors": 319,
+"name": "NW 38th Ter / NW 38th St area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.682990808777433,
-"lon": -82.38174784952977,
-"hm": 0.784,
+"lat": 29.686216547468373,
+"lon": -82.38143470569628,
+"hm": 0.813,
 "bbox": [
--82.382432,
+-82.382189,
 29.658698,
--82.381011,
-29.717707
+-82.380706,
+29.717724
 ],
-"id": "GNV-31",
+"id": "GNV-32",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 250
 },
 {
@@ -6028,23 +6279,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "Mile Run \u00b7 Part 1",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.69289380877744,
-"lon": -82.38021903134795,
-"hm": 0.777,
+"lat": 29.693413582278474,
+"lon": -82.37999271835443,
+"hm": 0.747,
 "bbox": [
--82.381008,
+-82.380706,
 29.657175,
--82.379724,
-29.717724
+-82.379591,
+29.71758
 ],
-"id": "GNV-32",
+"id": "GNV-33",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 251
 },
 {
@@ -6052,95 +6304,99 @@
 "city": "Gainesville",
 "co": 11,
 "name": "Mile Run \u00b7 Part 2",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.695718238244535,
-"lon": -82.37926188714722,
-"hm": 0.784,
+"lat": 29.693295696202537,
+"lon": -82.3790783132911,
+"hm": 0.794,
 "bbox": [
--82.379719,
+-82.379591,
 29.657603,
--82.378783,
+-82.378556,
 29.717609
 ],
-"id": "GNV-33",
+"id": "GNV-34",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 252
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 36th Dr / NW 37th Ter area",
-"doors": 319,
+"name": "NW 36th Dr / NW 36th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.680140050156734,
-"lon": -82.3781884294671,
-"hm": 0.696,
+"lat": 29.68059673417724,
+"lon": -82.3780068227848,
+"hm": 0.668,
 "bbox": [
--82.378781,
+-82.378555,
 29.652165,
--82.377693,
-29.717571
+-82.377568,
+29.717589
 ],
-"id": "GNV-34",
+"id": "GNV-35",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 253
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 36th Ter / NW 36th Dr area",
-"doors": 319,
+"name": "NW 36th Ter / NW 36th St area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68593796238243,
-"lon": -82.37725630094047,
-"hm": 0.724,
+"lat": 29.68428439240506,
+"lon": -82.37710314240509,
+"hm": 0.731,
 "bbox": [
--82.377693,
+-82.377564,
 29.652167,
--82.376777,
-29.717589
+-82.376706,
+29.717587
 ],
-"id": "GNV-35",
+"id": "GNV-36",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 254
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 36th St / NW 36th Ter area",
-"doors": 319,
+"name": "NW 36th St / NW 35th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.684814006269594,
-"lon": -82.37632768338553,
-"hm": 0.737,
+"lat": 29.686838886075954,
+"lon": -82.37617218987333,
+"hm": 0.756,
 "bbox": [
--82.376777,
+-82.376705,
 29.652198,
--82.375848,
+-82.375674,
 29.717592
 ],
-"id": "GNV-36",
+"id": "GNV-37",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 255
 },
 {
@@ -6148,23 +6404,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 35th Ter / NW 35th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.684330112852674,
-"lon": -82.37535831034491,
-"hm": 0.734,
+"lat": 29.68453078164557,
+"lon": -82.37522380063288,
+"hm": 0.728,
 "bbox": [
--82.375848,
+-82.375674,
 29.652599,
--82.374909,
+-82.374772,
 29.717458
 ],
-"id": "GNV-37",
+"id": "GNV-38",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 256
 },
 {
@@ -6172,47 +6429,49 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 35th St / NW 34th Dr area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.687308213166176,
-"lon": -82.37445283385574,
-"hm": 0.737,
+"lat": 29.68660032594939,
+"lon": -82.37432459810125,
+"hm": 0.728,
 "bbox": [
--82.374909,
+-82.37477,
 29.652647,
--82.373999,
+-82.373909,
 29.717587
 ],
-"id": "GNV-38",
+"id": "GNV-39",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 257
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 34th Dr / NW 34th Ter area",
-"doors": 319,
+"name": "NW 34th Ter / NW 34th Dr area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.687145213166122,
-"lon": -82.37356992789965,
-"hm": 0.73,
+"lat": 29.686225224683536,
+"lon": -82.37345384493666,
+"hm": 0.722,
 "bbox": [
--82.373998,
+-82.373908,
 29.652865,
--82.373106,
+-82.373,
 29.717556
 ],
-"id": "GNV-39",
+"id": "GNV-40",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 258
 },
 {
@@ -6220,23 +6479,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 34th St / NW 34th Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68654753605017,
-"lon": -82.3724826990595,
-"hm": 0.674,
+"lat": 29.687091174050654,
+"lon": -82.37231254113925,
+"hm": 0.69,
 "bbox": [
--82.373106,
+-82.373,
 29.653194,
--82.371745,
+-82.371494,
 29.717404
 ],
-"id": "GNV-40",
+"id": "GNV-41",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 259
 },
 {
@@ -6244,23 +6504,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 33rd St / NW 33rd Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.694058673981207,
-"lon": -82.3710112539185,
-"hm": 0.796,
+"lat": 29.693894803797452,
+"lon": -82.37085176582279,
+"hm": 0.763,
 "bbox": [
--82.37173,
-29.652655,
--82.370321,
+-82.37146,
+29.651385,
+-82.370097,
 29.717402
 ],
-"id": "GNV-41",
+"id": "GNV-42",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 260
 },
 {
@@ -6268,47 +6529,49 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 32nd St / NW 31st Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.690409460815047,
-"lon": -82.36966152978049,
-"hm": 0.762,
+"lat": 29.691040319620253,
+"lon": -82.36953610759484,
+"hm": 0.775,
 "bbox": [
--82.370319,
+-82.370094,
 29.65072,
--82.369027,
+-82.36899,
 29.717398
 ],
-"id": "GNV-42",
+"id": "GNV-43",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 261
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 31st Ter / NW 31st St area",
-"doors": 319,
+"name": "NW 31st Ter / NW 30th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.687202855799388,
-"lon": -82.36850178996859,
-"hm": 0.774,
+"lat": 29.687549120253188,
+"lon": -82.36839877215183,
+"hm": 0.775,
 "bbox": [
--82.369025,
+-82.368989,
 29.650775,
--82.367913,
+-82.367887,
 29.717393
 ],
-"id": "GNV-43",
+"id": "GNV-44",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 262
 },
 {
@@ -6316,47 +6579,49 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 30th Ter / NW 30th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68864468965516,
-"lon": -82.36732435736675,
-"hm": 0.74,
+"lat": 29.68779078481012,
+"lon": -82.36722368987343,
+"hm": 0.759,
 "bbox": [
--82.367913,
+-82.367885,
 29.650782,
--82.366762,
+-82.366638,
 29.717387
 ],
-"id": "GNV-44",
+"id": "GNV-45",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 263
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 29th Ter / NW 29th St area",
-"doors": 319,
+"name": "Northwood Pines",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.690033012539192,
-"lon": -82.3662291755486,
-"hm": 0.762,
+"lat": 29.690751873417728,
+"lon": -82.36615643670888,
+"hm": 0.737,
 "bbox": [
--82.366758,
+-82.366637,
 29.650781,
--82.36572,
-29.717383
+-82.365711,
+29.717381
 ],
-"id": "GNV-45",
+"id": "GNV-46",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 264
 },
 {
@@ -6364,47 +6629,49 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 29th St / NW 28th Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.69138119435736,
-"lon": -82.36519216614423,
-"hm": 0.718,
+"lat": 29.69144561075948,
+"lon": -82.36512163607597,
+"hm": 0.737,
 "bbox": [
--82.36572,
+-82.365711,
 29.651112,
--82.364651,
+-82.364604,
 29.717377
 ],
-"id": "GNV-46",
+"id": "GNV-47",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 265
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 28th Ter / NW 27th Ter area",
-"doors": 319,
+"name": "NW 27th Ter / NW 28th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.688051592476505,
-"lon": -82.36414971786834,
+"lat": 29.687703496835464,
+"lon": -82.36410033227851,
 "hm": 0.677,
 "bbox": [
--82.36465,
+-82.364603,
 29.645052,
--82.363747,
+-82.363733,
 29.717372
 ],
-"id": "GNV-47",
+"id": "GNV-48",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 266
 },
 {
@@ -6412,23 +6679,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 27th Ter / NW 27th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.686018661442024,
-"lon": -82.36325600000006,
-"hm": 0.705,
+"lat": 29.685935509493678,
+"lon": -82.36321285126586,
+"hm": 0.703,
 "bbox": [
--82.363746,
+-82.363733,
 29.645052,
--82.362833,
+-82.362774,
 29.717369
 ],
-"id": "GNV-48",
+"id": "GNV-49",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 267
 },
 {
@@ -6436,23 +6704,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 27th St / NW 26th Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.688214677115983,
-"lon": -82.36238751724139,
-"hm": 0.699,
+"lat": 29.68816159810128,
+"lon": -82.3623574113924,
+"hm": 0.696,
 "bbox": [
--82.362832,
+-82.362774,
 29.647834,
--82.361987,
+-82.361961,
 29.717363
 ],
-"id": "GNV-49",
+"id": "GNV-50",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 268
 },
 {
@@ -6460,23 +6729,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 26th Ter / NW 26th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.686750018808777,
-"lon": -82.36156597178687,
-"hm": 0.671,
+"lat": 29.686567129746834,
+"lon": -82.36154524367093,
+"hm": 0.658,
 "bbox": [
--82.361986,
+-82.36196,
 29.647823,
--82.361227,
+-82.361213,
 29.71736
 ],
-"id": "GNV-50",
+"id": "GNV-51",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 269
 },
 {
@@ -6484,23 +6754,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 25th Ter / NW 26th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.689150062695933,
-"lon": -82.36077527272727,
-"hm": 0.555,
+"lat": 29.68971079430381,
+"lon": -82.36076061075943,
+"hm": 0.566,
 "bbox": [
--82.361221,
+-82.361212,
 29.650649,
--82.360391,
+-82.360384,
 29.717361
 ],
-"id": "GNV-51",
+"id": "GNV-52",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 270
 },
 {
@@ -6508,23 +6779,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 26th St / NW 25th Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68505821630094,
-"lon": -82.35989696551727,
-"hm": 0.643,
+"lat": 29.68492927531645,
+"lon": -82.35988898417723,
+"hm": 0.639,
 "bbox": [
--82.360391,
+-82.360381,
 29.650583,
--82.359351,
+-82.359341,
 29.715509
 ],
-"id": "GNV-52",
+"id": "GNV-53",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 271
 },
 {
@@ -6532,23 +6804,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 25th Ter / NW 24th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.684544965517226,
-"lon": -82.35882308463954,
+"lat": 29.684664955696185,
+"lon": -82.35882529746839,
 "hm": 0.687,
 "bbox": [
--82.359341,
+-82.359338,
 29.65061,
--82.358208,
+-82.358231,
 29.70675
 ],
-"id": "GNV-53",
+"id": "GNV-54",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 272
 },
 {
@@ -6556,23 +6829,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 23rd Dr / NW 23rd Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.686166877742934,
-"lon": -82.3574424858934,
-"hm": 0.759,
+"lat": 29.68605265822784,
+"lon": -82.35745850632912,
+"hm": 0.753,
 "bbox": [
--82.3582,
+-82.358221,
 29.650624,
--82.356737,
+-82.356742,
 29.707194
 ],
-"id": "GNV-54",
+"id": "GNV-55",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 273
 },
 {
@@ -6580,47 +6854,49 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 23rd Ter / NW 22nd Ter area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.681376536050156,
-"lon": -82.35586333855791,
+"lat": 29.681697246835444,
+"lon": -82.35589716139236,
 "hm": 0.759,
 "bbox": [
--82.356735,
+-82.35674,
 29.650638,
--82.355065,
+-82.355085,
 29.706824
 ],
-"id": "GNV-55",
+"id": "GNV-56",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 274
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 22nd St / NW 22nd Dr area",
-"doors": 319,
+"name": "NW 22nd Dr / NW 22nd St area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68320615673983,
-"lon": -82.35446327272724,
-"hm": 0.683,
+"lat": 29.6823903101266,
+"lon": -82.3544957879747,
+"hm": 0.693,
 "bbox": [
--82.35505,
+-82.355083,
 29.652336,
--82.353963,
+-82.353979,
 29.705525
 ],
-"id": "GNV-56",
+"id": "GNV-57",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 275
 },
 {
@@ -6628,23 +6904,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 21st Dr / NW 22nd St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.681609836990592,
-"lon": -82.3533597335422,
-"hm": 0.687,
+"lat": 29.68270431962025,
+"lon": -82.35340466139229,
+"hm": 0.674,
 "bbox": [
--82.353936,
+-82.353978,
 29.652312,
--82.352822,
+-82.352838,
 29.704323
 ],
-"id": "GNV-57",
+"id": "GNV-58",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 276
 },
 {
@@ -6652,23 +6929,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 21st Ter / NW 21st St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.680529780564274,
-"lon": -82.35213681191225,
-"hm": 0.69,
+"lat": 29.679540085443044,
+"lon": -82.35219319303798,
+"hm": 0.693,
 "bbox": [
--82.352822,
+-82.352836,
 29.652328,
--82.351619,
+-82.351674,
 29.702892
 ],
-"id": "GNV-58",
+"id": "GNV-59",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 277
 },
 {
@@ -6676,23 +6954,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 21st St / NW 20th Dr area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.68218297492164,
-"lon": -82.35091196865206,
-"hm": 0.599,
+"lat": 29.681823629746834,
+"lon": -82.35098570569623,
+"hm": 0.611,
 "bbox": [
--82.351609,
+-82.351674,
 29.652807,
--82.350369,
-29.702009
+-82.350399,
+29.702691
 ],
-"id": "GNV-59",
+"id": "GNV-60",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 278
 },
 {
@@ -6700,47 +6979,49 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 20th Ter / NW 20th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.67972872727273,
-"lon": -82.34979780250787,
-"hm": 0.567,
+"lat": 29.680267063291126,
+"lon": -82.34987764556962,
+"hm": 0.57,
 "bbox": [
--82.350369,
+-82.350399,
 29.652675,
--82.349156,
+-82.349233,
 29.701067
 ],
-"id": "GNV-60",
+"id": "GNV-61",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 279
 },
 {
 "area": "Gainesville",
 "city": "Gainesville",
 "co": 11,
-"name": "NW 20th St / NW 19th St area",
-"doors": 319,
+"name": "NW 20th St / NW 19th Ter area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.678632573667713,
-"lon": -82.34840521003129,
-"hm": 0.574,
+"lat": 29.678840636075947,
+"lon": -82.34853072151893,
+"hm": 0.566,
 "bbox": [
--82.349155,
+-82.349231,
 29.653029,
--82.347521,
+-82.3477,
 29.70093
 ],
-"id": "GNV-61",
+"id": "GNV-62",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 280
 },
 {
@@ -6748,23 +7029,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 19th St / NW 18th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.67549432601879,
-"lon": -82.34638623510969,
-"hm": 0.589,
+"lat": 29.676212556962025,
+"lon": -82.34656978481007,
+"hm": 0.604,
 "bbox": [
--82.347515,
+-82.347692,
 29.653024,
--82.345397,
-29.695295
+-82.345537,
+29.69561
 ],
-"id": "GNV-62",
+"id": "GNV-63",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 281
 },
 {
@@ -6772,23 +7054,24 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 19th Cir / NW 17th St area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.675751072100287,
-"lon": -82.34458421003131,
-"hm": 0.668,
+"lat": 29.675440424050603,
+"lon": -82.34473398417715,
+"hm": 0.646,
 "bbox": [
--82.345395,
+-82.345537,
 29.654377,
--82.343831,
-29.69549
+-82.343995,
+29.69521
 ],
-"id": "GNV-63",
+"id": "GNV-64",
 "status": "offered",
 "hold": null,
+"maybe_gated": false,
 "sort": 282
 },
 {
@@ -6796,48 +7079,25 @@
 "city": "Gainesville",
 "co": 11,
 "name": "NW 16th Ter / NW 19th Ln area",
-"doors": 319,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
 "mins": 270,
-"lat": 29.67147365517243,
-"lon": -82.34222318181818,
-"hm": 0.561,
+"lat": 29.672319424050652,
+"lon": -82.34257988924053,
+"hm": 0.601,
 "bbox": [
--82.34383,
+-82.343995,
 29.655546,
--82.340392,
-29.695402
-],
-"id": "GNV-64",
-"status": "offered",
-"hold": null,
-"sort": 283
-},
-{
-"area": "Gainesville",
-"city": "Gainesville",
-"co": 11,
-"name": "SW 17th Pl / SW 66th Dr area",
-"doors": 315,
-"stops": 1,
-"lot": "tight",
-"pay": 55,
-"mins": 255,
-"lat": 29.63737516190477,
-"lon": -82.42751966031756,
-"hm": 0.743,
-"bbox": [
--82.471253,
-29.636324,
--82.410102,
-29.638406
+-82.340759,
+29.69549
 ],
 "id": "GNV-65",
 "status": "offered",
 "hold": null,
-"sort": 284
+"maybe_gated": false,
+"sort": 283
 },
 {
 "area": "Gainesville",
@@ -6861,7 +7121,8 @@
 "id": "GNV-66",
 "status": "offered",
 "hold": null,
-"sort": 285
+"maybe_gated": false,
+"sort": 284
 },
 {
 "area": "Gainesville",
@@ -6885,7 +7146,8 @@
 "id": "GNV-67",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 286
+"maybe_gated": false,
+"sort": 285
 },
 {
 "area": "Gainesville",
@@ -6909,7 +7171,8 @@
 "id": "GNV-68",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 287
+"maybe_gated": false,
+"sort": 286
 },
 {
 "area": "Gainesville",
@@ -6933,7 +7196,8 @@
 "id": "GNV-69",
 "status": "offered",
 "hold": null,
-"sort": 288
+"maybe_gated": false,
+"sort": 287
 },
 {
 "area": "Gainesville",
@@ -6957,7 +7221,8 @@
 "id": "GNV-70",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 289
+"maybe_gated": false,
+"sort": 288
 },
 {
 "area": "Gainesville",
@@ -6981,7 +7246,8 @@
 "id": "GNV-71",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 290
+"maybe_gated": false,
+"sort": 289
 },
 {
 "area": "Gainesville",
@@ -7005,7 +7271,8 @@
 "id": "GNV-72",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 291
+"maybe_gated": false,
+"sort": 290
 },
 {
 "area": "Gainesville",
@@ -7029,7 +7296,8 @@
 "id": "GNV-73",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 292
+"maybe_gated": false,
+"sort": 291
 },
 {
 "area": "Gainesville",
@@ -7053,7 +7321,8 @@
 "id": "GNV-74",
 "status": "offered",
 "hold": null,
-"sort": 293
+"maybe_gated": false,
+"sort": 292
 },
 {
 "area": "Gainesville",
@@ -7077,7 +7346,8 @@
 "id": "GNV-75",
 "status": "offered",
 "hold": null,
-"sort": 294
+"maybe_gated": false,
+"sort": 293
 },
 {
 "area": "Gainesville",
@@ -7101,7 +7371,8 @@
 "id": "GNV-76",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 295
+"maybe_gated": false,
+"sort": 294
 },
 {
 "area": "Gainesville",
@@ -7125,7 +7396,8 @@
 "id": "GNV-77",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 296
+"maybe_gated": false,
+"sort": 295
 },
 {
 "area": "Gainesville",
@@ -7149,7 +7421,8 @@
 "id": "GNV-78",
 "status": "offered",
 "hold": null,
-"sort": 297
+"maybe_gated": false,
+"sort": 296
 },
 {
 "area": "Gainesville",
@@ -7173,7 +7446,8 @@
 "id": "GNV-79",
 "status": "offered",
 "hold": null,
-"sort": 298
+"maybe_gated": false,
+"sort": 297
 },
 {
 "area": "Gainesville",
@@ -7197,7 +7471,8 @@
 "id": "GNV-80",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 299
+"maybe_gated": false,
+"sort": 298
 },
 {
 "area": "Gainesville",
@@ -7221,7 +7496,8 @@
 "id": "GNV-81",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 300
+"maybe_gated": false,
+"sort": 299
 },
 {
 "area": "Gainesville",
@@ -7245,7 +7521,8 @@
 "id": "GNV-82",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 301
+"maybe_gated": false,
+"sort": 300
 },
 {
 "area": "Gainesville",
@@ -7269,7 +7546,8 @@
 "id": "GNV-83",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 302
+"maybe_gated": false,
+"sort": 301
 },
 {
 "area": "Gainesville",
@@ -7293,7 +7571,8 @@
 "id": "GNV-84",
 "status": "offered",
 "hold": null,
-"sort": 303
+"maybe_gated": false,
+"sort": 302
 },
 {
 "area": "Gainesville",
@@ -7317,7 +7596,8 @@
 "id": "GNV-85",
 "status": "offered",
 "hold": null,
-"sort": 304
+"maybe_gated": false,
+"sort": 303
 },
 {
 "area": "Gainesville",
@@ -7341,7 +7621,8 @@
 "id": "GNV-86",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 305
+"maybe_gated": false,
+"sort": 304
 },
 {
 "area": "Gainesville",
@@ -7365,7 +7646,8 @@
 "id": "GNV-87",
 "status": "offered",
 "hold": null,
-"sort": 306
+"maybe_gated": false,
+"sort": 305
 },
 {
 "area": "Gainesville",
@@ -7389,7 +7671,8 @@
 "id": "GNV-88",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 307
+"maybe_gated": false,
+"sort": 306
 },
 {
 "area": "Gainesville",
@@ -7413,7 +7696,8 @@
 "id": "GNV-89",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 308
+"maybe_gated": false,
+"sort": 307
 },
 {
 "area": "Gainesville",
@@ -7437,7 +7721,8 @@
 "id": "GNV-90",
 "status": "offered",
 "hold": null,
-"sort": 309
+"maybe_gated": false,
+"sort": 308
 },
 {
 "area": "Gainesville",
@@ -7461,7 +7746,8 @@
 "id": "GNV-91",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 310
+"maybe_gated": false,
+"sort": 309
 },
 {
 "area": "Gainesville",
@@ -7485,7 +7771,8 @@
 "id": "GNV-92",
 "status": "offered",
 "hold": null,
-"sort": 311
+"maybe_gated": false,
+"sort": 310
 },
 {
 "area": "Gainesville",
@@ -7509,7 +7796,8 @@
 "id": "GNV-93",
 "status": "offered",
 "hold": null,
-"sort": 312
+"maybe_gated": false,
+"sort": 311
 },
 {
 "area": "Gainesville",
@@ -7533,7 +7821,8 @@
 "id": "GNV-94",
 "status": "draft",
 "hold": null,
-"sort": 313
+"maybe_gated": false,
+"sort": 312
 },
 {
 "area": "Gainesville",
@@ -7557,7 +7846,8 @@
 "id": "GNV-95",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 314
+"maybe_gated": false,
+"sort": 313
 },
 {
 "area": "Gainesville",
@@ -7581,7 +7871,8 @@
 "id": "GNV-96",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 315
+"maybe_gated": false,
+"sort": 314
 },
 {
 "area": "Gainesville",
@@ -7605,439 +7896,458 @@
 "id": "GNV-97",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 316
+"maybe_gated": false,
+"sort": 315
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Longleaf \u00b7 Part 1",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.58108528253967,
-"lon": -82.43260183174601,
-"hm": 0.689,
+"mins": 270,
+"lat": 29.58108917405062,
+"lon": -82.43261527848098,
+"hm": 0.687,
 "bbox": [
 -82.439197,
 29.579216,
 -82.427175,
-29.582314
+29.582315
 ],
 "id": "HAI-01",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 317
+"maybe_gated": false,
+"sort": 316
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Longleaf \u00b7 Part 2",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.583882241269876,
-"lon": -82.4329193428571,
-"hm": 0.635,
+"mins": 270,
+"lat": 29.583895471519014,
+"lon": -82.43290159177212,
+"hm": 0.636,
 "bbox": [
 -82.439221,
-29.582315,
+29.582316,
 -82.425927,
-29.58517
+29.585201
 ],
 "id": "HAI-02",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 318
+"maybe_gated": false,
+"sort": 317
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "SW 73rd Ln / SW 74th Ave area",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.58724630793651,
-"lon": -82.43160483492062,
-"hm": 0.711,
+"mins": 270,
+"lat": 29.587284433544305,
+"lon": -82.43161950949364,
+"hm": 0.715,
 "bbox": [
 -82.439237,
-29.585177,
+29.585207,
 -82.423405,
-29.589889
+29.589892
 ],
 "id": "HAI-03",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 319
+"maybe_gated": false,
+"sort": 318
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "SW 66th Ln / SW 82nd Ter area",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.591757339682562,
-"lon": -82.42983003809516,
-"hm": 0.727,
+"mins": 270,
+"lat": 29.591797278481035,
+"lon": -82.42971392405056,
+"hm": 0.728,
 "bbox": [
 -82.438648,
-29.58989,
+29.589955,
 -82.419316,
-29.593449
+29.593529
 ],
 "id": "HAI-04",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 320
+"maybe_gated": false,
+"sort": 319
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "SW 60th Rd / SW 84th Ter area",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.5959686126984,
-"lon": -82.4315524507937,
-"hm": 0.711,
+"mins": 270,
+"lat": 29.59603798417721,
+"lon": -82.43166934177222,
+"hm": 0.703,
 "bbox": [
 -82.438582,
-29.593481,
--82.421174,
-29.598313
+29.593533,
+-82.421258,
+29.598422
 ],
 "id": "HAI-05",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 321
+"maybe_gated": false,
+"sort": 320
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "SW 56th Ave / SW 57th Pl area",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.60085499047618,
-"lon": -82.43573490158724,
-"hm": 0.756,
+"mins": 270,
+"lat": 29.60092587974683,
+"lon": -82.43570892721512,
+"hm": 0.763,
 "bbox": [
 -82.455779,
-29.598358,
+29.598442,
 -82.423102,
-29.602519
+29.602542
 ],
 "id": "HAI-06",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 322
+"maybe_gated": false,
+"sort": 321
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Haile Plantation \u00b7 Part 1",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.603312130158717,
-"lon": -82.43764150793652,
-"hm": 0.768,
+"mins": 270,
+"lat": 29.603349965189864,
+"lon": -82.43798782911396,
+"hm": 0.769,
 "bbox": [
 -82.455773,
-29.602522,
+29.602545,
 -82.423088,
-29.604307
+29.604387
 ],
 "id": "HAI-07",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 323
+"maybe_gated": false,
+"sort": 322
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Haile Plantation \u00b7 Part 2",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.605075803174646,
-"lon": -82.44055069523819,
-"hm": 0.625,
+"mins": 270,
+"lat": 29.605108689873433,
+"lon": -82.44043336392411,
+"hm": 0.62,
 "bbox": [
 -82.455775,
-29.604332,
+29.604389,
 -82.422186,
-29.605722
+29.605743
 ],
 "id": "HAI-08",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 324
+"maybe_gated": false,
+"sort": 323
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Haile Plantation \u00b7 Part 3",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.606451257142833,
-"lon": -82.43839800000009,
-"hm": 0.632,
+"mins": 270,
+"lat": 29.6064998449367,
+"lon": -82.43813493037985,
+"hm": 0.636,
 "bbox": [
 -82.455149,
-29.605735,
+29.605743,
 -82.423145,
-29.607484
+29.607567
 ],
 "id": "HAI-09",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 325
+"maybe_gated": false,
+"sort": 324
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Haile Plantation \u00b7 Part 4",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.608267152380943,
-"lon": -82.4363295746031,
-"hm": 0.73,
+"mins": 270,
+"lat": 29.608318344936695,
+"lon": -82.43645372468353,
+"hm": 0.734,
 "bbox": [
 -82.45569,
-29.607495,
+29.607572,
 -82.423039,
-29.609188
+29.609245
 ],
 "id": "HAI-10",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 326
+"maybe_gated": false,
+"sort": 325
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Haile Plantation \u00b7 Part 5",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.61058787301585,
-"lon": -82.43807491746036,
-"hm": 0.822,
+"mins": 270,
+"lat": 29.610691079113902,
+"lon": -82.43822731012662,
+"hm": 0.823,
 "bbox": [
 -82.455703,
-29.609191,
+29.609253,
 -82.423029,
-29.612272
+29.612361
 ],
 "id": "HAI-11",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 327
+"maybe_gated": false,
+"sort": 326
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Haile Plantation \u00b7 Part 6",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.614072965079384,
-"lon": -82.44102718412697,
-"hm": 0.921,
+"mins": 270,
+"lat": 29.614219506329132,
+"lon": -82.44109202531644,
+"hm": 0.918,
 "bbox": [
--82.455553,
-29.612275,
+-82.457879,
+29.612361,
 -82.42328,
-29.616276
+29.616352
 ],
 "id": "HAI-12",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 328
+"maybe_gated": false,
+"sort": 327
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "Haile Plantation \u00b7 Part 7",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.6178972031746,
-"lon": -82.44278028888883,
+"mins": 270,
+"lat": 29.618020670886086,
+"lon": -82.44295289873412,
 "hm": 0.851,
 "bbox": [
 -82.470053,
-29.616284,
+29.616373,
 -82.423275,
-29.619362
+29.619496
 ],
 "id": "HAI-13",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 329
+"maybe_gated": false,
+"sort": 328
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "SW 36th Pl / SW 37th Pl area",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.620300133333345,
-"lon": -82.44474971428575,
-"hm": 0.771,
+"mins": 270,
+"lat": 29.620373297468355,
+"lon": -82.44505287974687,
+"hm": 0.769,
 "bbox": [
 -82.471597,
-29.619372,
+29.619497,
 -82.419582,
-29.621125
+29.621206
 ],
 "id": "HAI-14",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
+"sort": 329
+},
+{
+"area": "Haile / SW Gainesville",
+"city": null,
+"co": 11,
+"name": "SW 34th Rd / SW 35th Ln area",
+"doors": 316,
+"stops": 1,
+"lot": "tight",
+"pay": 55,
+"mins": 270,
+"lat": 29.621954496835464,
+"lon": -82.44604076898733,
+"hm": 0.797,
+"bbox": [
+-82.47227,
+29.621214,
+-82.417375,
+29.622662
+],
+"id": "HAI-15",
+"status": "held",
+"hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 330
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
-"name": "Oakmont",
-"doors": 315,
+"name": "SW 70th Ter / SW 22nd Ave area",
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.621886019047626,
-"lon": -82.44654899365078,
-"hm": 0.794,
+"mins": 270,
+"lat": 29.63250582594935,
+"lon": -82.43173881962022,
+"hm": 0.699,
 "bbox": [
--82.47227,
-29.621127,
--82.417375,
-29.62262
+-82.471867,
+29.631432,
+-82.413456,
+29.633433
 ],
-"id": "HAI-15",
+"id": "HAI-16",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
+"maybe_gated": false,
 "sort": 331
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
-"name": "SW 70th Ter / SW 22nd Ave area",
-"doors": 315,
-"stops": 1,
-"lot": "tight",
-"pay": 55,
-"mins": 255,
-"lat": 29.63237900317461,
-"lon": -82.43191986349206,
-"hm": 0.698,
-"bbox": [
--82.472239,
-29.631264,
--82.414134,
-29.633341
-],
-"id": "HAI-16",
-"status": "held",
-"hold": "Waiting on Alachua County canvassing rules",
-"sort": 332
-},
-{
-"area": "Haile / SW Gainesville",
-"city": null,
-"co": 11,
 "name": "SW 69th Dr / SW 21st Ave area",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.634116993650785,
-"lon": -82.42923730793646,
-"hm": 0.654,
+"mins": 270,
+"lat": 29.634217550632933,
+"lon": -82.42880013607584,
+"hm": 0.668,
 "bbox": [
 -82.47144,
-29.633342,
+29.633436,
 -82.412391,
 29.63493
 ],
 "id": "HAI-17",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 333
+"maybe_gated": false,
+"sort": 332
 },
 {
 "area": "Haile / SW Gainesville",
 "city": null,
 "co": 11,
 "name": "SW 18th Pl / SW 17th Pl area",
-"doors": 315,
+"doors": 316,
 "stops": 1,
 "lot": "tight",
 "pay": 55,
-"mins": 255,
-"lat": 29.635504292063526,
-"lon": -82.42643364126987,
-"hm": 0.622,
+"mins": 270,
+"lat": 29.635605677215207,
+"lon": -82.42647846202529,
+"hm": 0.611,
 "bbox": [
 -82.47126,
 29.63493,
 -82.411766,
-29.636314
+29.636491
 ],
 "id": "HAI-18",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 334
+"maybe_gated": false,
+"sort": 333
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8061,7 +8371,8 @@
 "id": "HAI-19",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 335
+"maybe_gated": false,
+"sort": 334
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8085,7 +8396,8 @@
 "id": "HAI-20",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 336
+"maybe_gated": false,
+"sort": 335
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8109,7 +8421,8 @@
 "id": "HAI-21",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 337
+"maybe_gated": false,
+"sort": 336
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8133,7 +8446,8 @@
 "id": "HAI-22",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 338
+"maybe_gated": false,
+"sort": 337
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8157,7 +8471,8 @@
 "id": "HAI-23",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 339
+"maybe_gated": false,
+"sort": 338
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8181,7 +8496,8 @@
 "id": "HAI-24",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 340
+"maybe_gated": false,
+"sort": 339
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8205,7 +8521,8 @@
 "id": "HAI-25",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 341
+"maybe_gated": false,
+"sort": 340
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8229,7 +8546,8 @@
 "id": "HAI-26",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 342
+"maybe_gated": false,
+"sort": 341
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8253,7 +8571,8 @@
 "id": "HAI-27",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 343
+"maybe_gated": false,
+"sort": 342
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8277,7 +8596,8 @@
 "id": "HAI-28",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 344
+"maybe_gated": false,
+"sort": 343
 },
 {
 "area": "Haile / SW Gainesville",
@@ -8301,7 +8621,8 @@
 "id": "HAI-29",
 "status": "held",
 "hold": "Waiting on Alachua County canvassing rules",
-"sort": 345
+"maybe_gated": false,
+"sort": 344
 },
 {
 "area": "Cross City",
@@ -8325,7 +8646,8 @@
 "id": "CRX-01",
 "status": "offered",
 "hold": null,
-"sort": 346
+"maybe_gated": false,
+"sort": 345
 },
 {
 "area": "Cross City",
@@ -8349,7 +8671,8 @@
 "id": "CRX-02",
 "status": "offered",
 "hold": null,
-"sort": 347
+"maybe_gated": false,
+"sort": 346
 },
 {
 "area": "Cross City",
@@ -8373,7 +8696,8 @@
 "id": "CRX-03",
 "status": "offered",
 "hold": null,
-"sort": 348
+"maybe_gated": false,
+"sort": 347
 },
 {
 "area": "Cross City",
@@ -8397,7 +8721,8 @@
 "id": "CRX-04",
 "status": "offered",
 "hold": null,
-"sort": 349
+"maybe_gated": false,
+"sort": 348
 },
 {
 "area": "Cross City",
@@ -8421,7 +8746,8 @@
 "id": "CRX-05",
 "status": "draft",
 "hold": null,
-"sort": 350
+"maybe_gated": false,
+"sort": 349
 },
 {
 "area": "Cross City",
@@ -8445,7 +8771,8 @@
 "id": "CRX-06",
 "status": "draft",
 "hold": null,
-"sort": 351
+"maybe_gated": false,
+"sort": 350
 },
 {
 "area": "Cross City",
@@ -8469,7 +8796,8 @@
 "id": "CRX-07",
 "status": "draft",
 "hold": null,
-"sort": 352
+"maybe_gated": false,
+"sort": 351
 },
 {
 "area": "Cross City",
@@ -8493,7 +8821,8 @@
 "id": "CRX-08",
 "status": "draft",
 "hold": null,
-"sort": 353
+"maybe_gated": false,
+"sort": 352
 },
 {
 "area": "Manatee Road",
@@ -8517,7 +8846,8 @@
 "id": "MAN-01",
 "status": "offered",
 "hold": null,
-"sort": 354
+"maybe_gated": false,
+"sort": 353
 },
 {
 "area": "Manatee Road",
@@ -8541,7 +8871,8 @@
 "id": "MAN-02",
 "status": "offered",
 "hold": null,
-"sort": 355
+"maybe_gated": false,
+"sort": 354
 },
 {
 "area": "Manatee Road",
@@ -8565,7 +8896,8 @@
 "id": "MAN-03",
 "status": "offered",
 "hold": null,
-"sort": 356
+"maybe_gated": false,
+"sort": 355
 },
 {
 "area": "Manatee Road",
@@ -8589,7 +8921,8 @@
 "id": "MAN-04",
 "status": "offered",
 "hold": null,
-"sort": 357
+"maybe_gated": false,
+"sort": 356
 },
 {
 "area": "Manatee Road",
@@ -8613,7 +8946,8 @@
 "id": "MAN-05",
 "status": "offered",
 "hold": null,
-"sort": 358
+"maybe_gated": false,
+"sort": 357
 },
 {
 "area": "Manatee Road",
@@ -8637,7 +8971,8 @@
 "id": "MAN-06",
 "status": "offered",
 "hold": null,
-"sort": 359
+"maybe_gated": false,
+"sort": 358
 },
 {
 "area": "Manatee Road",
@@ -8661,7 +8996,8 @@
 "id": "MAN-07",
 "status": "draft",
 "hold": null,
-"sort": 360
+"maybe_gated": false,
+"sort": 359
 },
 {
 "area": "Manatee Road",
@@ -8685,7 +9021,8 @@
 "id": "MAN-08",
 "status": "draft",
 "hold": null,
-"sort": 361
+"maybe_gated": false,
+"sort": 360
 },
 {
 "area": "Manatee Road",
@@ -8709,7 +9046,8 @@
 "id": "MAN-09",
 "status": "draft",
 "hold": null,
-"sort": 362
+"maybe_gated": false,
+"sort": 361
 },
 {
 "area": "Manatee Road",
@@ -8733,7 +9071,8 @@
 "id": "MAN-10",
 "status": "draft",
 "hold": null,
-"sort": 363
+"maybe_gated": false,
+"sort": 362
 },
 {
 "area": "Manatee Road",
@@ -8757,7 +9096,8 @@
 "id": "MAN-11",
 "status": "draft",
 "hold": null,
-"sort": 364
+"maybe_gated": false,
+"sort": 363
 },
 {
 "area": "Manatee Road",
@@ -8781,7 +9121,8 @@
 "id": "MAN-12",
 "status": "draft",
 "hold": null,
-"sort": 365
+"maybe_gated": false,
+"sort": 364
 },
 {
 "area": "Micanopy",
@@ -8805,7 +9146,8 @@
 "id": "MIC-01",
 "status": "offered",
 "hold": null,
-"sort": 366
+"maybe_gated": false,
+"sort": 365
 },
 {
 "area": "McIntosh",
@@ -8829,7 +9171,8 @@
 "id": "MCI-01",
 "status": "offered",
 "hold": null,
-"sort": 367
+"maybe_gated": false,
+"sort": 366
 },
 {
 "area": "Brooker",
@@ -8853,7 +9196,8 @@
 "id": "BRO-01",
 "status": "offered",
 "hold": null,
-"sort": 368
+"maybe_gated": false,
+"sort": 367
 },
 {
 "area": "La Crosse",
@@ -8877,6 +9221,7 @@
 "id": "LAC-01",
 "status": "offered",
 "hold": null,
-"sort": 369
+"maybe_gated": false,
+"sort": 368
 }
 ]

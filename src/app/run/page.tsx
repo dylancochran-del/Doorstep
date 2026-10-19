@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { api, money, postJSON, shrink, useMe } from "../ui";
+import { prefetchRoute } from "@/lib/tiles";
 import type { House, Status } from "../GameMap";
 
 const GameMap = dynamic(() => import("../GameMap"), { ssr: false });
@@ -21,12 +22,21 @@ type Outgoing = { url: string; body: Record<string, unknown> };
 
 const SKIPS: [string, string][] = [["gate", "Gate"], ["fence", "Fence"], ["dog", "Dog"], ["no_soliciting", "No Soliciting"], ["vacant", "Vacant"], ["no_access", "Can't reach"], ["other", "Other"]];
 const OUTBOX = "doorstep-outbox";
+const TAPS = "doorstep-taps";
+/** Houses within this many meters of a GPS fix get auto-marked as hung (when auto-mark is on). */
+const AUTO_M = 20;
+type Tap = { houseId: number; kind: "hung" | "skipped" | "undo"; reason?: string; lat?: number; lon?: number; acc?: number; at: string; note?: string };
 
 function meters(a: { lat: number; lon: number }, b: { lat: number; lon: number }) {
   return Math.hypot((a.lat - b.lat) * 111_000, (a.lon - b.lon) * 96_500);
 }
 function readBox(): Outgoing[] { try { return JSON.parse(localStorage.getItem(OUTBOX) || "[]"); } catch { return []; } }
 function writeBox(b: Outgoing[]) { try { localStorage.setItem(OUTBOX, JSON.stringify(b)); } catch { /* storage blocked */ } }
+function readTaps(): Tap[] { try { return JSON.parse(localStorage.getItem(TAPS) || "[]"); } catch { return []; } }
+function writeTaps(t: Tap[]) { try { localStorage.setItem(TAPS, JSON.stringify(t)); } catch { /* storage blocked */ } }
+/** "1234 NW 73rd St" -> "NW 73RD ST", so a whole street can be marked at once. */
+function streetOf(address?: string | null) { return (address ?? "").replace(/^\d+\S*\s+/, "").trim().toUpperCase(); }
+function readAuto() { try { return localStorage.getItem("doorstep-auto") !== "off"; } catch { return true; } }
 
 export default function Run() {
   const me = useMe();
@@ -41,9 +51,17 @@ export default function Run() {
   const [focus, setFocus] = useState<{ lat: number; lon: number } | null>(null);
   const [pending, setPending] = useState(0);
   const [err, setErr] = useState<string | null>(null);
+  const flushTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const trackBuf = useRef<{ lat: number; lon: number; acc: number; at: string }[]>([]);
   const lastPt = useRef<Pos | null>(null);
-  const history = useRef<number[]>([]);
+  const history = useRef<number[][]>([]);
+  const [auto, setAuto] = useState(true);
+  const [picking, setPicking] = useState(false);
+  const [picked, setPicked] = useState<Set<number>>(new Set());
+  const housesRef = useRef<House[]>([]);
+  const statusRef = useRef<Status>({});
+  const autoRef = useRef(true);
+  useEffect(() => { const a = readAuto(); setAuto(a); autoRef.current = a; }, []);
 
   const flash = (t: string) => { setToast(t); setTimeout(() => setToast(null), 1800); };
 
@@ -51,19 +69,35 @@ export default function Run() {
     api<Active>("/api/session/active").then((x) => {
       if (!x.session) { location.href = "/"; return; }
       setD(x); setStatus((s) => ({ ...x.status, ...s }));
+      prefetchRoute(x.houses);
     }).catch((e) => setErr(e.message));
   }, []);
   useEffect(load, [load]);
 
   // Outbox: queue first, send second.
   const drain = useCallback(async () => {
+    // Taps go up in one batch; everything else one by one.
+    const taps = readTaps();
+    if (taps.length) {
+      try {
+        await postJSON("/api/session/events", { events: taps });
+        writeTaps(readTaps().slice(taps.length));
+      } catch { /* keep them for the next try */ }
+    }
     let box = readBox();
     while (box.length) {
       try { await postJSON(box[0].url, box[0].body); box = box.slice(1); writeBox(box); }
       catch { break; }
     }
-    setPending(readBox().length);
+    setPending(readBox().length + readTaps().length);
   }, []);
+  const queueTaps = useCallback((t: Tap[]) => {
+    writeTaps([...readTaps(), ...t]);
+    setPending(readBox().length + readTaps().length);
+    clearTimeout(flushTimer.current);
+    // A short pause lets a burst of taps (a whole street) go up as one request.
+    flushTimer.current = setTimeout(drain, 600);
+  }, [drain]);
   const send = useCallback((url: string, body: Record<string, unknown>) => {
     writeBox([...readBox(), { url, body: { ...body, at: new Date().toISOString() } }]);
     setPending(readBox().length);
@@ -82,6 +116,7 @@ export default function Run() {
     const id = navigator.geolocation.watchPosition((p) => {
       const q = { lat: p.coords.latitude, lon: p.coords.longitude, acc: p.coords.accuracy };
       setPos(q);
+      if (autoRef.current && q.acc <= 30) autoMark(q);
       if (!lastPt.current || meters(lastPt.current, q) > 15) {
         lastPt.current = q;
         trackBuf.current.push({ ...q, at: new Date().toISOString() });
@@ -102,6 +137,8 @@ export default function Run() {
   }, []);
 
   const houses = d?.houses ?? [];
+  housesRef.current = houses;
+  statusRef.current = status;
   const counts = useMemo(() => {
     const c = { hung: 0, skipped: 0, talked: 0 };
     for (const v of Object.values(status)) c[v.kind as keyof typeof c] = (c[v.kind as keyof typeof c] ?? 0) + 1;
@@ -125,20 +162,39 @@ export default function Run() {
   const selHouse = houses.find((h) => h.id === sel) ?? null;
   const gps = () => (pos ? { lat: pos.lat, lon: pos.lon, acc: pos.acc } : {});
 
-  function mark(houseId: number, kind: "hung" | "skipped", reason?: string) {
-    setStatus((s) => ({ ...s, [houseId]: { kind, reason } }));
-    history.current.push(houseId);
-    send("/api/session/event", { houseId, kind, reason, ...gps() });
+  function markMany(ids: number[], kind: "hung" | "skipped", reason?: string, quiet = false) {
+    if (!ids.length) return;
+    const at = new Date().toISOString();
+    setStatus((s) => { const n = { ...s }; for (const id of ids) n[id] = { kind, reason }; return n; });
+    history.current.push(ids);
+    queueTaps(ids.map((houseId) => ({ houseId, kind, reason, ...gps(), at, note: quiet ? "auto" : undefined })));
     if (navigator.vibrate) navigator.vibrate(kind === "hung" ? 30 : [20, 40, 20]);
-    flash(kind === "hung" ? "+1 door ✓" : "Skipped. You still get paid.");
+    if (!quiet) flash(kind === "hung" ? (ids.length > 1 ? `+${ids.length} doors ✓` : "+1 door ✓") : `Skipped ${ids.length > 1 ? ids.length + " houses" : ""}. You still get paid.`);
     setMode(null); setSel(null);
   }
+  const mark = (houseId: number, kind: "hung" | "skipped", reason?: string) => markMany([houseId], kind, reason);
+  function autoMark(q: Pos) {
+    const st = statusRef.current;
+    const ids = housesRef.current.filter((h) => !st[h.id] && meters(q, h) <= AUTO_M).map((h) => h.id);
+    if (ids.length) { markMany(ids, "hung", undefined, true); flash(ids.length > 1 ? `Auto +${ids.length} ✓` : "Auto +1 ✓"); }
+  }
+  function streetLeft(h: House | null) {
+    const st = streetOf(h?.address);
+    if (!st) return [];
+    return houses.filter((x) => !status[x.id] && streetOf(x.address) === st).map((x) => x.id);
+  }
   function undo() {
-    const id = history.current.pop();
-    if (id == null) return;
-    setStatus((s) => { const n = { ...s }; delete n[id]; return n; });
-    send("/api/session/event", { houseId: id, kind: "undo", ...gps() });
-    flash("Undone");
+    const ids = history.current.pop();
+    if (!ids?.length) return;
+    setStatus((s) => { const n = { ...s }; for (const id of ids) delete n[id]; return n; });
+    const at = new Date().toISOString();
+    queueTaps(ids.map((houseId) => ({ houseId, kind: "undo" as const, ...gps(), at })));
+    flash(ids.length > 1 ? `Undid ${ids.length}` : "Undone");
+  }
+  function toggleAuto() {
+    const v = !auto; setAuto(v); autoRef.current = v;
+    try { localStorage.setItem("doorstep-auto", v ? "on" : "off"); } catch { /* ignore */ }
+    flash(v ? "Auto-mark on: houses you pass turn green" : "Auto-mark off");
   }
 
   if (err) return <main className="page"><div className="error">{err}</div><Link className="btn gray" href="/">Back</Link></main>;
@@ -146,8 +202,11 @@ export default function Run() {
 
   return (
     <div className="run">
-      <GameMap houses={houses} status={status} me={pos} avatar={me?.avatar} track={track} satellite={sat} fit={houses} focus={focus}
-        onHouse={(id) => { setSel(id); setMode("house"); }} />
+      <GameMap houses={houses} status={status} me={pos} avatar={me?.avatar} track={track} satellite={sat} fit={houses} focus={focus} picked={picked}
+        onHouse={(id) => {
+          if (picking) setPicked((p) => { const n = new Set(p); if (n.has(id)) n.delete(id); else n.add(id); return n; });
+          else { setSel(id); setMode("house"); }
+        }} />
 
       <div className="hud">
         <div className="hud-top">
@@ -164,18 +223,32 @@ export default function Run() {
             {counts.skipped > 0 && <span className="chip"><i className="dot" style={{ background: "var(--skip)" }} />{counts.skipped} skipped</span>}
             {counts.talked > 0 && <span className="chip"><i className="dot" style={{ background: "var(--talk)" }} />{counts.talked} talked</span>}
             {pending > 0 && <span className="chip">⏳ {pending} saving</span>}
+            <button className="chip" onClick={toggleAuto} aria-pressed={auto} style={{ border: 0, background: auto ? "#dff3e5" : "#fff" }}>{auto ? "🚶 Auto-mark on" : "🚶 Auto-mark off"}</button>
             {d.daylight?.isDark && <span className="chip" style={{ background: "#fde8e6" }}>🌙 After sunset. Wrap up.</span>}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <button className="iconbtn" onClick={() => setMode("menu")} aria-label="Route menu">☰</button>
             <button className="iconbtn" onClick={() => setSat(!sat)} aria-pressed={sat} aria-label="Toggle satellite view">{sat ? "🗺️" : "🛰️"}</button>
             <button className="iconbtn" onClick={() => pos && setFocus({ ...pos })} aria-label="Center on me">📍</button>
+            <button className="iconbtn" onClick={() => { setPicking(!picking); setPicked(new Set()); setMode(null); }} aria-pressed={picking} aria-label="Select several houses" style={picking ? { background: "var(--gold)" } : undefined}>☑︎</button>
             {history.current.length > 0 && <button className="iconbtn" onClick={undo} aria-label="Undo last tap">↩︎</button>}
           </div>
         </div>
       </div>
 
-      {!mode && (
+      {picking && !mode && (
+        <div className="sheet">
+          <h3>{picked.size ? `${picked.size} selected` : "Tap houses to select them"}</h3>
+          <div className="grid3">
+            <button className="btn green" disabled={!picked.size} onClick={() => { markMany([...picked], "hung"); setPicked(new Set()); }}>Hung ✓</button>
+            <button className="btn gray" disabled={!picked.size} onClick={() => setMode("skip")}>Skip</button>
+            <button className="btn gray" onClick={() => { setPicking(false); setPicked(new Set()); }}>Done</button>
+          </div>
+          <button className="btn gray block" onClick={() => setPicked(new Set(houses.filter((h) => !status[h.id]).map((h) => h.id)))}>Select every house left ({houses.filter((h) => !status[h.id]).length})</button>
+        </div>
+      )}
+
+      {!mode && !picking && (
         <div className="sheet">
           {nearest ? (
             <>
@@ -187,6 +260,9 @@ export default function Run() {
                 <button className="btn gray" onClick={() => { setSel(nearest.h.id); setMode("skip"); }}>Skip</button>
                 <button className="btn" onClick={() => { setSel(nearest.h.id); setMode("talk"); }}>Talked</button>
               </div>
+              {streetLeft(nearest.h).length > 1 && (
+                <button className="btn navy block" onClick={() => markMany(streetLeft(nearest.h), "hung")}>Hung the whole street ({streetLeft(nearest.h).length} on {streetOf(nearest.h.address).toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())})</button>
+              )}
             </>
           ) : (
             <>
@@ -210,17 +286,23 @@ export default function Run() {
             <button className="btn gray" onClick={() => setMode("skip")}>Skip</button>
             <button className="btn" onClick={() => setMode("talk")}>Talked</button>
           </div>
+          {streetLeft(selHouse).length > 1 && (
+            <button className="btn navy block" onClick={() => markMany(streetLeft(selHouse), "hung")}>Hung the whole street ({streetLeft(selHouse).length} left)</button>
+          )}
           <button className="btn gray block" onClick={() => { setMode(null); setSel(null); }}>Close</button>
         </div>
       )}
 
-      {mode === "skip" && sel != null && (
-        <SkipSheet onPick={(r) => mark(sel, "skipped", r)} onClose={() => { setMode(null); setSel(null); }} />
+      {mode === "skip" && (sel != null || picked.size > 0) && (
+        <SkipSheet onPick={(r) => {
+          if (picking && picked.size) { markMany([...picked], "skipped", r); setPicked(new Set()); }
+          else if (sel != null) mark(sel, "skipped", r);
+        }} onClose={() => { setMode(null); setSel(null); }} />
       )}
 
       {mode === "talk" && (
         <TalkSheet house={selHouse} gps={gps()} onDone={(ok) => {
-          if (ok && sel != null) { setStatus((s) => ({ ...s, [sel]: { kind: "talked" } })); history.current.push(sel); flash("Lead sent to Dylan ⭐"); }
+          if (ok && sel != null) { setStatus((s) => ({ ...s, [sel]: { kind: "talked" } })); history.current.push([sel]); flash("Lead sent to Dylan ⭐"); }
           setMode(null); setSel(null);
         }} />
       )}
@@ -230,6 +312,8 @@ export default function Run() {
           <div className="grab" />
           <h3>Route menu</h3>
           {d.route.notes && <p className="muted" style={{ margin: 0 }}>{d.route.notes}</p>}
+          <button className="btn gray block" onClick={toggleAuto}>{auto ? "Turn off auto-mark" : "Turn on auto-mark (houses you pass turn green)"}</button>
+          <button className="btn gray block" onClick={() => { setPicking(true); setMode(null); }}>Select several houses</button>
           <button className="btn gray block" onClick={() => {
             if (!pos) { flash("Need your location to add a house"); return; }
             send("/api/session/event", { kind: "new_house", ...gps() });
@@ -272,6 +356,7 @@ function TalkSheet({ house, gps, onDone }: { house: House | null; gps: Record<st
   const [interest, setInterest] = useState("home");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const flushTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
@@ -316,6 +401,7 @@ function FinishSheet({ doors, total, pending, onClose }: { doors: number; total:
   const [photo, setPhoto] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const flushTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);

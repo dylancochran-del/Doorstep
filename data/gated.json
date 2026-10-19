@@ -1,0 +1,394 @@
+[
+ {
+  "name": "Riverwalk of Fanning Springs",
+  "city": "Fanning Springs",
+  "gated": true,
+  "evidence": "Multiple MLS listings describe a gated planned-unit community on SR 26; code entry per Dylan",
+  "source": "https://century21cariotirealestate.com/fl/fanning-springs/riverwalk-of-fanning-springs/9092-maryann-drive/gc536991/",
+  "confidence": "high"
+ },
+ {
+  "name": "Turkey Creek (golf community)",
+  "city": "Alachua",
+  "gated": true,
+  "evidence": "Multiple listings call it a 'gated community' with 18-hole golf course, clubhouse, pool; guard-gate operation/hours not confirmed",
+  "source": "https://www.golfn.com/courses/united-states-of-america/florida/turkey-creek-golf-and-country-club",
+  "confidence": "med"
+ },
+ {
+  "name": "Turkey Creek Forest (55+)",
+  "city": "Gainesville",
+  "gated": "partial",
+  "evidence": "55+ planned unit development with a guard house; described as 'night time gated and guarded' (so likely open by day, a walker may reach doors in daytime). Verify hours.",
+  "source": "https://www.floridaforboomers.com/homes/listing/StellarMLS/GC538734/GAINESVILLE/8434-NW-42ND-CIRCLE",
+  "confidence": "med"
+ },
+ {
+  "name": "Millhopper Forest",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Described in listings as a gated community; HOA managed by Cornerstone Management; includes The Cottages enclave",
+  "source": "https://century21cariotirealestate.com/fl/gainesville/millhopper-forest/5094-nw-58th-street/gc540698/",
+  "confidence": "med"
+ },
+ {
+  "name": "Barrington",
+  "city": "Newberry",
+  "gated": true,
+  "evidence": "Gated estate community (est. 1988) on private acreage in Newberry/Jonesville corridor",
+  "source": "https://movewithmomentum.com/neighborhoods/barrington-newberry",
+  "confidence": "med"
+ },
+ {
+  "name": "Plantation Grove (Fletcher's Mill)",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Described as 'the gated Plantation Grove community' within Fletcher's Mill",
+  "source": "https://movewithmomentum.com/neighborhoods/oak-glen-ph-i-gainesville",
+  "confidence": "med"
+ },
+ {
+  "name": "Fletcher's Mill (overall)",
+  "city": "Gainesville",
+  "gated": "partial",
+  "evidence": "Multi-subdivision development (Oak Glen, Charleston Park, Retreat, Plantation Grove); only Plantation Grove reported gated",
+  "source": "https://movewithmomentum.com/neighborhoods/oak-glen-ph-i-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Cedar Lane Plantation",
+  "city": "High Springs",
+  "gated": true,
+  "evidence": "Described as a private, gated rural subdivision of large parcels",
+  "source": "https://www.echofineproperties.com/communities/archer/",
+  "confidence": "med"
+ },
+ {
+  "name": "Grand Oaks",
+  "city": "High Springs",
+  "gated": true,
+  "evidence": "Described as a gated luxury-estate community (acreage lots) near I-75",
+  "source": "https://www.echofineproperties.com/communities/archer/",
+  "confidence": "med"
+ },
+ {
+  "name": "Blues Creek",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Search summary called it a gated community; page shows clubhouse/pool/tennis; no gate quote seen",
+  "source": "https://www.bexrealty.com/real-estate/Gainesville/Blues-Creek/",
+  "confidence": "low"
+ },
+ {
+  "name": "Hampton Ridge",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Described as a 'secluded, gated community' in a search snippet; unverified",
+  "source": "https://www.homes.com/gainesville-fl/kanapaha-middle-school/s-25eeyje3drwb0/p4/",
+  "confidence": "low"
+ },
+ {
+  "name": "Garison Way",
+  "city": "Gainesville",
+  "gated": "partial",
+  "evidence": "Has a private gated entrance to Kanapaha Veterans Memorial Park (park gate, not necessarily neighborhood gate)",
+  "source": "https://www.homes.com/gainesville-fl/kanapaha-middle-school/s-25eeyje3drwb0/p4/",
+  "confidence": "low"
+ },
+ {
+  "name": "Haile Plantation",
+  "city": "Gainesville",
+  "gated": false,
+  "evidence": "Master-planned ~1,700-acre community with public Haile Loop and village center; no gating mentioned in Guide to Greater Gainesville or listings. Some sub-villages unverified.",
+  "source": "https://guidetogreatergainesville.com/notable-neighborhoods-living-in-greater-gainesville/",
+  "confidence": "low"
+ },
+ {
+  "name": "Oakmont",
+  "city": "Gainesville",
+  "gated": false,
+  "evidence": "Guide notes only that the amenity center is fingerprint-protected, not neighborhood entry",
+  "source": "https://guidetogreatergainesville.com/notable-neighborhoods-living-in-greater-gainesville/",
+  "confidence": "low"
+ },
+ {
+  "name": "Town of Tioga",
+  "city": "Newberry",
+  "gated": false,
+  "evidence": "No access control mentioned; town-center style neighborhood",
+  "source": "https://guidetogreatergainesville.com/notable-neighborhoods-living-in-greater-gainesville/",
+  "confidence": "low"
+ },
+ {
+  "name": "Celebration Pointe",
+  "city": "Gainesville",
+  "gated": false,
+  "evidence": "No access control mentioned (mixed-use)",
+  "source": "https://guidetogreatergainesville.com/notable-neighborhoods-living-in-greater-gainesville/",
+  "confidence": "low"
+ },
+ {
+  "name": "Duckpond",
+  "city": "Gainesville",
+  "gated": false,
+  "evidence": "Historic in-town neighborhood, no access control mentioned",
+  "source": "https://guidetogreatergainesville.com/notable-neighborhoods-living-in-greater-gainesville/",
+  "confidence": "low"
+ },
+ {
+  "name": "Springstead",
+  "city": "High Springs",
+  "gated": false,
+  "evidence": "Noted as having no gate",
+  "source": "https://www.echofineproperties.com/communities/archer/",
+  "confidence": "low"
+ },
+ {
+  "name": "Meadows of Kanapaha",
+  "city": "Gainesville",
+  "gated": false,
+  "evidence": "Farmette-style acreage subdivision with paved roads; no gate mentioned",
+  "source": "https://century21cariotirealestate.com/fl/gainesville/meadows-of-kanapaha/9406-sw-78th-court/gc538749/",
+  "confidence": "low"
+ },
+ {
+  "name": "Oak Hammock at the University of Florida",
+  "city": "Gainesville",
+  "gated": "unknown",
+  "evidence": "136-acre CCRC; searches found no statement about gate/guard. Likely controlled access but UNVERIFIED (non-schema value 'unknown')",
+  "source": "https://www.weitz.com/?p=955",
+  "confidence": "low"
+ },
+ {
+  "name": "Rockwood Villas",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Windsor Park at Gainesville",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Cricket Club",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Hills of Santa Fe",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Bivens Lake Estates",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Gaineswood",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Woodside Villas",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Williamsburg at Meadowbrook",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Emerald Woods",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "The Vue at Celebration Pointe",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Regents Park",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Willowcroft",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Magnolia Place Townhomes",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Campus View South",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Union Street Station",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Millhopper Road Estates",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Destiny at UF",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "San Felasco Estates",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "The Reserve at Millhopper",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Lazonby Acres",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Kelston Lane Cluster",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Provence",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "The Gables",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Shenandoah",
+  "city": "Gainesville",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-gainesville",
+  "confidence": "low"
+ },
+ {
+  "name": "Steeplechase Farms",
+  "city": "Newberry",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-newberry",
+  "confidence": "low"
+ },
+ {
+  "name": "Lakota",
+  "city": "Newberry",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-newberry",
+  "confidence": "low"
+ },
+ {
+  "name": "The Trails",
+  "city": "Newberry",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-newberry",
+  "confidence": "low"
+ },
+ {
+  "name": "Half Moon Station",
+  "city": "Newberry",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-newberry",
+  "confidence": "low"
+ },
+ {
+  "name": "The Grove",
+  "city": "Newberry",
+  "gated": true,
+  "evidence": "Listed on Momentum's gated-communities page (flag derived from MLS gate/guard/controlled-access amenity fields; no per-community evidence shown). Verify on site.",
+  "source": "https://movewithmomentum.com/gated-communities-in-newberry",
+  "confidence": "low"
+ }
+]

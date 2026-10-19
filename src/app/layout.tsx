@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "./globals.css";
+import Boot from "./Boot";
 
 export const metadata: Metadata = {
   title: "Doorstep",
@@ -22,11 +23,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://tiles.openfreemap.org" crossOrigin="" />
+        <link rel="preload" href="/map-style.json" as="fetch" crossOrigin="" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@500;700;800;900&display=swap" />
       </head>
-      <body>{children}</body>
+      <body>{children}<Boot /></body>
     </html>
   );
 }

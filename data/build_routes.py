@@ -6,7 +6,12 @@
 #  5. Price: 15c/door + $5 per stop ($10 if big lots), round up to $5, $15 floor. Canvassers only ever see the payout.
 import json, math, re, collections
 P=json.load(open("parcels.json")); places=json.load(open("places.json"))
-GATED=re.compile(r"RIVERWALK", re.I)           # known gated (code entry). Satellite checks add more over time.
+# Gated communities (data/gated.json, researched 2026-10-19). High/med confidence = excluded.
+# Low confidence or partial = kept, with a note telling the canvasser to skip if the gate is closed.
+_g=json.load(open("gated.json")) if __import__("os").path.exists("gated.json") else []
+def _pat(names): return re.compile("|".join(re.escape(n.upper()) for n in names) or "$^")
+GATED=_pat(["RIVERWALK"]+[g["name"] for g in _g if g.get("gated") is True and g.get("confidence") in ("high","med")])
+MAYBE_GATED=_pat([g["name"] for g in _g if (g.get("gated") is True and g.get("confidence")=="low") or g.get("gated")=="partial"])
 KM_LAT=111.0; KM_LON=96.6
 
 def pip(x,y,poly):
@@ -34,7 +39,7 @@ AREAS={"Chiefland":(29.475,-82.860),"Fanning Springs":(29.588,-82.935),"Old Town
 def area_of(lat,lon):
     return min(AREAS,key=lambda a: math.hypot((lat-AREAS[a][0])*KM_LAT,(lon-AREAS[a][1])*KM_LON))
 
-H=[h for h in P if not GATED.search(h["legal"] or "")]
+H=[h for h in P if not GATED.search((h["legal"] or "").upper())]
 print("homes",len(P),"after gated exclusions",len(H))
 # spatial grid ~150m
 G=collections.defaultdict(list); cell=0.0015
@@ -166,6 +171,7 @@ for k,r in enumerate(out):
     if r["city"]=="Newberry": r["status"]="held"; r["hold"]="Waiting on City of Newberry permit"
     elif r["co"]==11 and not r["city"]: r["status"]="held"; r["hold"]="Waiting on Alachua County canvassing rules"
     # Low-value rural routes stay as drafts (not offered) so spend stays near 20c a door; Dylan can switch any on in Vega.
+    r["maybe_gated"]=bool(MAYBE_GATED.search(r["name"].upper()))
     # Neighborhoods Dylan asked for by name always stay live.
     if r["status"]=="offered" and r["pay"]/r["doors"]>0.35 and not re.search(r"SPANISH TRACE|BUCK BAY|TIOGA", r["name"].upper()): r["status"]="draft"; r["hold"]=None
     r["sort"]=k

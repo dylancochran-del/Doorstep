@@ -14,9 +14,12 @@ export function fail(message: string, status = 400) {
 export async function canvasser(): Promise<Session | null> {
   const s = await getSession();
   if (!s) return null;
-  const { data } = await db().from("canvass_canvassers").select("status, full_name").eq("id", s.cid).single();
+  const { data } = await db().from("canvass_canvassers").select("status, full_name, last_seen_at").eq("id", s.cid).single();
   if (!data || data.status !== "active") return null;
-  await db().from("canvass_canvassers").update({ last_seen_at: new Date().toISOString() }).eq("id", s.cid);
+  // "Last seen" only needs minute-level freshness; skip the write on most requests.
+  if (!data.last_seen_at || Date.now() - new Date(data.last_seen_at).getTime() > 5 * 60_000) {
+    void db().from("canvass_canvassers").update({ last_seen_at: new Date().toISOString() }).eq("id", s.cid).then(() => {});
+  }
   // Name from the database, not the cookie, so a renamed canvasser shows correctly everywhere.
   return { cid: s.cid, name: data.full_name ?? "" };
 }

@@ -8,7 +8,8 @@ import maplibregl, { type GeoJSONSource, type Map as MLMap } from "maplibre-gl";
 export type House = { id: number; lat: number; lon: number; address?: string | null; kind?: string };
 export type Status = Record<string, { kind: string; reason?: string | null }>;
 
-const STYLE = "https://tiles.openfreemap.org/styles/bright";
+// Pre-baked, trimmed game style (data/bake_style.py): one small file, no runtime recoloring.
+const STYLE = "/map-style.json";
 const SAT_TILES = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
 
 const SPRITES: Record<string, { roof: string; body: string; mark?: "check" | "x" | "star" | "plus" }> = {
@@ -17,6 +18,7 @@ const SPRITES: Record<string, { roof: string; body: string; mark?: "check" | "x"
   skipped: { roof: "#5b6573", body: "#a3acb8", mark: "x" },
   talked: { roof: "#c98f00", body: "#f5b301", mark: "star" },
   added: { roof: "#12406e", body: "#8cc8ff", mark: "plus" },
+  picked: { roof: "#c98f00", body: "#fff3c4", mark: "check" },
 };
 
 function drawHouse(roof: string, body: string, mark?: string): ImageData {
@@ -58,36 +60,13 @@ function drawHouse(roof: string, body: string, mark?: string): ImageData {
   return g.getImageData(0, 0, s, s);
 }
 
-/** Push the stock map toward a bright, toy-like palette. */
-function gamify(map: MLMap) {
-  for (const layer of map.getStyle().layers ?? []) {
-    const id = layer.id;
-    try {
-      if (layer.type === "background") map.setPaintProperty(id, "background-color", "#b5e08f");
-      else if (layer.type === "fill") {
-        if (/water/.test(id)) map.setPaintProperty(id, "fill-color", "#5ec2ff");
-        else if (/wood|forest|park|grass|landcover|landuse_park/.test(id)) map.setPaintProperty(id, "fill-color", "#8fd16a");
-        else if (/building/.test(id)) { map.setPaintProperty(id, "fill-color", "#f3d3b0"); map.setPaintProperty(id, "fill-outline-color", "#c9a27a"); }
-        else if (/landuse|residential/.test(id)) map.setPaintProperty(id, "fill-color", "#c6e8a3");
-      } else if (layer.type === "line") {
-        if (/water|river|stream/.test(id)) map.setPaintProperty(id, "line-color", "#5ec2ff");
-        else if (/casing/.test(id)) map.setPaintProperty(id, "line-color", "#d8b977");
-        else if (/road|street|highway|motorway|trunk|primary|secondary|tertiary|minor|service|path/.test(id)) map.setPaintProperty(id, "line-color", /motorway|trunk|primary/.test(id) ? "#ffd666" : "#fffbe8");
-      } else if (layer.type === "symbol" && /label|name|place/.test(id)) {
-        map.setPaintProperty(id, "text-halo-color", "#ffffff");
-        map.setPaintProperty(id, "text-halo-width", 2);
-      }
-    } catch { /* layer without that paint property */ }
-  }
-}
-
-function toGeoJSON(houses: House[], status: Status) {
+function toGeoJSON(houses: House[], status: Status, picked?: Set<number>) {
   return {
     type: "FeatureCollection" as const,
     features: houses.map((h) => ({
       type: "Feature" as const,
       id: h.id,
-      properties: { id: h.id, icon: status[h.id]?.kind ?? (h.kind === "added" ? "added" : "todo") },
+      properties: { id: h.id, icon: picked?.has(h.id) ? "picked" : status[h.id]?.kind ?? (h.kind === "added" ? "added" : "todo") },
       geometry: { type: "Point" as const, coordinates: [h.lon, h.lat] },
     })),
   };
@@ -102,6 +81,7 @@ export default function GameMap(props: {
   satellite?: boolean;
   fit?: { lat: number; lon: number }[];
   focus?: { lat: number; lon: number; zoom?: number } | null;
+  picked?: Set<number>;
   onHouse?: (id: number) => void;
 }) {
   const el = useRef<HTMLDivElement>(null);
@@ -116,29 +96,32 @@ export default function GameMap(props: {
     const m = new maplibregl.Map({
       container: el.current,
       style: STYLE,
-      center: [-82.8, 29.6],
-      zoom: 10,
+      center: latest.current.fit?.length ? [latest.current.fit[0].lon, latest.current.fit[0].lat] : [-82.8, 29.6],
+      zoom: latest.current.fit?.length ? 15 : 10,
+      fadeDuration: 0,
       attributionControl: { compact: true },
       pitchWithRotate: false,
       dragRotate: false,
     });
     map.current = m;
-    m.on("load", () => {
-      gamify(m);
+    // "style.load" fires once the style is parsed, well before every tile arrives,
+    // so the houses show up immediately instead of after the whole basemap loads.
+    m.once("style.load", () => {
       for (const [name, s] of Object.entries(SPRITES)) m.addImage(name, drawHouse(s.roof, s.body, s.mark), { pixelRatio: 2 });
       m.addSource("sat", { type: "raster", tiles: [SAT_TILES], tileSize: 256, maxzoom: 19, attribution: "Imagery © Esri" });
       const firstSymbol = m.getStyle().layers?.find((l) => l.type === "symbol")?.id;
+      m.getCanvas().style.background = "#b5e08f";
       m.addLayer({ id: "sat", type: "raster", source: "sat", layout: { visibility: "none" } }, firstSymbol);
       m.addSource("track", { type: "geojson", data: { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [] } } });
       m.addLayer({ id: "track", type: "line", source: "track", paint: { "line-color": "#f5b301", "line-width": 5, "line-dasharray": [1, 1.5], "line-opacity": 0.9 } });
-      m.addSource("houses", { type: "geojson", data: toGeoJSON(latest.current.houses, latest.current.status ?? {}) });
+      m.addSource("houses", { type: "geojson", data: toGeoJSON(latest.current.houses, latest.current.status ?? {}, latest.current.picked) });
       m.addLayer({
         id: "houses", type: "symbol", source: "houses",
         layout: {
           "icon-image": ["get", "icon"],
           "icon-allow-overlap": true,
           "icon-anchor": "bottom",
-          "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.35, 15, 0.7, 18, 1.1],
+          "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.18, 14, 0.3, 16, 0.6, 18, 1.1],
         },
       });
       m.on("click", "houses", (e) => {
@@ -158,7 +141,7 @@ export default function GameMap(props: {
     const m = map.current;
     if (!m || !ready.current) return;
     const p = latest.current;
-    (m.getSource("houses") as GeoJSONSource | undefined)?.setData(toGeoJSON(p.houses, p.status ?? {}));
+    (m.getSource("houses") as GeoJSONSource | undefined)?.setData(toGeoJSON(p.houses, p.status ?? {}, p.picked));
     (m.getSource("track") as GeoJSONSource | undefined)?.setData({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: p.track ?? [] } });
     m.setLayoutProperty("sat", "visibility", p.satellite ? "visible" : "none");
     if (p.me) {

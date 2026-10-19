@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { use, useState } from "react";
 import { minutes, money, postJSON, useLoad } from "../../ui";
 import type { House } from "../../GameMap";
+import { useEffect } from "react";
+import { prefetchRoute } from "@/lib/tiles";
 
 const GameMap = dynamic(() => import("../../GameMap"), { ssr: false });
 
@@ -19,6 +21,8 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [sat, setSat] = useState(false);
+  // Download this route's map tiles now, so the map opens instantly once he's out there.
+  useEffect(() => { if (data?.houses.length) prefetchRoute(data.houses); }, [data]);
 
   async function start() {
     setBusy(true); setErr(null);
