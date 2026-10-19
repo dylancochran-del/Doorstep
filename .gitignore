@@ -1,0 +1,10 @@
+node_modules
+.next
+.env*
+data/parcels.json
+.vercel
+data/*.local.md
+data/tiles/
+data/parcels.json
+data/route_houses.json
+data/places.json

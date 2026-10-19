@@ -1,0 +1,187 @@
+"use client";
+// The game board: a free vector map restyled with bright game colors, every door a
+// little house sprite that changes when it's checked off, and the canvasser's
+// face moving along the streets. Satellite toggle for spotting gates and fences.
+import { useEffect, useRef } from "react";
+import maplibregl, { type GeoJSONSource, type Map as MLMap } from "maplibre-gl";
+
+export type House = { id: number; lat: number; lon: number; address?: string | null; kind?: string };
+export type Status = Record<string, { kind: string; reason?: string | null }>;
+
+const STYLE = "https://tiles.openfreemap.org/styles/bright";
+const SAT_TILES = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+
+const SPRITES: Record<string, { roof: string; body: string; mark?: "check" | "x" | "star" | "plus" }> = {
+  todo: { roof: "#0b2a4a", body: "#fffaf0" },
+  hung: { roof: "#1e7a37", body: "#2fa84f", mark: "check" },
+  skipped: { roof: "#5b6573", body: "#a3acb8", mark: "x" },
+  talked: { roof: "#c98f00", body: "#f5b301", mark: "star" },
+  added: { roof: "#12406e", body: "#8cc8ff", mark: "plus" },
+};
+
+function drawHouse(roof: string, body: string, mark?: string): ImageData {
+  const s = 96; // 48px at 2x
+  const c = document.createElement("canvas");
+  c.width = c.height = s;
+  const g = c.getContext("2d")!;
+  g.lineJoin = "round";
+  // ground shadow
+  g.fillStyle = "rgba(0,0,0,.22)";
+  g.beginPath(); g.ellipse(48, 86, 30, 7, 0, 0, Math.PI * 2); g.fill();
+  // body
+  g.fillStyle = body; g.strokeStyle = "#0b2a4a"; g.lineWidth = 5;
+  g.beginPath(); g.rect(22, 44, 52, 38); g.fill(); g.stroke();
+  // roof
+  g.fillStyle = roof;
+  g.beginPath(); g.moveTo(14, 48); g.lineTo(48, 14); g.lineTo(82, 48); g.closePath(); g.fill(); g.stroke();
+  // door
+  g.fillStyle = "#0b2a4a"; g.fillRect(42, 60, 13, 22);
+  // badge
+  if (mark) {
+    g.fillStyle = "#fff"; g.strokeStyle = "#0b2a4a"; g.lineWidth = 4;
+    g.beginPath(); g.arc(74, 24, 17, 0, Math.PI * 2); g.fill(); g.stroke();
+    g.strokeStyle = mark === "x" ? "#5b6573" : mark === "star" ? "#c98f00" : mark === "plus" ? "#12406e" : "#1e7a37";
+    g.fillStyle = g.strokeStyle; g.lineWidth = 5; g.lineCap = "round";
+    g.beginPath();
+    if (mark === "check") { g.moveTo(66, 24); g.lineTo(72, 30); g.lineTo(83, 18); g.stroke(); }
+    if (mark === "x") { g.moveTo(67, 17); g.lineTo(81, 31); g.moveTo(81, 17); g.lineTo(67, 31); g.stroke(); }
+    if (mark === "plus") { g.moveTo(74, 16); g.lineTo(74, 32); g.moveTo(66, 24); g.lineTo(82, 24); g.stroke(); }
+    if (mark === "star") {
+      for (let i = 0; i < 10; i++) {
+        const r = i % 2 ? 5 : 11, a = -Math.PI / 2 + (i * Math.PI) / 5;
+        const x = 74 + r * Math.cos(a), y = 24 + r * Math.sin(a);
+        i ? g.lineTo(x, y) : g.moveTo(x, y);
+      }
+      g.closePath(); g.fill();
+    }
+  }
+  return g.getImageData(0, 0, s, s);
+}
+
+/** Push the stock map toward a bright, toy-like palette. */
+function gamify(map: MLMap) {
+  for (const layer of map.getStyle().layers ?? []) {
+    const id = layer.id;
+    try {
+      if (layer.type === "background") map.setPaintProperty(id, "background-color", "#b5e08f");
+      else if (layer.type === "fill") {
+        if (/water/.test(id)) map.setPaintProperty(id, "fill-color", "#5ec2ff");
+        else if (/wood|forest|park|grass|landcover|landuse_park/.test(id)) map.setPaintProperty(id, "fill-color", "#8fd16a");
+        else if (/building/.test(id)) { map.setPaintProperty(id, "fill-color", "#f3d3b0"); map.setPaintProperty(id, "fill-outline-color", "#c9a27a"); }
+        else if (/landuse|residential/.test(id)) map.setPaintProperty(id, "fill-color", "#c6e8a3");
+      } else if (layer.type === "line") {
+        if (/water|river|stream/.test(id)) map.setPaintProperty(id, "line-color", "#5ec2ff");
+        else if (/casing/.test(id)) map.setPaintProperty(id, "line-color", "#d8b977");
+        else if (/road|street|highway|motorway|trunk|primary|secondary|tertiary|minor|service|path/.test(id)) map.setPaintProperty(id, "line-color", /motorway|trunk|primary/.test(id) ? "#ffd666" : "#fffbe8");
+      } else if (layer.type === "symbol" && /label|name|place/.test(id)) {
+        map.setPaintProperty(id, "text-halo-color", "#ffffff");
+        map.setPaintProperty(id, "text-halo-width", 2);
+      }
+    } catch { /* layer without that paint property */ }
+  }
+}
+
+function toGeoJSON(houses: House[], status: Status) {
+  return {
+    type: "FeatureCollection" as const,
+    features: houses.map((h) => ({
+      type: "Feature" as const,
+      id: h.id,
+      properties: { id: h.id, icon: status[h.id]?.kind ?? (h.kind === "added" ? "added" : "todo") },
+      geometry: { type: "Point" as const, coordinates: [h.lon, h.lat] },
+    })),
+  };
+}
+
+export default function GameMap(props: {
+  houses: House[];
+  status?: Status;
+  me?: { lat: number; lon: number } | null;
+  avatar?: string | null;
+  track?: [number, number][];
+  satellite?: boolean;
+  fit?: { lat: number; lon: number }[];
+  focus?: { lat: number; lon: number; zoom?: number } | null;
+  onHouse?: (id: number) => void;
+}) {
+  const el = useRef<HTMLDivElement>(null);
+  const map = useRef<MLMap | null>(null);
+  const ready = useRef(false);
+  const meMarker = useRef<maplibregl.Marker | null>(null);
+  const latest = useRef(props);
+  latest.current = props;
+
+  useEffect(() => {
+    if (!el.current) return;
+    const m = new maplibregl.Map({
+      container: el.current,
+      style: STYLE,
+      center: [-82.8, 29.6],
+      zoom: 10,
+      attributionControl: { compact: true },
+      pitchWithRotate: false,
+      dragRotate: false,
+    });
+    map.current = m;
+    m.on("load", () => {
+      gamify(m);
+      for (const [name, s] of Object.entries(SPRITES)) m.addImage(name, drawHouse(s.roof, s.body, s.mark), { pixelRatio: 2 });
+      m.addSource("sat", { type: "raster", tiles: [SAT_TILES], tileSize: 256, maxzoom: 19, attribution: "Imagery © Esri" });
+      const firstSymbol = m.getStyle().layers?.find((l) => l.type === "symbol")?.id;
+      m.addLayer({ id: "sat", type: "raster", source: "sat", layout: { visibility: "none" } }, firstSymbol);
+      m.addSource("track", { type: "geojson", data: { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [] } } });
+      m.addLayer({ id: "track", type: "line", source: "track", paint: { "line-color": "#f5b301", "line-width": 5, "line-dasharray": [1, 1.5], "line-opacity": 0.9 } });
+      m.addSource("houses", { type: "geojson", data: toGeoJSON(latest.current.houses, latest.current.status ?? {}) });
+      m.addLayer({
+        id: "houses", type: "symbol", source: "houses",
+        layout: {
+          "icon-image": ["get", "icon"],
+          "icon-allow-overlap": true,
+          "icon-anchor": "bottom",
+          "icon-size": ["interpolate", ["linear"], ["zoom"], 12, 0.35, 15, 0.7, 18, 1.1],
+        },
+      });
+      m.on("click", "houses", (e) => {
+        const id = e.features?.[0]?.properties?.id;
+        if (id != null) latest.current.onHouse?.(Number(id));
+      });
+      m.on("mouseenter", "houses", () => (m.getCanvas().style.cursor = "pointer"));
+      m.on("mouseleave", "houses", () => (m.getCanvas().style.cursor = ""));
+      ready.current = true;
+      sync(true);
+    });
+    return () => { m.remove(); map.current = null; ready.current = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function sync(first = false) {
+    const m = map.current;
+    if (!m || !ready.current) return;
+    const p = latest.current;
+    (m.getSource("houses") as GeoJSONSource | undefined)?.setData(toGeoJSON(p.houses, p.status ?? {}));
+    (m.getSource("track") as GeoJSONSource | undefined)?.setData({ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: p.track ?? [] } });
+    m.setLayoutProperty("sat", "visibility", p.satellite ? "visible" : "none");
+    if (p.me) {
+      if (!meMarker.current) {
+        const d = document.createElement("div");
+        d.className = "me";
+        if (p.avatar) d.style.backgroundImage = `url("${p.avatar}")`;
+        meMarker.current = new maplibregl.Marker({ element: d }).setLngLat([p.me.lon, p.me.lat]).addTo(m);
+      } else meMarker.current.setLngLat([p.me.lon, p.me.lat]);
+    }
+    if (first && p.fit && p.fit.length) {
+      const b = new maplibregl.LngLatBounds();
+      p.fit.forEach((f) => b.extend([f.lon, f.lat]));
+      m.fitBounds(b, { padding: { top: 140, bottom: 220, left: 40, right: 40 }, maxZoom: 17, duration: 0 });
+    }
+  }
+
+  useEffect(() => { sync(); });
+
+  useEffect(() => {
+    const f = props.focus;
+    if (f && map.current) map.current.easeTo({ center: [f.lon, f.lat], zoom: f.zoom ?? Math.max(map.current.getZoom(), 17), duration: 600 });
+  }, [props.focus]);
+
+  return <div ref={el} className="map" style={{ width: "100%", height: "100%" }} />;
+}

@@ -1,0 +1,4 @@
+-- Applied to hmdjzrovvvfvyjnxxyab on 2026-10-19 via the Supabase MCP (migration name: doorstep_canvassing).
+-- Tables: canvass_canvassers, canvass_routes, canvass_houses, canvass_sessions, canvass_events, canvass_track.
+-- RLS on, no policies: service role only. Also inserts marketing_sources 'door-hangers' and storage bucket 'doorstep'.
+-- See the live schema with: list_tables(verbose=true). Route data is loaded by data/load_routes.py.
