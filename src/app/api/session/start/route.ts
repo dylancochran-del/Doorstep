@@ -10,10 +10,11 @@ export async function POST(req: Request) {
   if (!routeId) return fail("Pick a route.");
   if (await activeSession(s.cid)) return fail("Finish or cancel your current route first.", 409);
 
-  const { data: route } = await db().from("canvass_routes").select("id, payout, status, hold_reason, center_lat, center_lon, boost, boost_until").eq("id", routeId).single();
+  const { data: route } = await db().from("canvass_routes").select("id, payout, status, hold_reason, center_lat, center_lon, boost, boost_until, assigned_to").eq("id", routeId).single();
   if (!route) return fail("Route not found.", 404);
   if (route.status === "held") return fail(route.hold_reason || "This route is on hold.", 409);
   if (route.status !== "offered") return fail("This route is not available.", 409);
+  if (route.assigned_to && route.assigned_to !== s.cid) return fail("This route is reserved for another canvasser.", 409);
   const sun = daylight(route.center_lat, route.center_lon);
   if (!sun.canStart) return fail(sun.reason || "Routes run in daylight only.", 409);
   const { data: busy } = await db().from("canvass_sessions").select("id").eq("route_id", routeId).eq("status", "active").maybeSingle();

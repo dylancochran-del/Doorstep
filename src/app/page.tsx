@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Tabs, api, minutes, money, useLoad, useMe } from "./ui";
 import Notify from "./Notify";
 
-type Route = { id: string; city: string; name: string; payout: number; hot_homes?: number | null; boost?: number; boost_note?: string | null; doors: number; stops: number; lot_type: string; est_minutes: number | null; notes: string | null; status: string; hold_reason: string | null; mine: boolean; taken: boolean; finishedByMe: boolean; center_lat: number; center_lon: number };
+type Route = { id: string; city: string; name: string; payout: number; hot_homes?: number | null; boost?: number; boost_note?: string | null; reservedForMe?: boolean; reservedForOther?: boolean; doors: number; stops: number; lot_type: string; est_minutes: number | null; notes: string | null; status: string; hold_reason: string | null; mine: boolean; taken: boolean; finishedByMe: boolean; center_lat: number; center_lon: number };
 type Sun = { sunrise: string; sunset: string; lastStart: string; canStart: boolean; isDark: boolean; reason: string | null };
 
 // Default order follows the home base (Fanning Springs) out along SR-26 to Gainesville.
@@ -55,6 +55,7 @@ export default function Routes() {
 
       {active && <Link href="/run" className="btn green block">Resume your route</Link>}
       <Notify />
+      <Messages />
 
       {sun && (
         <div className={`sunbar ${sun.canStart ? "" : "dark"}`}>
@@ -68,7 +69,8 @@ export default function Routes() {
 
       {cities.map((city) => {
         const all = routes.filter((r) => r.city === city);
-        const rs = all.filter((r) => r.status === "offered" || r.mine).sort((a, b) => (b.boost ?? 0) - (a.boost ?? 0));
+        const rs = all.filter((r) => (r.status === "offered" && !r.reservedForOther) || r.mine)
+          .sort((a, b) => Number(!!b.reservedForMe) - Number(!!a.reservedForMe) || (b.boost ?? 0) - (a.boost ?? 0));
         const held = all.filter((r) => r.status === "held" && !r.mine);
         const dist = here ? Math.min(...rs.map((r) => km(here, { lat: r.center_lat, lon: r.center_lon }))) : null;
         return (
@@ -84,6 +86,7 @@ export default function Routes() {
                   <span className="meta">
                     <span>{r.doors} doors</span>
                     {r.est_minutes ? <span>~{minutes(r.est_minutes)}</span> : null}
+                    {r.reservedForMe && <span className="tag gold">⭐ Saved for you</span>}
                     {(r.boost ?? 0) > 0 && <span className="tag green">🚀 +{money(r.boost!)} boost{r.boost_note ? `: ${r.boost_note}` : ""}</span>}
                     {(r.hot_homes ?? 0) > 0 && <span className="tag gold">🔥 {r.hot_homes} hot</span>}
                     {r.lot_type === "spread" && <span className="tag">Big lots</span>}
@@ -101,5 +104,22 @@ export default function Routes() {
       })}
       <Tabs />
     </main>
+  );
+}
+
+function Messages() {
+  const [msgs, setMsgs] = useState<{ id: number; body: string; created_at: string; direct: boolean }[]>([]);
+  useEffect(() => { api<{ messages: typeof msgs }>("/api/messages").then((d) => setMsgs(d.messages)).catch(() => {}); }, []);
+  if (!msgs.length) return null;
+  return (
+    <>
+      {msgs.map((m) => (
+        <div key={m.id} className="card" style={{ border: "2px solid var(--gold)", display: "grid", gap: 8 }}>
+          <b>💬 From Dylan</b>
+          <span style={{ whiteSpace: "pre-wrap" }}>{m.body}</span>
+          {m.direct && <button className="btn gray" onClick={() => { api("/api/messages", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: m.id }) }).catch(() => {}); setMsgs((x) => x.filter((y) => y.id !== m.id)); }}>Got it</button>}
+        </div>
+      ))}
+    </>
   );
 }
