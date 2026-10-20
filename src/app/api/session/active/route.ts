@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { activeSession, canvasser, fail, json } from "@/lib/api";
 import { daylight } from "@/lib/daylight";
 
-type H = { id: number; address: string | null; lat: number; lon: number; kind: string };
+type H = { id: number; address: string | null; lat: number; lon: number; kind: string; [k: string]: unknown };
 
 export async function GET() {
   const s = await canvasser();
@@ -13,8 +13,8 @@ export async function GET() {
   if (!session) return json({ session: null });
   const [{ data: route }, { data: houses }, { data: events }] = await Promise.all([
     db().from("canvass_routes").select("id, city, name, payout, doors, center_lat, center_lon, notes").eq("id", session.route_id).single(),
-    db().from("canvass_houses").select("id, address, lat, lon, kind").eq("route_id", session.route_id).eq("do_not_knock", false).range(0, 4999),
-    db().from("canvass_events").select("house_id, kind, reason, canvass_houses(id, address, lat, lon, kind)").eq("session_id", session.id).order("created_at").range(0, 9999),
+    db().from("canvass_houses").select("id, address, lat, lon, kind, year_built, living_sqft, sale_year, homestead, prospect, prospect_reasons").eq("route_id", session.route_id).eq("do_not_knock", false).range(0, 4999),
+    db().from("canvass_events").select("house_id, kind, reason, canvass_houses(id, address, lat, lon, kind, year_built, living_sqft, sale_year, homestead, prospect, prospect_reasons)").eq("session_id", session.id).order("created_at").range(0, 9999),
   ]);
   const status: Record<string, { kind: string; reason: string | null }> = {};
   const all: H[] = [...((houses ?? []) as H[])];

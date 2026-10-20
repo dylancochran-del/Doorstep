@@ -6,6 +6,9 @@ import { minutes, money, postJSON, useLoad } from "../../ui";
 import type { House } from "../../GameMap";
 import { useEffect } from "react";
 import { prefetchRoute } from "@/lib/tiles";
+import { pathPieces, walkOrder } from "@/lib/walk";
+import { useMemo } from "react";
+import { HOT } from "../../GameMap";
 
 const GameMap = dynamic(() => import("../../GameMap"), { ssr: false });
 
@@ -31,6 +34,8 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
     try { await postJSON("/api/session/start", { routeId: id }); location.href = "/run"; }
     catch (e) { setErr((e as Error).message); setBusy(false); }
   }
+  const path = useMemo<[number, number][][]>(() => pathPieces(walkOrder(data?.houses ?? [], here)), [data, here]);
+  const hot = (data?.houses ?? []).filter((h) => (h.prospect ?? 0) >= HOT).length;
   if (error) return <main className="page"><div className="error">{error}</div><Link href="/" className="btn gray">Back to routes</Link></main>;
   if (!data) return <main className="page"><p className="muted">Loading route…</p></main>;
   const r = data.route;
@@ -43,7 +48,7 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
   const directions = `https://www.google.com/maps/dir/?api=1&destination=${target.lat},${target.lon}`;
   return (
     <div className="run">
-      <GameMap houses={data.houses} fit={data.houses.length ? data.houses : [{ lat: r.center_lat, lon: r.center_lon }]} satellite={sat} />
+      <GameMap houses={data.houses} fit={data.houses.length ? data.houses : [{ lat: r.center_lat, lon: r.center_lon }]} satellite={sat} path={path} />
       <div className="hud">
         <div className="hud-top">
           <Link href="/" className="iconbtn" aria-label="Back to routes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M15 5l-7 7 7 7" /></svg></Link>
@@ -59,6 +64,7 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
           <div><h3>{minutes(r.est_minutes) || "—"}</h3><span className="muted" style={{ fontSize: ".8rem", fontWeight: 800 }}>ABOUT</span></div>
           <div><h3>{Math.ceil(r.doors * 1.1)}</h3><span className="muted" style={{ fontSize: ".8rem", fontWeight: 800 }}>HANGERS</span></div>
         </div>
+        {hot > 0 && <div className="sunbar">🔥 {hot} hot prospects on this route (older homes, owner lives there). They have a flame on the map.</div>}
         {r.notes && <p style={{ margin: 0 }}>{r.notes}</p>}
         {held && <div className="error">On hold: {r.hold_reason ?? "Dylan will open this route soon."}</div>}
         {!held && !data.daylight.canStart && <div className="sunbar dark">🌙 {data.daylight.reason}</div>}

@@ -8,7 +8,7 @@ export async function GET() {
   if (!s) return fail("Sign in first.", 401);
   const { data: routes } = await db()
     .from("canvass_routes")
-    .select("id, city, name, payout, doors, stops, lot_type, est_minutes, center_lat, center_lon, notes, status, hold_reason, sort")
+    .select("id, city, name, payout, doors, stops, lot_type, est_minutes, center_lat, center_lon, notes, status, hold_reason, sort, hot_homes")
     .in("status", ["offered", "held"])
     .order("sort");
   // A route someone else is running right now is not on offer.

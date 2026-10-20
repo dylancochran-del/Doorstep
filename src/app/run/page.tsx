@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { api, money, postJSON, shrink, useMe } from "../ui";
 import { prefetchRoute } from "@/lib/tiles";
+import { pathPieces, walkOrder } from "@/lib/walk";
+import { HOT } from "../GameMap";
 import type { House, Status } from "../GameMap";
 
 const GameMap = dynamic(() => import("../GameMap"), { ssr: false });
@@ -168,6 +170,19 @@ export default function Run() {
   }, [pos, houses, status]);
 
   const selHouse = houses.find((h) => h.id === sel) ?? null;
+  // Walking plan: computed from where he is when the route opens (or the first house),
+  // then simply skips houses as they get marked. Re-planning every GPS tick would make
+  // the line jump around; "Re-plan from here" in the menu does it on demand.
+  const [planFrom, setPlanFrom] = useState<{ lat: number; lon: number } | null>(null);
+  useEffect(() => { if (pos && !planFrom) setPlanFrom({ lat: pos.lat, lon: pos.lon }); }, [pos, planFrom]);
+  const plan = useMemo(() => walkOrder(houses, planFrom), [houses, planFrom]);
+  const todo = useMemo(() => plan.filter((h) => !status[h.id]), [plan, status]);
+  const path = useMemo<[number, number][][]>(() => {
+    const pts = todo.slice(0, 60);
+    return pathPieces(pos && pts.length ? [{ lat: pos.lat, lon: pos.lon }, ...pts] : pts, 150);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [todo, Math.round((pos?.lat ?? 0) * 2000), Math.round((pos?.lon ?? 0) * 2000)]);
+  const nextDoor = todo[0] ?? null;
   const left = houses.filter((h) => !status[h.id]).length;
   // Multi-stop routes: when nothing is in walking range, point him at the closest unfinished house.
   const nextArea = useMemo(() => {
@@ -230,7 +245,7 @@ export default function Run() {
 
   return (
     <div className="run">
-      <GameMap houses={houses} status={status} me={pos} avatar={me?.avatar} track={track} satellite={sat} fit={houses} focus={focus} picked={picked}
+      <GameMap houses={houses} status={status} me={pos} avatar={me?.avatar} track={track} satellite={sat} fit={houses} focus={focus} picked={picked} path={path}
         onHouse={(id) => {
           if (picking) setPicked((p) => { const n = new Set(p); if (n.has(id)) n.delete(id); else n.add(id); return n; });
           else { setSel(id); setMode("house"); }
@@ -281,7 +296,7 @@ export default function Run() {
           {nearest ? (
             <>
               <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
-                <div style={{ minWidth: 0 }}><span className="tag">Closest door · {Math.round(nearest.m)} m</span><h3 style={{ marginTop: 4 }}>{nearest.h.address || "House"}</h3></div>
+                <div style={{ minWidth: 0 }}><span className="tag">Closest door · {Math.round(nearest.m)} m</span>{(nearest.h.prospect ?? 0) >= HOT && <span className="tag gold" style={{ marginLeft: 6 }}>🔥 Hot prospect</span>}<h3 style={{ marginTop: 4 }}>{nearest.h.address || "House"}</h3></div>
               </div>
               <div className="grid3">
                 <button className="btn green" onClick={() => mark(nearest.h.id, "hung")}>Hung ✓</button>
@@ -294,7 +309,8 @@ export default function Run() {
             </>
           ) : (
             <>
-              <h3>{pct >= 100 ? "Every door done!" : pos ? "Walk to a house or tap one on the map" : "Turn on location to see the closest door"}</h3>
+              <h3>{pct >= 100 ? "Every door done!" : nextDoor ? `Next: ${nextDoor.address || "the next house"}` : "Tap a house on the map"}</h3>
+              {nextDoor && pct < 100 && <p className="muted" style={{ margin: 0 }}>Follow the dotted line. {pos ? "" : "Turn on location to see the closest door."}</p>}
               {nextArea && (
                 <a className="btn green block" href={`https://www.google.com/maps/dir/?api=1&destination=${nextArea.lat},${nextArea.lon}`} target="_blank" rel="noopener">
                   Drive to next area ({left} left, {(nextArea.m / 1609).toFixed(1)} mi)
@@ -313,12 +329,14 @@ export default function Run() {
         <div className="sheet">
           <div className="grab" />
           <h3>{selHouse.address || "House"}</h3>
+          <HouseCard h={selHouse} />
           {status[selHouse.id] && <span className="tag">Marked {status[selHouse.id].kind}</span>}
           <div className="grid3">
             <button className="btn green" onClick={() => mark(selHouse.id, "hung")}>Hung ✓</button>
             <button className="btn gray" onClick={() => setMode("skip")}>Skip</button>
             <button className="btn" onClick={() => setMode("talk")}>Talked</button>
           </div>
+          <a className="btn gray block" href={`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${selHouse.lat},${selHouse.lon}`} target="_blank" rel="noopener">Street View: check for gates &amp; dogs</a>
           {selLeft.length > 1 && (
             <button className="btn navy block" onClick={() => markMany(selLeft, "hung")}>Hung the whole street ({selLeft.length} left)</button>
           )}
@@ -347,6 +365,7 @@ export default function Run() {
           {d.route.notes && <p className="muted" style={{ margin: 0 }}>{d.route.notes}</p>}
           <button className="btn gray block" onClick={toggleAuto}>{auto ? "Turn off auto-mark" : "Turn on auto-mark (houses you pass turn green)"}</button>
           <button className="btn gray block" onClick={() => { setPicking(true); setMode(null); }}>Select several houses</button>
+          <button className="btn gray block" onClick={() => { if (pos) { setPlanFrom({ lat: pos.lat, lon: pos.lon }); flash("New walking path from here"); } setMode(null); }}>Re-plan walking path from here</button>
           <button className="btn gray block" onClick={() => {
             if (!pos) { flash("Need your location to add a house"); return; }
             send("/api/session/event", { kind: "new_house", ...gps() });
@@ -457,5 +476,25 @@ function FinishSheet({ doors, total, pending, onClose }: { doors: number; total:
       {err && <div className="error" role="alert">{err}</div>}
       <div className="grid2"><button type="button" className="btn gray" onClick={onClose}>Not yet</button><button className="btn green" disabled={busy || pending > 0}>{busy ? "Submitting…" : "Submit for pay"}</button></div>
     </form>
+  );
+}
+
+/** The Zillow-style facts for one house, from public property records. */
+function HouseCard({ h }: { h: House }) {
+  const facts = [
+    h.year_built ? `Built ${h.year_built}` : null,
+    h.living_sqft ? `${h.living_sqft.toLocaleString()} sq ft` : null,
+    h.homestead ? "Owner lives here" : h.homestead === false ? "Likely a rental" : null,
+    h.sale_year ? `Bought ${h.sale_year}` : null,
+    h.kind === "mobile" ? "Mobile home" : null,
+  ].filter(Boolean);
+  const hot = (h.prospect ?? 0) >= HOT;
+  if (!facts.length && !hot) return null;
+  return (
+    <div className="card" style={{ padding: 12, display: "grid", gap: 6, boxShadow: "none", border: `2px solid ${hot ? "var(--gold)" : "var(--line)"}` }}>
+      {hot && <b style={{ color: "#c25400" }}>🔥 Hot prospect: worth a knock if someone&apos;s outside</b>}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{facts.map((f) => <span key={f} className="tag">{f}</span>)}</div>
+      {hot && h.prospect_reasons?.length ? <span className="muted" style={{ fontSize: ".85rem" }}>{h.prospect_reasons.join(" · ")}</span> : null}
+    </div>
   );
 }

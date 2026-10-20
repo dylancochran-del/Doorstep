@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Tabs, api, minutes, money, useLoad, useMe } from "./ui";
 
-type Route = { id: string; city: string; name: string; payout: number; doors: number; stops: number; lot_type: string; est_minutes: number | null; notes: string | null; status: string; hold_reason: string | null; mine: boolean; taken: boolean; finishedByMe: boolean; center_lat: number; center_lon: number };
+type Route = { id: string; city: string; name: string; payout: number; hot_homes?: number | null; doors: number; stops: number; lot_type: string; est_minutes: number | null; notes: string | null; status: string; hold_reason: string | null; mine: boolean; taken: boolean; finishedByMe: boolean; center_lat: number; center_lon: number };
 type Sun = { sunrise: string; sunset: string; lastStart: string; canStart: boolean; isDark: boolean; reason: string | null };
 
 // Default order follows the home base (Fanning Springs) out along SR-26 to Gainesville.
@@ -82,6 +82,7 @@ export default function Routes() {
                   <span className="meta">
                     <span>{r.doors} doors</span>
                     {r.est_minutes ? <span>~{minutes(r.est_minutes)}</span> : null}
+                    {(r.hot_homes ?? 0) > 0 && <span className="tag gold">🔥 {r.hot_homes} hot</span>}
                     {r.lot_type === "spread" && <span className="tag">Big lots</span>}
                     {r.status === "held" && <span className="tag red">On hold</span>}
                     {r.taken && <span className="tag">Taken</span>}
