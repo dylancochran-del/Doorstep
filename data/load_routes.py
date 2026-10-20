@@ -13,6 +13,7 @@ sb.req("PATCH","canvass_houses?kind=neq.added&route_id=not.is.null",{"route_id":
 rows=[dict(id=r["id"],city=r["area"],name=r["name"],payout=r["pay"],doors=r["doors"],stops=r["stops"],lot_type=r["lot"],est_minutes=r["mins"],
           center_lat=r["lat"],center_lon=r["lon"],bbox=r["bbox"],homestead_share=r["hm"],status=r["status"],hold_reason=r["hold"],sort=r["sort"],
           notes=" ".join(x for x in [
+              "HANG ONLY: leave the hanger and move on, no knocking. If someone comes out, be friendly but don't pitch; tell them to scan the code." if r.get("hang_only") else "",
               "Big lots: houses are spread out, bring water." if r["lot"]=="spread" else "",
               "May have a gate at the entrance. If it's closed, mark the houses Skipped (Gate) and move on." if r.get("maybe_gated") else ""] if x) or None) for r in R]
 sb.upsert("canvass_routes",rows,on="id",chunk=200)

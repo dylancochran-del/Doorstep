@@ -168,8 +168,9 @@ for k,r in enumerate(out):
     cnt[code]+=1; r["id"]=f'{code}-{cnt[code]:02d}'
     # Holds: Newberry requires a solicitor permit; unincorporated Alachua County (Ch. 118) unverified.
     r["status"]="offered"; r["hold"]=None
-    if r["city"]=="Newberry": r["status"]="held"; r["hold"]="Waiting on City of Newberry permit"
-    elif r["co"]==11 and not r["city"]: r["status"]="held"; r["hold"]="Waiting on Alachua County canvassing rules"
+    # Newberry + unincorporated Alachua: Dylan chose not to pull permits (2026-10-19). Routes run
+    # hang-only there: leave the hanger, no knocking, no pitch.
+    r["hang_only"]= r["city"]=="Newberry" or (r["co"]==11 and not r["city"])
     # Low-value rural routes stay as drafts (not offered) so spend stays near 20c a door; Dylan can switch any on in Vega.
     r["maybe_gated"]=bool(MAYBE_GATED.search(r["name"].upper()))
     # Neighborhoods Dylan asked for by name always stay live.
