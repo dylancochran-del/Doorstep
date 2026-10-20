@@ -14,7 +14,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> 
   if (!route) return fail("Route not found.", 404);
   const { data: houses } = await db()
     .from("canvass_houses")
-    .select("id, address, lat, lon, kind, year_built, living_sqft, sale_year, homestead, prospect, prospect_reasons")
+    .select("id, address, lat, lon, kind, year_built, living_sqft, sale_year, homestead, prospect, prospect_reasons, owner_name, occupancy")
     .eq("route_id", id)
     .eq("do_not_knock", false)
     .range(0, 4999);

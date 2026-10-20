@@ -1,6 +1,7 @@
 "use client";
 import { use, useEffect, useState } from "react";
-import { api, shrink } from "../../ui";
+import { api } from "../../ui";
+import AvatarCrop from "../../AvatarCrop";
 
 export default function Join({ params }: { params: Promise<{ token: string }> }) {
   const { token } = use(params);
@@ -9,13 +10,12 @@ export default function Join({ params }: { params: Promise<{ token: string }> })
   const [preview, setPreview] = useState<string | null>(null);
   const [photo, setPhoto] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [raw, setRaw] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
   useEffect(() => { api<{ email: string }>(`/api/join?token=${encodeURIComponent(token)}`).then((d) => setEmail(d.email)).catch((e) => setBad(e.message)); }, [token]);
 
-  async function pick(f: File | undefined) {
-    if (!f) return;
-    const small = await shrink(f, 600);
-    setPhoto(small); setPreview(URL.createObjectURL(small));
+  function pick(f: File | undefined) {
+    if (f) setRaw(f);
   }
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,7 +36,8 @@ export default function Join({ params }: { params: Promise<{ token: string }> })
           <b>Profile photo</b>
           <span className="muted" style={{ fontSize: ".85rem" }}>This shows on the map as you walk your route.</span>
         </label>
-        <input id="photo" type="file" accept="image/*" hidden onChange={(e) => pick(e.target.files?.[0])} />
+        <input id="photo" type="file" accept="image/*" hidden onChange={(e) => { pick(e.target.files?.[0]); e.target.value = ""; }} />
+        {raw && <AvatarCrop file={raw} onCancel={() => setRaw(null)} onDone={(f, url) => { setPhoto(f); setPreview(url); setRaw(null); }} />}
         <div className="field"><label htmlFor="full_name">Full name</label><input id="full_name" name="full_name" autoComplete="name" required /></div>
         <div className="field"><label htmlFor="phone">Phone</label><input id="phone" name="phone" type="tel" autoComplete="tel" /></div>
         <div className="field"><label htmlFor="password">Create a password</label><input id="password" name="password" type="password" minLength={8} autoComplete="new-password" required /></div>

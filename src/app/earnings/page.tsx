@@ -1,6 +1,35 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Tabs, api, money, useLoad } from "../ui";
+import { Tabs, api, money, useLoad, useMe } from "../ui";
+import AvatarCrop from "../AvatarCrop";
+
+function ProfilePhoto() {
+  const me = useMe();
+  const [raw, setRaw] = useState<File | null>(null);
+  const [preview, setPreview] = useState<string | null>(null);
+  const [msg, setMsg] = useState<string | null>(null);
+  async function save(f: File, url: string) {
+    setRaw(null); setPreview(url); setMsg("Saving…");
+    const fd = new FormData(); fd.set("photo", f);
+    try { await api("/api/me/photo", { method: "POST", body: fd }); setMsg("Photo updated ✓"); }
+    catch (e) { setMsg((e as Error).message); }
+  }
+  const src = preview ?? me?.avatar ?? null;
+  return (
+    <div className="card" style={{ display: "flex", gap: 14, alignItems: "center" }}>
+      <label htmlFor="newphoto" style={{ cursor: "pointer" }}>
+        <span className="avatar" style={{ width: 64, height: 64, display: "block", backgroundImage: src ? `url(${src})` : undefined, backgroundSize: "cover", backgroundPosition: "center" }} />
+      </label>
+      <div style={{ flex: 1, display: "grid", gap: 2 }}>
+        <b>{me?.name ?? "Your profile"}</b>
+        <label htmlFor="newphoto" style={{ color: "var(--navy-2)", fontWeight: 800, cursor: "pointer" }}>Change photo</label>
+        {msg && <span className="muted" style={{ fontSize: ".85rem" }}>{msg}</span>}
+      </div>
+      <input id="newphoto" type="file" accept="image/*" hidden onChange={(e) => { const f = e.target.files?.[0]; if (f) setRaw(f); e.target.value = ""; }} />
+      {raw && <AvatarCrop file={raw} onCancel={() => setRaw(null)} onDone={save} />}
+    </div>
+  );
+}
 
 function PayHandle() {
   const [app, setApp] = useState("venmo");
@@ -46,6 +75,7 @@ export default function Earnings() {
           <div className="card" key={l} style={{ textAlign: "center", padding: 12 }}><h3>{money(v ?? 0)}</h3><span className="muted" style={{ fontSize: ".78rem", fontWeight: 800, textTransform: "uppercase" }}>{l}</span></div>
         ))}
       </div>
+      <ProfilePhoto />
       <PayHandle />
       <section className="city">
         <h2>Your routes</h2>

@@ -9,6 +9,7 @@ export type House = {
   id: number; lat: number; lon: number; address?: string | null; kind?: string;
   year_built?: number | null; living_sqft?: number | null; sale_year?: number | null; homestead?: boolean | null;
   prospect?: number | null; prospect_reasons?: string[] | null;
+  owner_name?: string | null; occupancy?: string | null;
 };
 export const HOT = 75; // top ~5% of homes: older + owner-occupied + one more signal
 export type Status = Record<string, { kind: string; reason?: string | null }>;

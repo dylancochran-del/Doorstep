@@ -10,11 +10,13 @@ const SCRIPTS = [
   { t: "They're not interested or annoyed", s: "No problem at all, sorry to bother you. Have a great day! (Then mark it Skipped → Other and move on.)" },
 ];
 const RULES = [
+  "Never walk through yards. Stay on the driveway, the front walkway, or the sidewalk. No cutting across lawns, gardens, or between houses.",
   "Daylight only. Routes open at sunrise and close 45 minutes before sunset.",
   "Hang on the door handle. Never in or on a mailbox (federal law).",
   "Skip any house with a No Soliciting or No Handbills sign, a closed gate, or a loose dog. Mark it Skipped. You still get paid for the route.",
   "Never go into a fenced yard or past a closed gate.",
   "Don't quote prices or talk about coverage. You're not the agent.",
+  "The house card may show the owner's name. Don't greet people by it; let them introduce themselves.",
   "Wear the Florida All Risk shirt and hat.",
   "Count your hangers before you start and bring the leftovers back.",
   "Keep Doorstep open while you walk so your route saves. Tap each house as you go.",

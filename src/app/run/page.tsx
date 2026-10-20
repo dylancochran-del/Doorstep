@@ -296,7 +296,7 @@ export default function Run() {
           {nearest ? (
             <>
               <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
-                <div style={{ minWidth: 0 }}><span className="tag">Closest door · {Math.round(nearest.m)} m</span>{(nearest.h.prospect ?? 0) >= HOT && <span className="tag gold" style={{ marginLeft: 6 }}>🔥 Hot prospect</span>}<h3 style={{ marginTop: 4 }}>{nearest.h.address || "House"}</h3></div>
+                <div style={{ minWidth: 0 }}><span className="tag">Closest door · {Math.round(nearest.m)} m</span>{(nearest.h.prospect ?? 0) >= HOT && <span className="tag gold" style={{ marginLeft: 6 }}>🔥 Hot prospect</span>}<button onClick={() => { setSel(nearest.h.id); setMode("house"); }} style={{ all: "unset", cursor: "pointer", display: "block", marginTop: 4 }} aria-label="Show house details"><h3>{nearest.h.address || "House"} <span style={{ fontSize: ".8rem", color: "var(--navy-2)", fontFamily: "var(--body)", fontWeight: 800 }}>Details ›</span></h3></button></div>
               </div>
               <div className="grid3">
                 <button className="btn green" onClick={() => mark(nearest.h.id, "hung")}>Hung ✓</button>
@@ -480,19 +480,31 @@ function FinishSheet({ doors, total, pending, onClose }: { doors: number; total:
 }
 
 /** The Zillow-style facts for one house, from public property records. */
+const USE: Record<string, { label: string; tip?: string }> = {
+  primary: { label: "🏠 Primary residence: owner lives here" },
+  owner_here: { label: "🏠 Owner lives here", tip: "Owner's mailing address is this house (no homestead exemption on file)." },
+  second_home: { label: "🏖️ Vacation / second home: owner lives out of state", tip: "Owner is probably not home. Hang it and move on." },
+  rental: { label: "🔑 Rental: owner lives elsewhere", tip: "Whoever answers is likely a tenant. Renters insurance is something we sell too." },
+  company: { label: "🏢 Company-owned (likely a rental)", tip: "Tenant probably answers. Renters insurance works here." },
+};
+
 function HouseCard({ h }: { h: House }) {
+  const use = h.occupancy ? USE[h.occupancy] : null;
   const facts = [
     h.year_built ? `Built ${h.year_built}` : null,
     h.living_sqft ? `${h.living_sqft.toLocaleString()} sq ft` : null,
-    h.homestead ? "Owner lives here" : h.homestead === false ? "Likely a rental" : null,
+    !h.occupancy && h.homestead ? "Owner lives here" : null,
     h.sale_year ? `Bought ${h.sale_year}` : null,
     h.kind === "mobile" ? "Mobile home" : null,
   ].filter(Boolean);
   const hot = (h.prospect ?? 0) >= HOT;
-  if (!facts.length && !hot) return null;
+  if (!facts.length && !hot && !use && !h.owner_name) return null;
   return (
     <div className="card" style={{ padding: 12, display: "grid", gap: 6, boxShadow: "none", border: `2px solid ${hot ? "var(--gold)" : "var(--line)"}` }}>
       {hot && <b style={{ color: "#c25400" }}>🔥 Hot prospect: worth a knock if someone&apos;s outside</b>}
+      {h.owner_name && <span><span className="muted" style={{ fontSize: ".8rem", fontWeight: 800 }}>OWNER OF RECORD</span><br /><b>{h.owner_name}</b></span>}
+      {use && <span style={{ fontWeight: 800 }}>{use.label}</span>}
+      {use?.tip && <span className="muted" style={{ fontSize: ".85rem" }}>{use.tip}</span>}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{facts.map((f) => <span key={f} className="tag">{f}</span>)}</div>
       {hot && h.prospect_reasons?.length ? <span className="muted" style={{ fontSize: ".85rem" }}>{h.prospect_reasons.join(" · ")}</span> : null}
     </div>

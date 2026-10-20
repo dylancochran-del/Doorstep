@@ -74,7 +74,7 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
           <a className="btn gray" href={directions} target="_blank" rel="noopener">Directions</a>
           <button className="btn green" onClick={start} disabled={busy || held || !data.daylight.canStart}>{busy ? "Starting…" : "Start route"}</button>
         </div>
-        <p className="muted" style={{ margin: 0, fontSize: ".85rem" }}>Tap Start when you&apos;re parked at the first street. Count your hangers before you go.</p>
+        <p className="muted" style={{ margin: 0, fontSize: ".85rem" }}>Tap Start when you&apos;re parked at the first street. Count your hangers before you go. Stay on driveways and walkways: never cut through yards.</p>
       </div>
     </div>
   );
