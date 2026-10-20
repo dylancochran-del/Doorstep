@@ -8,7 +8,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> 
   const { id } = await ctx.params;
   const { data: route } = await db()
     .from("canvass_routes")
-    .select("id, city, name, payout, doors, stops, lot_type, est_minutes, center_lat, center_lon, bbox, notes, status, hold_reason")
+    .select("id, city, name, payout, doors, stops, lot_type, est_minutes, center_lat, center_lon, bbox, notes, status, hold_reason, boost, boost_until, boost_note")
     .eq("id", id)
     .single();
   if (!route) return fail("Route not found.", 404);
@@ -18,5 +18,6 @@ export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> 
     .eq("route_id", id)
     .eq("do_not_knock", false)
     .range(0, 4999);
-  return json({ route: { ...route, payout: Number(route.payout) }, houses: houses ?? [], daylight: daylight(route.center_lat, route.center_lon) });
+  const boost = route.boost_until && new Date(route.boost_until) > new Date() ? Number(route.boost) : 0;
+  return json({ route: { ...route, boost, payout: Number(route.payout) + boost }, houses: houses ?? [], daylight: daylight(route.center_lat, route.center_lon) });
 }

@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   if (!routeId) return fail("Pick a route.");
   if (await activeSession(s.cid)) return fail("Finish or cancel your current route first.", 409);
 
-  const { data: route } = await db().from("canvass_routes").select("id, payout, status, hold_reason, center_lat, center_lon").eq("id", routeId).single();
+  const { data: route } = await db().from("canvass_routes").select("id, payout, status, hold_reason, center_lat, center_lon, boost, boost_until").eq("id", routeId).single();
   if (!route) return fail("Route not found.", 404);
   if (route.status === "held") return fail(route.hold_reason || "This route is on hold.", 409);
   if (route.status !== "offered") return fail("This route is not available.", 409);
@@ -21,7 +21,8 @@ export async function POST(req: Request) {
 
   const { data, error } = await db()
     .from("canvass_sessions")
-    .insert({ route_id: routeId, canvasser_id: s.cid, payout: route.payout })
+    // Payout (with any live boost) is locked in at start, so a boost ending mid-route never cuts his pay.
+    .insert({ route_id: routeId, canvasser_id: s.cid, payout: Number(route.payout) + (route.boost_until && new Date(route.boost_until) > new Date() ? Number(route.boost) : 0) })
     .select("id")
     .single();
   if (error) return fail("Could not start the route. Try again.", 500);

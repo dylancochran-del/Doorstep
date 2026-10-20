@@ -1,7 +1,7 @@
 // Doorstep service worker. Makes repeat loads instant and keeps the map working in
 // rural dead zones: app files and map tiles are served from the phone first.
 // API calls always go to the network (the in-app outbox handles offline taps).
-const VERSION = "v2";
+const VERSION = "v3";
 const APP = `app-${VERSION}`, TILES = "tiles-v1", MAX_TILES = 3000;
 const PRECACHE = ["/", "/run", "/earnings", "/playbook", "/login", "/map-style.json", "/manifest.webmanifest", "/icon-192.png", "/apple-touch-icon.png"];
 
@@ -70,4 +70,19 @@ self.addEventListener("message", (e) => {
     }
     await trim();
   })());
+});
+
+// Phone notifications from Vega (route approved, paid, boosts, new routes).
+self.addEventListener("push", (e) => {
+  let d = {};
+  try { d = e.data ? e.data.json() : {}; } catch { d = { title: "Doorstep", body: e.data?.text() }; }
+  e.waitUntil(self.registration.showNotification(d.title || "Doorstep", { body: d.body || "", icon: "/icon-192.png", badge: "/icon-192.png", data: { url: d.url || "/" } }));
+});
+self.addEventListener("notificationclick", (e) => {
+  e.notification.close();
+  const url = e.notification.data?.url || "/";
+  e.waitUntil(self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((cs) => {
+    for (const c of cs) { if ("focus" in c) { c.navigate(url); return c.focus(); } }
+    return self.clients.openWindow(url);
+  }));
 });

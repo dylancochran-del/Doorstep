@@ -64,6 +64,7 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
           <div><h3>{minutes(r.est_minutes) || "—"}</h3><span className="muted" style={{ fontSize: ".8rem", fontWeight: 800 }}>ABOUT</span></div>
           <div><h3>{Math.ceil(r.doors * 1.1)}</h3><span className="muted" style={{ fontSize: ".8rem", fontWeight: 800 }}>HANGERS</span></div>
         </div>
+        {(r as { boost?: number }).boost ? <div className="sunbar" style={{ background: "#dff3e5", borderColor: "#9fd8b0" }}>🚀 Boosted: +{money((r as { boost?: number }).boost!)} included in this payout{(r as { boost_note?: string }).boost_note ? ` (${(r as { boost_note?: string }).boost_note})` : ""}.</div> : null}
         {hot > 0 && <div className="sunbar">🔥 {hot} hot prospects on this route (older homes, owner lives there). They have a flame on the map.</div>}
         {r.notes && <p style={{ margin: 0 }}>{r.notes}</p>}
         {held && <div className="error">On hold: {r.hold_reason ?? "Dylan will open this route soon."}</div>}
