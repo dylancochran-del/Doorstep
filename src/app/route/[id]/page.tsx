@@ -21,6 +21,8 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [sat, setSat] = useState(false);
+  const [here, setHere] = useState<{ lat: number; lon: number } | null>(null);
+  useEffect(() => { navigator.geolocation?.getCurrentPosition((p) => setHere({ lat: p.coords.latitude, lon: p.coords.longitude }), () => {}, { maximumAge: 300000, timeout: 8000 }); }, []);
   // Download this route's map tiles now, so the map opens instantly once he's out there.
   useEffect(() => { if (data?.houses.length) prefetchRoute(data.houses); }, [data]);
 
@@ -33,7 +35,12 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
   if (!data) return <main className="page"><p className="muted">Loading route…</p></main>;
   const r = data.route;
   const held = r.status === "held";
-  const directions = `https://www.google.com/maps/dir/?api=1&destination=${r.center_lat},${r.center_lon}`;
+  // Directions go to the route house closest to him (or the first house), never the
+  // route's middle, which on a multi-stop route can be an empty field.
+  const target = here && data.houses.length
+    ? data.houses.reduce((a, h) => (Math.hypot(h.lat - here.lat, h.lon - here.lon) < Math.hypot(a.lat - here.lat, a.lon - here.lon) ? h : a))
+    : data.houses[0] ?? { lat: r.center_lat, lon: r.center_lon };
+  const directions = `https://www.google.com/maps/dir/?api=1&destination=${target.lat},${target.lon}`;
   return (
     <div className="run">
       <GameMap houses={data.houses} fit={data.houses.length ? data.houses : [{ lat: r.center_lat, lon: r.center_lon }]} satellite={sat} />

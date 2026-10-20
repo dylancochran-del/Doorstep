@@ -174,6 +174,8 @@ for k,r in enumerate(out):
     r["maybe_gated"]=bool(MAYBE_GATED.search(r["name"].upper()))
     # Neighborhoods Dylan asked for by name always stay live.
     if r["status"]=="offered" and r["pay"]/r["doors"]>0.35 and not re.search(r"SPANISH TRACE|BUCK BAY|TIOGA", r["name"].upper()): r["status"]="draft"; r["hold"]=None
+    # Possibly gated (weak sources or night-gated): keep off his list until someone sees the entrance.
+    if r["status"]=="offered" and (r.get("maybe_gated") or "TURKEY CREEK" in r["name"].upper()): r["status"]="draft"; r["hold"]="Possible gate: check the entrance before offering"
     r["sort"]=k
 json.dump([{k:v for k,v in r.items() if k!="idx"} for r in out],open("routes_built.json","w"),indent=0)
 json.dump({r["id"]:[H[i] for i in r["idx"]] for r in out},open("route_houses.json","w"))

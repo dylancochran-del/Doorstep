@@ -168,6 +168,18 @@ export default function Run() {
   }, [pos, houses, status]);
 
   const selHouse = houses.find((h) => h.id === sel) ?? null;
+  const left = houses.filter((h) => !status[h.id]).length;
+  // Multi-stop routes: when nothing is in walking range, point him at the closest unfinished house.
+  const nextArea = useMemo(() => {
+    if (!pos || nearest || !left) return null;
+    let best: { lat: number; lon: number; m: number } | null = null;
+    for (const h of houses) {
+      if (status[h.id]) continue;
+      const m = meters(pos, h);
+      if (!best || m < best.m) best = { lat: h.lat, lon: h.lon, m };
+    }
+    return best && best.m > 250 ? best : null;
+  }, [pos, nearest, houses, status, left]);
   const gps = () => (pos ? { lat: pos.lat, lon: pos.lon, acc: pos.acc } : {});
 
   function markMany(ids: number[], kind: "hung" | "skipped", reason?: string, quiet = false) {
@@ -283,6 +295,11 @@ export default function Run() {
           ) : (
             <>
               <h3>{pct >= 100 ? "Every door done!" : pos ? "Walk to a house or tap one on the map" : "Turn on location to see the closest door"}</h3>
+              {nextArea && (
+                <a className="btn green block" href={`https://www.google.com/maps/dir/?api=1&destination=${nextArea.lat},${nextArea.lon}`} target="_blank" rel="noopener">
+                  Drive to next area ({left} left, {(nextArea.m / 1609).toFixed(1)} mi)
+                </a>
+              )}
               <div className="grid2">
                 <button className="btn gray" onClick={() => setMode("menu")}>Menu</button>
                 <button className="btn navy" onClick={() => setMode("finish")}>Finish route</button>

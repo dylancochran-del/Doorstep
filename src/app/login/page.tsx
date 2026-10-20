@@ -22,7 +22,7 @@ export default function Login() {
         {error && <div className="error" role="alert">{error}</div>}
         <button className="btn block" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
       </form>
-      <p className="muted" style={{ textAlign: "center", margin: 0 }}>New here? Use the invite link Dylan sent you.</p>
+      <p className="muted" style={{ textAlign: "center", margin: 0 }}>New here? Use the invite link Dylan sent you. Forgot your password? Text Dylan for a reset link.</p>
     </main>
   );
 }
