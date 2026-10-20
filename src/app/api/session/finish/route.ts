@@ -27,6 +27,8 @@ export async function POST(req: Request) {
     .update({ status: "submitted", finished_at: new Date().toISOString(), leftover_count: Math.round(leftover), proof_photo_path: path, canvasser_note: note })
     .eq("id", session.id);
   if (error) return fail("Could not submit. Try again.", 500);
+  // Cooldown: the route rests 60 days so the same doors aren't paid for twice.
+  await db().from("canvass_routes").update({ rest_until: new Date(Date.now() + 60 * 86400_000).toISOString() }).eq("id", session.route_id);
   const { data: route } = await db().from("canvass_routes").select("city, name").eq("id", session.route_id).single();
   await alertDylan(`Route done: ${route?.city} ${route?.name} ($${Number(session.payout)})`, [
     ["Canvasser", s.name],

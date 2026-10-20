@@ -24,6 +24,7 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [sat, setSat] = useState(false);
+  const [taken, setTaken] = useState<string>("");
   const [here, setHere] = useState<{ lat: number; lon: number } | null>(null);
   useEffect(() => { navigator.geolocation?.getCurrentPosition((p) => setHere({ lat: p.coords.latitude, lon: p.coords.longitude }), () => {}, { maximumAge: 300000, timeout: 8000 }); }, []);
   // Download this route's map tiles now, so the map opens instantly once he's out there.
@@ -31,7 +32,7 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
 
   async function start() {
     setBusy(true); setErr(null);
-    try { await postJSON("/api/session/start", { routeId: id }); location.href = "/run"; }
+    try { await postJSON("/api/session/start", { routeId: id, hangersTaken: taken }); location.href = "/run"; }
     catch (e) { setErr((e as Error).message); setBusy(false); }
   }
   const path = useMemo<[number, number][][]>(() => pathPieces(walkOrder(data?.houses ?? [], here)), [data, here]);
@@ -70,9 +71,13 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
         {held && <div className="error">On hold: {r.hold_reason ?? "Dylan will open this route soon."}</div>}
         {!held && !data.daylight.canStart && <div className="sunbar dark">🌙 {data.daylight.reason}</div>}
         {err && <div className="error" role="alert">{err}</div>}
+        <div className="field">
+          <label htmlFor="taken">Hangers you&apos;re taking (count them)</label>
+          <input id="taken" type="number" inputMode="numeric" min={1} placeholder={String(Math.ceil(r.doors * 1.1))} value={taken} onChange={(e) => setTaken(e.target.value)} />
+        </div>
         <div className="grid2">
           <a className="btn gray" href={directions} target="_blank" rel="noopener">Directions</a>
-          <button className="btn green" onClick={start} disabled={busy || held || !data.daylight.canStart}>{busy ? "Starting…" : "Start route"}</button>
+          <button className="btn green" onClick={start} disabled={busy || held || !data.daylight.canStart || !taken}>{busy ? "Starting…" : "Start route"}</button>
         </div>
         <p className="muted" style={{ margin: 0, fontSize: ".85rem" }}>Tap Start when you&apos;re parked at the first street. Count your hangers before you go. Stay on driveways and walkways: never cut through yards.</p>
       </div>
