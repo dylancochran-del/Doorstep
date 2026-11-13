@@ -13,7 +13,12 @@ YEAR = datetime.date.today().year
 TOWNS = {"ST PETE BEACH": ("St. Pete Beach", "SPB"), "TREASURE ISLAND": ("Treasure Island", "TRI"),
          "MADEIRA BEACH": ("Madeira Beach", "MAD"), "REDINGTON BEACH": ("Redington Beach", "RED"), "NORTH REDINGTON BEACH": ("Redington Beach", "RED")}
 CAP = 170
-P = [p for p in json.load(open("parcels_pin.json")) if p["city"] in TOWNS and p["uc"] == "001"]
+# Causeway Isles (St. Petersburg mailing city, so matched by subdivision name instead).
+def town_key(p):
+    if p["city"] == "ST PETERSBURG" and "CAUSEWAY" in (p["legal"] or "").upper(): return "CAUSEWAY ISLES"
+    return p["city"] if p["city"] in TOWNS else None
+TOWNS["CAUSEWAY ISLES"] = ("Causeway Isles", "CSW")
+P = [dict(p, city=town_key(p)) for p in json.load(open("parcels_pin.json")) if p["uc"] == "001" and town_key(p)]
 V = json.load(open("pin_values.json"))
 print("homes", len(P), "with value data", sum(1 for p in P if p["pid"] in V))
 
@@ -60,7 +65,7 @@ def streets(idx, k=2):
 by_town = collections.defaultdict(list)
 for i, p in enumerate(P): by_town[TOWNS[p["city"]][1]].append(i)
 routes, houses = [], {}
-for code in ["SPB", "TRI", "MAD", "RED"]:
+for code in ["SPB", "TRI", "MAD", "RED", "CSW"]:
     parts = split(by_town[code], CAP)
     parts.sort(key=lambda s: -sum(P[i]["lat"] for i in s)/len(s))  # north to south
     for k, idx in enumerate(parts, 1):
@@ -93,7 +98,7 @@ if "--load" in sys.argv:
     for rid, hs in houses.items():
         for p, f, why in hs:
             s, w = score(p, f)
-            H.append(dict(route_id=rid, parcel_id=p["pid"], co_no=p["co"], address=p["addr"] or None, city=p["city"].title(), zip=p["zip"] or None,
+            H.append(dict(route_id=rid, parcel_id=p["pid"], co_no=p["co"], address=p["addr"] or None, city=("St. Petersburg" if p["city"] == "CAUSEWAY ISLES" else p["city"].title()), zip=p["zip"] or None,
                           lat=p["lat"], lon=p["lon"], kind="home", year_built=p["yb"] if (p.get("yb") or 0) > 1800 else None, homestead=bool(p["hm"]),
                           subdivision=p["legal"] or None, living_sqft=int(p["sqft"]) if p.get("sqft") else None,
                           just_value=int(p["jv"]) if p.get("jv") else None, sale_year=p["sy"] if (p.get("sy") or 0) > 1900 else None,

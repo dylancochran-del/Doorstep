@@ -31,7 +31,7 @@ print("houses",len(H))
 
 # Routes that no longer exist: retire them if anyone ever ran them (keeps pay history), otherwise delete.
 for x in old:
-    if x["id"] in new_ids or x["id"][:4] in ("SPB-","TRI-","MAD-","RED-"): continue
+    if x["id"] in new_ids or x["id"][:4] in ("SPB-","TRI-","MAD-","RED-","CSW-"): continue
     if x["id"] in ran: sb.req("PATCH",f"canvass_routes?id=eq.{x['id']}",{"status":"retired"})
     else: sb.req("DELETE",f"canvass_routes?id=eq.{x['id']}")
 print("retired/removed", len([x for x in old if x["id"] not in new_ids]))

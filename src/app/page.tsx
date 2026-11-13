@@ -8,7 +8,7 @@ type Route = { id: string; city: string; name: string; payout: number; hot_homes
 type Sun = { sunrise: string; sunset: string; lastStart: string; canStart: boolean; isDark: boolean; reason: string | null };
 
 // Default order (no location): beach towns first while Logan is in St. Pete, then the home base (Fanning Springs) out along SR-26.
-const CITY_ORDER = ["St. Pete Beach", "Treasure Island", "Redington Beach", "Madeira Beach", "Fanning Springs", "Old Town", "Manatee Road", "Chiefland", "Trenton", "Bell", "Bronson", "Williston", "Archer", "Newberry", "Jonesville", "High Springs", "Alachua", "Gainesville", "Haile / SW Gainesville", "Micanopy", "McIntosh", "Brooker", "La Crosse", "Cross City"];
+const CITY_ORDER = ["St. Pete Beach", "Causeway Isles", "Treasure Island", "Redington Beach", "Madeira Beach", "Fanning Springs", "Old Town", "Manatee Road", "Chiefland", "Trenton", "Bell", "Bronson", "Williston", "Archer", "Newberry", "Jonesville", "High Springs", "Alachua", "Gainesville", "Haile / SW Gainesville", "Micanopy", "McIntosh", "Brooker", "La Crosse", "Cross City"];
 const rank = (c: string) => { const i = CITY_ORDER.indexOf(c); return i < 0 ? 99 : i; };
 
 function km(a: { lat: number; lon: number }, b: { lat: number; lon: number }) {

@@ -3,7 +3,7 @@ import json, urllib.request, urllib.parse, collections, time
 from concurrent.futures import ThreadPoolExecutor
 U="https://services9.arcgis.com/Gh9awoU677aKree0/arcgis/rest/services/Florida_Statewide_Parcel_Centroid_Version/FeatureServer/0/query"
 F="PARCEL_ID,JV,LND_VAL,NCONST_VAL,DEL_VAL,JV_CHNG,JV_CHNG_CD,SPC_CIR_CD,SPC_CIR_YR,ASMNT_YR,ACT_YR_BLT"
-P=[p for p in json.load(open("parcels_pin.json")) if p["city"] in ("ST PETE BEACH","TREASURE ISLAND","MADEIRA BEACH","REDINGTON BEACH","NORTH REDINGTON BEACH")]
+P=[p for p in json.load(open("parcels_pin.json")) if p["city"] in ("ST PETE BEACH","TREASURE ISLAND","MADEIRA BEACH","REDINGTON BEACH","NORTH REDINGTON BEACH") or (p["city"]=="ST PETERSBURG" and "CAUSEWAY" in (p["legal"] or "").upper())]
 ids=[p["pid"] for p in P]
 def get(chunk):
     w="CO_NO=62 AND PARCEL_ID IN ("+",".join("'%s'"%i for i in chunk)+")"
