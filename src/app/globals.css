@@ -68,6 +68,12 @@ a { color: inherit; }
 
 /* Route offer cards */
 .city { display: flex; flex-direction: column; gap: 10px; }
+.area { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; width: 100%; text-align: left; background: var(--navy); color: #fff; border: 0; border-radius: 18px; padding: 14px 16px; box-shadow: 0 4px 0 #061a2f; font: inherit; cursor: pointer; }
+.area:active { transform: translateY(2px); box-shadow: 0 2px 0 #061a2f; }
+.area-name { font-family: var(--display); font-size: 1.3rem; letter-spacing: .01em; }
+.area-meta { grid-column: 1; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-weight: 800; font-size: .85rem; color: #c9d6e6; }
+.area-meta .tag { color: var(--navy); }
+.area-chev { grid-column: 2; grid-row: 1 / span 2; font-size: 1.4rem; color: var(--gold); }
 .city h2 { font-size: 1.35rem; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
 .city h2 small { font-family: var(--body); font-weight: 800; font-size: .8rem; color: var(--muted); }
 .offer { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; background: #fff; border-radius: 18px; padding: 14px 16px; box-shadow: 0 4px 0 var(--line); text-decoration: none; color: inherit; border: 2px solid transparent; }
@@ -113,3 +119,7 @@ a { color: inherit; }
 .maplibregl-ctrl-attrib { font-size: 10px; }
 .me { width: 46px; height: 46px; border-radius: 50%; border: 4px solid var(--gold); box-shadow: 0 0 0 4px rgba(245,179,1,.35), 0 4px 10px rgba(0,0,0,.3); background: var(--navy) center/cover no-repeat; }
 @media (prefers-reduced-motion: reduce) { .pop { animation: none; } .xp > i { transition: none; } }
+
+.pw { position: relative; }
+.pw input { width: 100%; padding-right: 72px; }
+.pw-toggle { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: var(--sky); color: var(--navy); font: inherit; font-weight: 800; font-size: .85rem; padding: 8px 10px; border-radius: 10px; cursor: pointer; }

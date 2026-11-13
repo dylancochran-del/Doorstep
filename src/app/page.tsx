@@ -7,8 +7,8 @@ import Notify from "./Notify";
 type Route = { id: string; city: string; name: string; payout: number; hot_homes?: number | null; boost?: number; boost_note?: string | null; reservedForMe?: boolean; reservedForOther?: boolean; doors: number; stops: number; lot_type: string; est_minutes: number | null; notes: string | null; status: string; hold_reason: string | null; mine: boolean; taken: boolean; finishedByMe: boolean; center_lat: number; center_lon: number };
 type Sun = { sunrise: string; sunset: string; lastStart: string; canStart: boolean; isDark: boolean; reason: string | null };
 
-// Default order follows the home base (Fanning Springs) out along SR-26 to Gainesville.
-const CITY_ORDER = ["Fanning Springs", "Old Town", "Manatee Road", "Chiefland", "Trenton", "Bell", "Bronson", "Williston", "Archer", "Newberry", "Jonesville", "High Springs", "Alachua", "Gainesville", "Haile / SW Gainesville", "Micanopy", "McIntosh", "Brooker", "La Crosse", "Cross City"];
+// Default order (no location): beach towns first while Logan is in St. Pete, then the home base (Fanning Springs) out along SR-26.
+const CITY_ORDER = ["St. Pete Beach", "Treasure Island", "Redington Beach", "Madeira Beach", "Fanning Springs", "Old Town", "Manatee Road", "Chiefland", "Trenton", "Bell", "Bronson", "Williston", "Archer", "Newberry", "Jonesville", "High Springs", "Alachua", "Gainesville", "Haile / SW Gainesville", "Micanopy", "McIntosh", "Brooker", "La Crosse", "Cross City"];
 const rank = (c: string) => { const i = CITY_ORDER.indexOf(c); return i < 0 ? 99 : i; };
 
 function km(a: { lat: number; lon: number }, b: { lat: number; lon: number }) {
@@ -20,6 +20,8 @@ export default function Routes() {
   const { data, error } = useLoad<{ routes: Route[]; daylight: Sun | null }>("/api/routes");
   const [here, setHere] = useState<{ lat: number; lon: number } | null>(null);
   const [active, setActive] = useState(false);
+  // Areas start collapsed (except ones with a route saved for him); tap an area to open its routes.
+  const [openCity, setOpenCity] = useState<Record<string, boolean>>({});
   useEffect(() => {
     // Warm the map code while he browses routes, so opening one doesn't wait on a download.
     const warm = () => import("./GameMap").catch(() => {});
@@ -31,8 +33,10 @@ export default function Routes() {
 
   const routes = data?.routes ?? [];
   const liveIn = (c: string) => routes.some((r) => r.city === c && r.status === "offered");
+  const savedIn = (c: string) => routes.some((r) => r.city === c && (r.reservedForMe || r.mine));
   const cities = [...new Set(routes.map((r) => r.city))].sort((a, b) => {
-    // Cities with something to do now come first; held-only cities sink to the bottom.
+    // Areas with a route saved for him come first, then anything live; held-only areas sink to the bottom.
+    if (savedIn(a) !== savedIn(b)) return savedIn(a) ? -1 : 1;
     if (liveIn(a) !== liveIn(b)) return liveIn(a) ? -1 : 1;
     if (here) {
       const d = (c: string) => Math.min(...routes.filter((r) => r.city === c).map((r) => km(here, { lat: r.center_lat, lon: r.center_lon })));
@@ -53,6 +57,9 @@ export default function Routes() {
         </div>
       </div>
 
+      {me?.admin && me.adminUrl && (
+        <a href={me.adminUrl} className="btn block" style={{ background: "var(--navy)", color: "#fff", boxShadow: "0 5px 0 #061a2f" }}>🧭 Manager portal: routes, people, pay</a>
+      )}
       {active && <Link href="/run" className="btn green block">Resume your route</Link>}
       <Notify />
       <Messages />
@@ -72,12 +79,25 @@ export default function Routes() {
         const rs = all.filter((r) => (r.status === "offered" && !r.reservedForOther) || r.mine)
           .sort((a, b) => Number(!!b.reservedForMe) - Number(!!a.reservedForMe) || (b.boost ?? 0) - (a.boost ?? 0));
         const held = all.filter((r) => r.status === "held" && !r.mine);
-        const dist = here ? Math.min(...rs.map((r) => km(here, { lat: r.center_lat, lon: r.center_lon }))) : null;
+        const dist = here && rs.length ? Math.min(...rs.map((r) => km(here, { lat: r.center_lat, lon: r.center_lon }))) : null;
+        const saved = rs.filter((r) => r.reservedForMe || r.mine).length;
+        const hot = rs.reduce((a, r) => a + (r.hot_homes ?? 0), 0);
+        const isOpen = openCity[city] ?? saved > 0;
         return (
           <section className="city" key={city}>
-            <h2>{city}<small>{dist != null ? `${Math.round(dist * 0.621)} mi away` : `${rs.length} ${rs.length === 1 ? "route" : "routes"}`}</small></h2>
-            {held.length > 0 && rs.length === 0 && <p className="muted" style={{ margin: 0 }}>{held.length} routes coming soon ({held[0].hold_reason?.toLowerCase() ?? "on hold"}).</p>}
-            {rs.map((r) => {
+            <button type="button" className="area" aria-expanded={isOpen} onClick={() => setOpenCity((o) => ({ ...o, [city]: !isOpen }))}>
+              <span className="area-name">{city}</span>
+              <span className="area-meta">
+                <span>{rs.length ? `${rs.length} ${rs.length === 1 ? "route" : "routes"}` : "Coming soon"}</span>
+                {rs.length > 0 && <span>up to {money(Math.max(...rs.map((r) => r.payout)))}</span>}
+                {dist != null && <span>{Math.round(dist * 0.621)} mi</span>}
+                {saved > 0 && <span className="tag gold">⭐ {saved} saved for you</span>}
+                {hot > 0 && <span className="tag gold">🔥 {hot} hot</span>}
+              </span>
+              <span className="area-chev" aria-hidden="true">{isOpen ? "▴" : "▾"}</span>
+            </button>
+            {isOpen && held.length > 0 && rs.length === 0 && <p className="muted" style={{ margin: 0 }}>{held.length} routes coming soon ({held[0].hold_reason?.toLowerCase() ?? "on hold"}).</p>}
+            {isOpen && rs.map((r) => {
               const cls = ["offer", r.status === "held" && "held", r.taken && "taken", r.mine && "mine"].filter(Boolean).join(" ");
               return (
                 <Link key={r.id} href={`/route/${r.id}`} className={cls}>
@@ -98,7 +118,7 @@ export default function Routes() {
                 </Link>
               );
             })}
-            {held.length > 0 && rs.length > 0 && <p className="muted" style={{ margin: 0, fontSize: ".85rem" }}>+ {held.length} more coming soon</p>}
+            {isOpen && held.length > 0 && rs.length > 0 && <p className="muted" style={{ margin: 0, fontSize: ".85rem" }}>+ {held.length} more coming soon</p>}
           </section>
         );
       })}

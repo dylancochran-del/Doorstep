@@ -1,6 +1,6 @@
 "use client";
 import { use, useEffect, useState } from "react";
-import { api, postJSON } from "../../ui";
+import { api, postJSON, PasswordInput } from "../../ui";
 
 export default function Reset({ params }: { params: Promise<{ token: string }> }) {
   const { token } = use(params);
@@ -21,7 +21,7 @@ export default function Reset({ params }: { params: Promise<{ token: string }> }
     <main className="page" style={{ justifyContent: "center", paddingBottom: 32 }}>
       <div className="hero"><img src="/icon-192.png" alt="" className="avatar" /><div><h1>New password</h1><p>{email ?? "Checking your link…"}</p></div></div>
       <form className="card" onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-        <div className="field"><label htmlFor="password">New password</label><input id="password" name="password" type="password" minLength={8} autoComplete="new-password" required /></div>
+        <div className="field"><label htmlFor="password">New password</label><PasswordInput id="password" name="password" minLength={8} autoComplete="new-password" required /></div>
         {error && <div className="error" role="alert">{error}</div>}
         <button className="btn block" disabled={busy || !email}>{busy ? "Saving…" : "Save and sign in"}</button>
       </form>

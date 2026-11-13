@@ -54,8 +54,9 @@ export function Tabs() {
 }
 
 export function useMe() {
-  const [me, setMe] = useState<{ name: string; avatar: string | null } | null>(null);
-  useEffect(() => { api<{ name: string; avatar: string | null }>("/api/me").then(setMe).catch(() => {}); }, []);
+  type Me = { name: string; avatar: string | null; admin?: boolean; adminUrl?: string | null };
+  const [me, setMe] = useState<Me | null>(null);
+  useEffect(() => { api<Me>("/api/me").then(setMe).catch(() => {}); }, []);
   return me;
 }
 
@@ -77,4 +78,15 @@ export async function shrink(file: File, max = 1400): Promise<File> {
   } catch {
     return file;
   }
+}
+
+// Password box with a Show/Hide toggle so people can check what they typed.
+export function PasswordInput(props: Omit<React.InputHTMLAttributes<HTMLInputElement>, "type">) {
+  const [show, setShow] = useState(false);
+  return (
+    <div className="pw">
+      <input {...props} type={show ? "text" : "password"} autoCapitalize="none" autoCorrect="off" spellCheck={false} />
+      <button type="button" className="pw-toggle" onClick={() => setShow((s) => !s)} aria-label={show ? "Hide password" : "Show password"} aria-pressed={show}>{show ? "Hide" : "Show"}</button>
+    </div>
+  );
 }

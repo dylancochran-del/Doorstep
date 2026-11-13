@@ -5,7 +5,9 @@ export async function GET() {
   const s = await canvasser();
   if (!s) return fail("Sign in first.", 401);
   const { data } = await db().from("canvass_canvassers").select("full_name, avatar_path, email, pay_app, pay_handle").eq("id", s.cid).single();
-  return json({ name: data?.full_name, email: data?.email, avatar: await signedUrl(data?.avatar_path ?? null, 86400), payApp: data?.pay_app, payHandle: data?.pay_handle });
+  // Admins (DOORSTEP_ADMIN_IDS, comma-separated canvasser ids) get a link to the manager portal in Vega.
+  const admin = (process.env.DOORSTEP_ADMIN_IDS ?? "").split(",").map((x) => x.trim()).includes(s.cid);
+  return json({ admin, adminUrl: admin ? (process.env.VEGA_CANVASS_URL || "https://vega-app-five.vercel.app/canvass") : null, name: data?.full_name, email: data?.email, avatar: await signedUrl(data?.avatar_path ?? null, 86400), payApp: data?.pay_app, payHandle: data?.pay_handle });
 }
 
 // Where Dylan sends his pay.

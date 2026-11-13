@@ -1,6 +1,6 @@
 "use client";
 import { use, useEffect, useState } from "react";
-import { api } from "../../ui";
+import { api, PasswordInput } from "../../ui";
 import AvatarCrop from "../../AvatarCrop";
 
 export default function Join({ params }: { params: Promise<{ token: string }> }) {
@@ -40,7 +40,7 @@ export default function Join({ params }: { params: Promise<{ token: string }> })
         {raw && <AvatarCrop file={raw} onCancel={() => setRaw(null)} onDone={(f, url) => { setPhoto(f); setPreview(url); setRaw(null); }} />}
         <div className="field"><label htmlFor="full_name">Full name</label><input id="full_name" name="full_name" autoComplete="name" required /></div>
         <div className="field"><label htmlFor="phone">Phone</label><input id="phone" name="phone" type="tel" autoComplete="tel" /></div>
-        <div className="field"><label htmlFor="password">Create a password</label><input id="password" name="password" type="password" minLength={8} autoComplete="new-password" required /></div>
+        <div className="field"><label htmlFor="password">Create a password</label><PasswordInput id="password" name="password" minLength={8} autoComplete="new-password" required /></div>
         {error && <div className="error" role="alert">{error}</div>}
         <button className="btn block" disabled={busy || !email}>{busy ? "Setting up…" : "Start canvassing"}</button>
       </form>
