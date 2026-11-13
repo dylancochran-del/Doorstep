@@ -40,6 +40,7 @@ const I = {
   routes: <path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Zm0 0v14m6-12v14" />,
   cash: <path d="M3 7h18v10H3zM12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM6 10v4m12-4v4" />,
   book: <path d="M5 4h9a4 4 0 0 1 4 4v12H9a4 4 0 0 1-4-4V4Zm0 12a4 4 0 0 1 4-4h9" />,
+  team: <path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 10v-1a6 6 0 0 1 12 0v1m3-10a3 3 0 1 0 0-6m2 16v-1a5 5 0 0 0-3-4.6" />,
 };
 export function Icon({ name }: { name: keyof typeof I }) {
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{I[name]}</svg>;
@@ -50,7 +51,8 @@ export function Tabs() {
   const tab = (href: string, label: string, icon: keyof typeof I) => (
     <Link href={href} aria-current={path === href ? "page" : undefined}><Icon name={icon} />{label}</Link>
   );
-  return <nav className="tabs" aria-label="Main">{tab("/", "Routes", "routes")}{tab("/earnings", "Earnings", "cash")}{tab("/playbook", "Playbook", "book")}</nav>;
+  const me = useMe();
+  return <nav className="tabs" aria-label="Main">{me?.admin && tab("/team", "Team", "team")}{tab("/", "Routes", "routes")}{tab("/earnings", "Earnings", "cash")}{tab("/playbook", "Playbook", "book")}</nav>;
 }
 
 export function useMe() {

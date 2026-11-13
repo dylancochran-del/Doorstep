@@ -45,3 +45,12 @@ export function text(v: unknown, max = 500): string | null {
   const t = v.trim().slice(0, max);
   return t || null;
 }
+
+/** Signed-in canvasser who is also an admin (DOORSTEP_ADMIN_IDS), or null. */
+export function isAdminId(cid: string): boolean {
+  return (process.env.DOORSTEP_ADMIN_IDS ?? "").split(",").map((x) => x.trim()).filter(Boolean).includes(cid);
+}
+export async function admin(): Promise<Session | null> {
+  const s = await canvasser();
+  return s && isAdminId(s.cid) ? s : null;
+}

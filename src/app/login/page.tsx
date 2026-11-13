@@ -10,7 +10,7 @@ export default function Login() {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true); setError(null);
-    try { await postJSON("/api/login", { email, password }); location.href = "/"; }
+    try { await postJSON("/api/login", { email, password }); const me = await fetch("/api/me").then((r) => r.json()).catch(() => ({})); location.href = me.admin ? "/team" : "/"; }
     catch (err) { setError((err as Error).message); setBusy(false); }
   }
   return (

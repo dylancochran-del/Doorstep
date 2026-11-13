@@ -57,9 +57,7 @@ export default function Routes() {
         </div>
       </div>
 
-      {me?.admin && me.adminUrl && (
-        <a href={me.adminUrl} className="btn block" style={{ background: "var(--navy)", color: "#fff", boxShadow: "0 5px 0 #061a2f" }}>🧭 Manager portal: routes, people, pay</a>
-      )}
+      {me?.admin && <Link href="/team" className="btn block" style={{ background: "var(--navy)", color: "#fff", boxShadow: "0 5px 0 #061a2f" }}>👥 Team progress</Link>}
       {active && <Link href="/run" className="btn green block">Resume your route</Link>}
       <Notify />
       <Messages />
