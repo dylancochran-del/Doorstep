@@ -15,3 +15,6 @@ data/tiles3/
 data/owners.json
 data/progress3.txt
 data/gated_fl/
+data/parcels_pin.json
+data/pin_values.json
+data/tiles_pin/

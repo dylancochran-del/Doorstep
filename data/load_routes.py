@@ -9,7 +9,8 @@ new_ids={r["id"] for r in R}
 old=sb.req("GET","canvass_routes?select=id",prefer="return=representation") or []
 ran={x["route_id"] for x in (sb.req("GET","canvass_sessions?select=route_id",prefer="return=representation") or [])}
 # Unassign every parcel house; the upsert below re-attaches the ones still on a route.
-sb.req("PATCH","canvass_houses?kind=neq.added&route_id=not.is.null",{"route_id":None})
+# Beach routes (Pinellas, co 62) are built by build_beach.py; leave them alone.
+sb.req("PATCH","canvass_houses?kind=neq.added&route_id=not.is.null&co_no=neq.62",{"route_id":None})
 rows=[dict(id=r["id"],city=r["area"],name=r["name"],payout=r["pay"],doors=r["doors"],stops=r["stops"],lot_type=r["lot"],est_minutes=r["mins"],
           center_lat=r["lat"],center_lon=r["lon"],bbox=r["bbox"],homestead_share=r["hm"],status=r["status"],hold_reason=r["hold"],sort=r["sort"],
           notes=" ".join(x for x in [
@@ -30,7 +31,7 @@ print("houses",len(H))
 
 # Routes that no longer exist: retire them if anyone ever ran them (keeps pay history), otherwise delete.
 for x in old:
-    if x["id"] in new_ids: continue
+    if x["id"] in new_ids or x["id"][:4] in ("SPB-","TRI-","MAD-","RED-"): continue
     if x["id"] in ran: sb.req("PATCH",f"canvass_routes?id=eq.{x['id']}",{"status":"retired"})
     else: sb.req("DELETE",f"canvass_routes?id=eq.{x['id']}")
 print("retired/removed", len([x for x in old if x["id"] not in new_ids]))

@@ -498,10 +498,13 @@ function HouseCard({ h }: { h: House }) {
     h.kind === "mobile" ? "Mobile home" : null,
   ].filter(Boolean);
   const hot = (h.prospect ?? 0) >= HOT;
-  if (!facts.length && !hot && !use && !h.owner_name) return null;
+  // Storm flags from county records (beach routes): likely empty/damaged, or rebuilt since the 2024 storms.
+  const storm = h.prospect_reasons?.find((r) => r.startsWith("Storm:") || r.startsWith("Rebuilt:"));
+  if (!facts.length && !hot && !use && !h.owner_name && !storm) return null;
   return (
     <div className="card" style={{ padding: 12, display: "grid", gap: 6, boxShadow: "none", border: `2px solid ${hot ? "var(--gold)" : "var(--line)"}` }}>
-      {hot && <b style={{ color: "#c25400" }}>🔥 Hot prospect: worth a knock if someone&apos;s outside</b>}
+      {storm && <b style={{ color: storm.startsWith("Storm:") ? "#8a5a00" : "#1f6f3a" }}>{storm.startsWith("Storm:") ? "⚠️ " : "🏗️ "}{storm.replace(/^(Storm|Rebuilt): /, "")}</b>}
+      {hot && <b style={{ color: "#c25400" }}>🔥 Hot prospect</b>}
       {h.owner_name && <span><span className="muted" style={{ fontSize: ".8rem", fontWeight: 800 }}>OWNER OF RECORD</span><br /><b>{h.owner_name}</b></span>}
       {use && <span style={{ fontWeight: 800 }}>{use.label}</span>}
       {use?.tip && <span className="muted" style={{ fontSize: ".85rem" }}>{use.tip}</span>}
