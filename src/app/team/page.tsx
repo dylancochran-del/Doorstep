@@ -24,7 +24,7 @@ export default function Team() {
   useEffect(() => { const t = setInterval(reload, 30000); return () => clearInterval(t); }, [reload]);
   return (
     <main className="page">
-      <div className="hero"><div style={{ position: "relative", zIndex: 1 }}><h1>Team</h1><p>{data ? `${data.team.length} canvasser${data.team.length === 1 ? "" : "s"} · ${money(data.owed)} to approve or pay` : "Loading…"}</p></div></div>
+      <div className="hero manager"><div style={{ position: "relative", zIndex: 1 }}><span className="tag gold">MANAGER</span><h1>Team</h1><p>{data ? `${data.team.length} canvasser${data.team.length === 1 ? "" : "s"} · ${money(data.owed)} to approve or pay` : "Loading…"}</p></div></div>
       {error && <div className="error">{error}</div>}
       {data?.team.map((p) => {
         const done = p.live ? p.live.counts.hung + p.live.counts.talked + p.live.counts.skipped : 0;

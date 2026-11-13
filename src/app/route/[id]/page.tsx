@@ -2,7 +2,7 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { use, useState } from "react";
-import { minutes, money, postJSON, useLoad } from "../../ui";
+import { minutes, money, postJSON, useLoad, useMe } from "../../ui";
 import type { House } from "../../GameMap";
 import { useEffect } from "react";
 import { prefetchRoute } from "@/lib/tiles";
@@ -21,6 +21,9 @@ type Data = {
 export default function RoutePreview({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const { data, error } = useLoad<Data>(`/api/routes/${id}`);
+  // Managers look at routes; they don't run them. No hanger count or Start button for them.
+  const me = useMe();
+  const manager = !!me?.admin;
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [sat, setSat] = useState(false);
@@ -52,7 +55,7 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
       <GameMap houses={data.houses} fit={data.houses.length ? data.houses : [{ lat: r.center_lat, lon: r.center_lon }]} satellite={sat} path={path} />
       <div className="hud">
         <div className="hud-top">
-          <Link href="/" className="iconbtn" aria-label="Back to routes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M15 5l-7 7 7 7" /></svg></Link>
+          <Link href={manager ? "/manage" : "/"} className="iconbtn" aria-label="Back to routes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M15 5l-7 7 7 7" /></svg></Link>
           <div className="hud-title"><b>{r.name}</b><span style={{ fontSize: ".8rem", color: "#c9d6e6" }}>{r.city}</span></div>
           <span className="hud-pay">{money(r.payout)}</span>
         </div>
@@ -71,6 +74,12 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
         {held && <div className="error">On hold: {r.hold_reason ?? "Dylan will open this route soon."}</div>}
         {!held && !data.daylight.canStart && <div className="sunbar dark">🌙 {data.daylight.reason}</div>}
         {err && <div className="error" role="alert">{err}</div>}
+        {manager ? (
+          <div className="grid2">
+            <a className="btn gray" href={directions} target="_blank" rel="noopener">Directions</a>
+            <Link className="btn" href="/manage">Back to manage</Link>
+          </div>
+        ) : (<>
         <div className="field">
           <label htmlFor="taken">Hangers you&apos;re taking (count them)</label>
           <input id="taken" type="number" inputMode="numeric" min={1} placeholder={String(Math.ceil(r.doors * 1.1))} value={taken} onChange={(e) => setTaken(e.target.value)} />
@@ -80,6 +89,7 @@ export default function RoutePreview({ params }: { params: Promise<{ id: string 
           <button className="btn green" onClick={start} disabled={busy || held || !data.daylight.canStart || !taken}>{busy ? "Starting…" : "Start route"}</button>
         </div>
         <p className="muted" style={{ margin: 0, fontSize: ".85rem" }}>Tap Start when you&apos;re parked at the first street. Count your hangers before you go. Stay on driveways and walkways: never cut through yards.</p>
+        </>)}
       </div>
     </div>
   );

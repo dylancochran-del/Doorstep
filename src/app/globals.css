@@ -123,3 +123,9 @@ a { color: inherit; }
 .pw { position: relative; }
 .pw input { width: 100%; padding-right: 72px; }
 .pw-toggle { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: var(--sky); color: var(--navy); font: inherit; font-weight: 800; font-size: .85rem; padding: 8px 10px; border-radius: 10px; cursor: pointer; }
+
+/* Manager side: darker hero + gold rim so it never looks like the canvasser app */
+.hero.manager { background: linear-gradient(135deg, #061a2f, #12406e); border: 2px solid var(--gold); }
+.hero.manager .tag { margin-bottom: 6px; display: inline-block; }
+.tabs.manager { background: #061a2f; border-top: 3px solid var(--gold); }
+div.offer .name { text-decoration: none; }
